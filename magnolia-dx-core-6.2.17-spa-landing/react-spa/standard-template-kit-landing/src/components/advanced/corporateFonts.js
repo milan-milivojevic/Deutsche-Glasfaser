@@ -2,7 +2,7 @@ import React from 'react';
 import { getRouterBasename } from '../../helpers/AppHelpers';
 
 function CorporateFonts ({
-    headline,   
+    headline,
     headlineLevel,
     headlineFontFamily,
     headlinePosition,
@@ -48,7 +48,7 @@ function CorporateFonts ({
     linkLabelFontSize,
     linkLabelLineHeight,
     linkBold,
-    linkItalic,    
+    linkItalic,
     wrapperPaddingTop,
     wrapperPaddingRight,
     wrapperPaddingBottom,
@@ -103,7 +103,7 @@ function CorporateFonts ({
         style={{"padding-top": wrapperPaddingTop !== undefined ? wrapperPaddingTop : null,
                 "padding-right": wrapperPaddingRight !== undefined ? wrapperPaddingRight : null,
                 "padding-bottom": wrapperPaddingBottom !== undefined ? wrapperPaddingBottom : null,
-                "padding-left": wrapperPaddingLeft !== undefined ? wrapperPaddingLeft : null,    
+                "padding-left": wrapperPaddingLeft !== undefined ? wrapperPaddingLeft : null,
                 "background-color": wrapperDefaultBackColor !== undefined ? wrapperDefaultBackColor : null,
                 "border-color": wrapperBorderColor !== undefined ? wrapperBorderColor: null,
                 "border-width": wrapperBorderWidth !== undefined ? wrapperBorderWidth: null,
@@ -112,7 +112,7 @@ function CorporateFonts ({
                 "width": wrapperWidth !== undefined ? wrapperWidth : null,
                 "height": wrapperHeight !== undefined ? wrapperHeight : null
               }}
-      >      
+      >
       <HeadlineLevel className="headline"
         style={{"font-family": headlineFontFamily !== undefined ? headlineFontFamily : null,
                 "text-align":  headlinePosition !== undefined ? headlinePosition : null,
@@ -122,7 +122,7 @@ function CorporateFonts ({
                 "padding-top": headlinePaddingTop !== undefined ? headlinePaddingTop : null,
                 "padding-right": headlinePaddingRight !== undefined ? headlinePaddingRight : null,
                 "padding-bottom": headlinePaddingBottom !== undefined ? headlinePaddingBottom : null,
-                "padding-left": headlinePaddingLeft !== undefined ? headlinePaddingLeft : null,    
+                "padding-left": headlinePaddingLeft !== undefined ? headlinePaddingLeft : null,
                 "width": "100%"
               }}
       >{headline !==  undefined ? headline : null}</HeadlineLevel>
@@ -132,19 +132,19 @@ function CorporateFonts ({
             style={{"padding-top": descriptionPaddingTop !== undefined ? descriptionPaddingTop : null,
                     "padding-right": descriptionPaddingRight !== undefined ? descriptionPaddingRight : null,
                     "padding-bottom": descriptionPaddingBottom !== undefined ? descriptionPaddingBottom : null,
-                    "padding-left": descriptionPaddingLeft !== undefined ? descriptionPaddingLeft : null,    
+                    "padding-left": descriptionPaddingLeft !== undefined ? descriptionPaddingLeft : null,
                     "width": textWidth !== undefined ? textWidth : "50%",
                     "height": textHeight !== undefined ? textHeight : null
                   }}
           ></div>
-          <div className='link' 
+          <div className='link'
               style= {{ "justify-content":  linkHorizontalPosition !== undefined ? linkHorizontalPosition : "start",
                         "align-items":  linkVerticalPosition !== undefined ? linkVerticalPosition : "start",
                         "width": textWidth !== undefined ?  `calc(100% - ${textWidth})` : "50%",
                         "padding-top": linkPaddingTop !== undefined ? linkPaddingTop : null,
                         "padding-right": linkPaddingRight !== undefined ? linkPaddingRight : null,
                         "padding-bottom": linkPaddingBottom !== undefined ? linkPaddingBottom : null,
-                        "padding-left": linkPaddingLeft !== undefined ? linkPaddingLeft : null, 
+                        "padding-left": linkPaddingLeft !== undefined ? linkPaddingLeft : null,
                       }}
           >
             <a className='linkComponent' href={href} target={linkLocation !== undefined ? linkLocation : "_blank"} rel="noreferrer"
@@ -178,9 +178,9 @@ function CorporateFonts ({
                         "padding-left": imageWrapperPaddingLeft !== undefined ? imageWrapperPaddingLeft : null,
                         "background-color": imageWrapperDefaultBackColor !== undefined ? imageWrapperDefaultBackColor : null
                       }}
-      
+
         >
-          <img className="image" src={"http://localhost:8080" + image['@link']} alt="" 
+          <img className="image" src={"http://localhost:8080" + image['@link']} alt=""
             style={{"object-position":  imagePosition !== undefined ? imagePosition : null,
                     "object-fit": imageFit !== undefined ? imageFit : null,
                     "width": imageWidth !== undefined ? imageWidth : null,
@@ -209,7 +209,6 @@ function CorporateFonts ({
     </div>
   )
 }
-
 
 
 export default CorporateFonts;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 import shuffle from 'lodash/shuffle';
 
-function GLCRandomizedList ({ 
+function GLCRandomizedList ({
   column1,
   layout,
   columnGap,
@@ -29,7 +29,7 @@ function GLCRandomizedList ({
   wrapperBorderStyle,
   wrapperBorderColor,
   wrapperBorderRadius
-}) {  
+}) {
 
   const isPagesApp = window.location.search.includes("mgnlPreview");
   const editMode = isPagesApp ? "editMode" : "";
@@ -45,7 +45,6 @@ function GLCRandomizedList ({
   console.log(column1Nodes);
 
   Object.keys(column1).forEach(key => {
-    // Razdvajanje ključeva na osnovu prisustva u nizu @nodes
     if (column1Nodes.includes(key)) {
       column1Components[key] = column1[key];
     } else {
@@ -55,11 +54,9 @@ function GLCRandomizedList ({
 
    useEffect(() => {
     if (column1 && column1['@nodes']) {
-      // Kopiraj @nodes i izvrši nasumično sortiranje
       const shuffledNodes = shuffle([...column1['@nodes']]);
 
-      // Postavi nasumično sortirane @nodes u state
-      setRandomizedComponents(shuffledNodes.slice(0, 6)); // Odaberite prvih 6 nasumičnih nodova
+      setRandomizedComponents(shuffledNodes.slice(0, 6));
     }
   }, [column1]);
 
@@ -121,13 +118,13 @@ function GLCRandomizedList ({
     borderWidth: wrapperBorderWidth || null,
     borderStyle: wrapperBorderStyle || null,
     borderColor: wrapperBorderColor || null,
-    borderRadius: wrapperBorderRadius || null                     
+    borderRadius: wrapperBorderRadius || null
   }
 
   return (
     <div className={`glcRandomizedListWrapper ${editMode}`}>
       <div className='glcRandomizedListComponent' style={listComponentStyles}>
-      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}   
+      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}
       <ul className={`glcRandomizedList`}style={listStyles}>
         { column1 && <EditableArea className={`listComponents glcRandomizedListArea layout${layout}`} content={column}/>}
       </ul>

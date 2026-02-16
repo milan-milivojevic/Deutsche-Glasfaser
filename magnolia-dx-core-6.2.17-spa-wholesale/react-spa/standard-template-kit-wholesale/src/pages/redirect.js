@@ -18,7 +18,7 @@ function RedirectPage ({
     if (!editMode && href && linkType === "page") {
       window.history.pushState({}, "", hrefPage);
       events.emit("popstate");
-    } else if (!editMode && href && linkType === "external") {      
+    } else if (!editMode && href && linkType === "external") {
       window.open(href, '_blank');
       window.history.pushState({}, "", getRouterBasename());
       events.emit("popstate");

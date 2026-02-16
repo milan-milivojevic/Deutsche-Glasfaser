@@ -2,7 +2,6 @@ import HomePage from "./pages/home";
 import ContentPage from "./pages/content";
 import LeftHandNavigationPage from "./pages/leftHandNavigation";
 import RedirectPage from "./pages/redirect";
-// import LandingPage from "./pages/landingPage";
 
 import MainPage from "./pages/config/main";
 import BasicComponentsConfiguration from "./pages/config/basicComponents";
@@ -127,7 +126,6 @@ const config = {
         "standard-template-kit-landing:pages/content": ContentPage,
         "standard-template-kit-landing:pages/leftHandNavigation": LeftHandNavigationPage,
         "standard-template-kit-landing:pages/redirect": RedirectPage,
-        // "standard-template-kit-landing:pages/landingPage": LandingPage,
         "standard-template-kit-landing:pages/config/basicComponents": BasicComponentsConfiguration,
         "standard-template-kit-landing:pages/config/advancedComponents": AdvancedComponentsConfiguration,
         "standard-template-kit-landing:pages/config/layoutComponents": LayoutComponentsConfiguration,
@@ -197,7 +195,7 @@ const config = {
         "standard-template-kit-landing:components/grouping/config/linkListConfig": LinkListConfig,
         "standard-template-kit-landing:components/grouping/config/tabsConfig": TabsConfig,
         "standard-template-kit-landing:components/grouping/config/textLinkListConfig": TextLinkListConfig,
-        
+
         "standard-template-kit-landing:components/advanced/accordion": Accordion,
         "standard-template-kit-landing:components/grouping/accordionList": AccordionList,
         "standard-template-kit-landing:components/basic/audio": Audio,

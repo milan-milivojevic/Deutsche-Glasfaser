@@ -29,11 +29,11 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-function LeftNavigationStyles() {  
+function LeftNavigationStyles() {
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -50,7 +50,7 @@ function LeftNavigationStyles() {
   const leftNavBackColor = configProps?.leftNavBackColor || "";
   const rightBorderWidth = configProps?.rightBorderWidth || "";
   const rightBorderStyle = configProps?.rightBorderStyle || "";
-  const rightBorderColor = configProps?.rightBorderColor || "";  
+  const rightBorderColor = configProps?.rightBorderColor || "";
   const leftNavPaddingTop = configProps?.leftNavPaddingTop || "";
   const leftNavPaddingBottom = configProps?.leftNavPaddingBottom || "";
   const leftNavPaddingLeft = configProps?.leftNavPaddingLeft || "";
@@ -62,18 +62,18 @@ function LeftNavigationStyles() {
   const lvl3AlwaysOpen = configProps?.lvl3AlwaysOpen || false;
 
   return (
-    <GlobalStyles 
+    <GlobalStyles
       leftNavWidth={leftNavWidth}
-      leftNavBackColor={leftNavBackColor}    
+      leftNavBackColor={leftNavBackColor}
       rightBorderWidth={rightBorderWidth}
       rightBorderStyle={rightBorderStyle}
-      rightBorderColor={rightBorderColor}      
+      rightBorderColor={rightBorderColor}
       leftNavPaddingTop={leftNavPaddingTop}
       leftNavPaddingBottom={leftNavPaddingBottom}
       leftNavPaddingLeft={leftNavPaddingLeft}
-      leftNavPaddingRight={leftNavPaddingRight}   
-      
-      leftNavChevronColor={leftNavChevronColor} 
+      leftNavPaddingRight={leftNavPaddingRight}
+
+      leftNavChevronColor={leftNavChevronColor}
       leftNavChevronPaddingLeft={leftNavChevronPaddingLeft}
 
       lvl3AlwaysOpen={lvl3AlwaysOpen}

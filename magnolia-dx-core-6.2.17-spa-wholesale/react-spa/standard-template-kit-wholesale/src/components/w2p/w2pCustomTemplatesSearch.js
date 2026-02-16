@@ -6,20 +6,20 @@ import Card from './helpers/Card';
 import CryptoJS from 'crypto-js';
 
 
-function W2PCustomTemplatesSearch ({   
-  templateIds, 
-  linkToSearchResult, 
+function W2PCustomTemplatesSearch ({
+  templateIds,
+  linkToSearchResult,
 
   detailsButton,
   favouritesButton,
-  createDocumentButton,  
+  createDocumentButton,
   copyLinkButton,
 
   templatesSearchType,
   sortOrderTemplates,
   cardsLimit,
-  perRow,  
-  defaultView, 
+  perRow,
+  defaultView,
 
   title,
   titleLevel,
@@ -50,12 +50,12 @@ function W2PCustomTemplatesSearch ({
   }
 
   const size = cardsLimit ? cardsLimit > 60 ? 60 : cardsLimit : 25;
-  const calculatedSize = size - templatesIdsArray?.length;  
-  
+  const calculatedSize = size - templatesIdsArray?.length;
+
   const templatesSearch = async () => {
 
     let url = new URL(linkToSearchResult);
-    let searchParams = new URLSearchParams(url.search);  
+    let searchParams = new URLSearchParams(url.search);
     const encryptedData = searchParams.get('data');
 
     let decryptedData = undefined;
@@ -145,9 +145,9 @@ function W2PCustomTemplatesSearch ({
     paddingRight: titlePaddingRight || null,
     paddingBottom: titlePaddingBottom || null,
     paddingLeft: titlePaddingLeft || null
-  }  
+  }
 
-  
+
   return (
     <div className='mpSearchComponent' id={navigationId && navigationId}>
       {title &&
@@ -157,7 +157,7 @@ function W2PCustomTemplatesSearch ({
       }
       {products && products.length > 0 ? (
           <div className={`mpSearchContainer ${defaultView}`} style={{ gridTemplateColumns: `repeat(${perRow ? perRow : 5}, 1fr)` }}>
-            {products.map(c => 
+            {products.map(c =>
               <Card
                 templateData={c}
                 key={c.id}
@@ -167,7 +167,7 @@ function W2PCustomTemplatesSearch ({
           </div>
         ) : (
           <div className='mpSearchContainer'>No Results</div>
-      )}      
+      )}
     </div>
   )
 

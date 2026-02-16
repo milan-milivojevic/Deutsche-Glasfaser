@@ -6,13 +6,13 @@ export function isPublicInstance() {
 
   let pathname = window.location.pathname;
   let isTrue;
-  
+
   if (pathname.includes("cmsPublic")) {
     isTrue = true;
   } else {
     isTrue = false;
   }
-  
+
   return isTrue;
 }
 

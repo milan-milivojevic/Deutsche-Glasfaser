@@ -10,10 +10,10 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovBorderColor && props.hovBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
 `;
@@ -65,22 +65,22 @@ function LinkConfig ({
     navigator.clipboard.writeText(copyText);
   };
 
-  const baseUrl = process.env.REACT_APP_MGNL_HOST; 
+  const baseUrl = process.env.REACT_APP_MGNL_HOST;
 
   const downloadLink = download ? download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Wholesale/Wholesale", "Wholesale") : linkType === "external" ? external : downloadLink;
-  
+
   const linkIcons = linkIcon || "";
 
   const defBgColor = linkDefaultBackColor || null;
   const hovBgColor = linkHoverBackColor || defBgColor;
   const defLabelColor = labelDefaultColor || null;
-  const hovLabelColor = labelHoverColor || defLabelColor; 
+  const hovLabelColor = labelHoverColor || defLabelColor;
   const defChevronColor = chevronDefaultColor || null;
-  const hovChevronColor = chevronHoverColor || defChevronColor;  
+  const hovChevronColor = chevronHoverColor || defChevronColor;
   const defBorderColor = linkBorderColor || null;
   const hovBorderColor = linkBorderHoverColor || defBorderColor;
-  
+
 
   const linkComponentStyles = {
     paddingTop: linkPaddingTop || null,
@@ -114,7 +114,7 @@ function LinkConfig ({
 
   return (
     <Wrapper className='linkWrapper configComponents'
-      hovBgColor={hovBgColor} 
+      hovBgColor={hovBgColor}
       hovLabelColor={hovLabelColor}
       hovBorderColor={hovBorderColor}
       defChevronColor={defChevronColor}
@@ -128,7 +128,7 @@ function LinkConfig ({
       </div>
       <div className='linkComponent flex' style={linkComponentStyles} >
         <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer" style={linkStyles}>
-          {linkLabel || ""} 
+          {linkLabel || ""}
           {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
         </a>
       </div>

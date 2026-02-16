@@ -8,13 +8,13 @@ const Wrapper = styled.div`
     background-color: ${(props) => props.hovTabBgColor && props.hovTabBgColor + "!important"};
     color: ${(props) => props.hovTitleColor && props.hovTitleColor + "!important"};
   }
-  .tab.activeTab { 
+  .tab.activeTab {
     background-color: ${(props) => props.activeTabBgColor && props.activeTabBgColor + "!important"};
   }
-  .dg_child_tabs .tabTitles .tab { 
+  .dg_child_tabs .tabTitles .tab {
     width: ${(props) => props.activeTabsLength && `calc(100% / ${props.activeTabsLength}) !important`};
   }
-  .dg_child_tabs .glider { 
+  .dg_child_tabs .glider {
     width: ${(props) => props.activeTabsLength && `calc(100% / ${props.activeTabsLength}) !important`};
   }
 `;
@@ -34,7 +34,7 @@ function Tabs({
 	groupPaddingTop,
 	groupPaddingRight,
 	groupPaddingBottom,
-	groupPaddingLeft,	
+	groupPaddingLeft,
 	groupPosition,
 	groupWidth,
 	tabsDefaultBackColor,
@@ -68,7 +68,7 @@ function Tabs({
 
 	const apiBase = getAPIBase();
 	const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-	const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+	const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
 	const [configProps, setConfigProps] = useState();
 
@@ -81,17 +81,16 @@ function Tabs({
 			result = data[0];
 			} else if (noStyles !== (false || "false")) {
 			result = null;
-			} 
+			}
 			setConfigProps(result);
 		});
 	}, [styleName, noStyles, apiBase, restPath, nodeName]);
 	console.log("configProps");
 	console.log(configProps);
 
-	/* Setting active tab */
 
 	const [activeTab, setActiveTab] = useState(() => {
-		if (window.sessionStorage.getItem('activeTab') !== null || 'undefined') {		
+		if (window.sessionStorage.getItem('activeTab') !== null || 'undefined') {
 			return (JSON.parse(window.sessionStorage.getItem("activeTab")) || 1 );
 		} else {
 			return 1;
@@ -105,12 +104,11 @@ function Tabs({
 	useEffect(() => {
 		window.sessionStorage.setItem("activeTab", activeTab);
 	}, [activeTab]);
-	
+
 	useEffect(() => {
 		setActiveTab(JSON.parse(window.sessionStorage.getItem("activeTab")));
 	}, []);
 
-	/* Filtering titles from multi field to get active titles array */
 
 	const titles = [];
 	for (let i = 0; i <= 10; i++) {
@@ -120,7 +118,6 @@ function Tabs({
 		return item !== undefined;
 	})
 
-	/* Filtering tabsComponents to get active tabsComponents array */
 
 	const tabsComponents = [tabsComponents1, tabsComponents2, tabsComponents3, tabsComponents4, tabsComponents5, tabsComponents6, tabsComponents7, tabsComponents8, tabsComponents9, tabsComponents10];
 	const activeTabsComponents = [];
@@ -133,21 +130,18 @@ function Tabs({
 
 	const activeTabsLength = activeTabsComponents.length;
 
-	/* Defining Headline Level*/
 
 	const HeadlineLevel = titleLevel || configProps?.titleLevel || "h3";
 
-	/* Color & Hover Color Variables */
-	
+
 	const defTabBgColor = tabsDefaultBackColor || configProps?.tabsDefaultBackColor || null;
 	const hovTabBgColor = tabsHoverBackColor || configProps?.tabsHoverBackColor || null;
 	const activeTabBgColor = tabsActiveBackColor || configProps?.tabsActiveBackColor || null;
 
 	const defTitleColor = titleColor || configProps?.titleColor || null;
 	const hovTitleColor = titleHoverColor || configProps?.titleHoverColor || null;
-	const activeTitleColor = titleActiveColor || configProps?.titleActiveColor || null;	
+	const activeTitleColor = titleActiveColor || configProps?.titleActiveColor || null;
 
-	/* Styling variables */
 
 	const tabsGroupStyles = {
 		width: groupWidth || configProps?.groupWidth || null,
@@ -158,13 +152,10 @@ function Tabs({
 		paddingLeft: groupPaddingLeft || configProps?.groupPaddingLeft || null
 	}
 
-	const tabTitlesStyles = {		
-		gap: tabsGap || configProps?.tabsGap || null,	
+	const tabTitlesStyles = {
+		gap: tabsGap || configProps?.tabsGap || null,
 		backgroundColor: defTabBgColor || configProps?.defTabBgColor || null,
-		borderRadius: tabsBorderRadius || configProps?.tabsBorderRadius || null,		
-		// borderBottomWidth: tabsBorderWidth || configProps?.tabsBorderWidth || null,
-		// borderBottomStyle: tabsBorderStyle || configProps?.tabsBorderStyle || null,
-		// borderBottomColor: tabsBorderColor || configProps?.tabsBorderColor || null
+		borderRadius: tabsBorderRadius || configProps?.tabsBorderRadius || null,
 	}
 
 	return (
@@ -177,7 +168,7 @@ function Tabs({
 			<section className={`tabsGroup ${styleName}`} style={tabsGroupStyles}>
 				<div className={`tabTitles`} style={tabTitlesStyles}>
 					{activeTitles.map((title, i) =>
-						<HeadlineLevel onClick={() => toggleTab(i + 1)} key={i} className={activeTab === i + 1 ? `tab activeTab activeTab${activeTab}` : `tab`} 
+						<HeadlineLevel onClick={() => toggleTab(i + 1)} key={i} className={activeTab === i + 1 ? `tab activeTab activeTab${activeTab}` : `tab`}
 							style={{
 											flex: tabsWidth || configProps?.tabsWidth || "auto",
 											paddingTop: titlePaddingTop || configProps?.titlePaddingTop || null,
@@ -190,20 +181,13 @@ function Tabs({
 											fontFamily: titleFontFamily || configProps?.titleFontFamily || null,
 											textAlign: titlePosition || configProps?.titlePosition || null,
 											fontWeight: activeTab === i + 1 ? "bold" : titleBold || configProps?.titleBold || null,
-											fontStyle: titleItalic || configProps?.titleItalic || null,          
+											fontStyle: titleItalic || configProps?.titleItalic || null,
 											color: activeTab === i + 1 ? activeTitleColor : defTitleColor,
 											backgroundColor: defTabBgColor || configProps?.defTabBgColor || null,
 											borderBottomWidth: activeTab === i + 1 ? tabsBorderWidth || configProps?.tabsBorderWidth || null : null,
 											borderBottomStyle: activeTab === i + 1 ? tabsBorderStyle || configProps?.tabsBorderStyle || null : null,
 											borderBottomColor: activeTab === i + 1 ? tabsBorderColor || configProps?.tabsBorderColor || null : null,
 											borderRadius: tabsBorderRadius || configProps?.tabsBorderRadius || null,
-											// borderWidth: activeTab === i + 1 ? tabsBorderWidth || configProps?.tabsBorderWidth || null : null,
-											// borderStyle: activeTab === i + 1 ? tabsBorderStyle || configProps?.tabsBorderStyle || null : null,
-											// borderColor: activeTab === i + 1 ? tabsBorderColor || configProps?.tabsBorderColor || null : null,
-											// borderTopRightRadius: tabsBorderRadius || configProps?.tabsBorderRadius || null,
-											// borderTopLeftRadius: tabsBorderRadius || configProps?.tabsBorderRadius || null,
-											// borderBottom: activeTab === i + 1 ? "0" : null,
-											// marginBottom: activeTab === i + 1 ? '-' + (tabsBorderWidth || configProps?.tabsBorderWidth || null) : null
 										}}
 						>{title}</HeadlineLevel>
 					)}

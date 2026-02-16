@@ -5,7 +5,7 @@ import StaticSearch from "./staticSearch";
 import { IoSearchOutline } from 'react-icons/io5';
 
 function GlobalSearch({
-  sortOrder,  
+  sortOrder,
   perPage,
   perRow,
   defaultView,
@@ -20,11 +20,11 @@ function GlobalSearch({
   templatesDefaultView,
   detailsTemplateButton,
   favouritesButton,
-  createDocumentButton, 
+  createDocumentButton,
   copyTemplateLinkButton
 }) {
 
-  const [currentView, setCurrentView] = useState('mp'); 
+  const [currentView, setCurrentView] = useState('mp');
   const [query, setQuery] = useState("");
   const [tempQuery, setTempQuery] = useState("");
 
@@ -70,11 +70,11 @@ function GlobalSearch({
               className="searchInput"
               placeholder={getPlaceholderText(currentView)}
               value={tempQuery}
-              onChange={(e) => setTempQuery(e.target.value)}       
-              onKeyDown={(e) => e.key === 'Enter' && setQuery(e.target.value)}      
+              onChange={(e) => setTempQuery(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' && setQuery(e.target.value)}
             />
-            <button type="button" 
-              onClick={() => setQuery(tempQuery)}              
+            <button type="button"
+              onClick={() => setQuery(tempQuery)}
             >
               <IoSearchOutline />
             </button>
@@ -107,7 +107,7 @@ function GlobalSearch({
           />
         }
         {currentView === 'static' &&
-          <StaticSearch 
+          <StaticSearch
             globalQuery={query}
           />
         }

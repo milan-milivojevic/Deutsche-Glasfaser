@@ -1,7 +1,7 @@
 import React from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function BannerSectionConfig ({ 
+function BannerSectionConfig ({
   bannerSection,
   wrapperPaddingLeft,
   wrapperPaddingBottom,
@@ -15,7 +15,7 @@ function BannerSectionConfig ({
             paddingRight: wrapperPaddingRight !== undefined ? wrapperPaddingRight : null,
             paddingBottom: wrapperPaddingBottom !== undefined ? wrapperPaddingBottom : null,
             paddingLeft: wrapperPaddingLeft !== undefined ? wrapperPaddingLeft : null
-          }} 
+          }}
     >
       <EditableArea className='bannerSectionArea' content={bannerSection} />
     </ul>

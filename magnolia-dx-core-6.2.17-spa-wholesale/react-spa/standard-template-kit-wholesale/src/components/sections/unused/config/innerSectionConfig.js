@@ -1,8 +1,8 @@
 import React from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function InnerSectionConfig ({ 
-  column1, 
+function InnerSectionConfig ({
+  column1,
   column2,
   column3,
   column4,
@@ -12,7 +12,7 @@ function InnerSectionConfig ({
   wrapperPaddingLeft,
   wrapperPaddingBottom,
   wrapperPaddingRight,
-  wrapperPaddingTop  
+  wrapperPaddingTop
 }) {
   let list = [column1, column2, column3, column4, column5, column6];
 
@@ -22,8 +22,8 @@ function InnerSectionConfig ({
               paddingRight: wrapperPaddingRight !== undefined ? wrapperPaddingRight : null,
               paddingBottom: wrapperPaddingBottom !== undefined ? wrapperPaddingBottom : null,
               paddingLeft: wrapperPaddingLeft !== undefined ? wrapperPaddingLeft : null
-            }}   
-    > 
+            }}
+    >
       {list.slice(0, Math.floor(layout)).map((item, i) => <EditableArea key="{i}" className={`column-${i} innerSectionArea`} content={item} />)}
     </ul>
   );

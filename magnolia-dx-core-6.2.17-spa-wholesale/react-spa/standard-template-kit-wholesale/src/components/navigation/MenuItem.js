@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown";
 
 import {events, getRouterBasename} from "../../helpers/AppHelpers";
 
-function MenuItem({item, itemIndex, depthLevel}) {    
+function MenuItem({item, itemIndex, depthLevel}) {
 
   const [dropdown, setDropdown] = useState(false);
 
@@ -19,7 +19,6 @@ function MenuItem({item, itemIndex, depthLevel}) {
     document.addEventListener("mousedown", handler);
     document.addEventListener("touchstart", handler);
     return () => {
-        // Cleanup the event listener
         document.removeEventListener("mousedown", handler);
         document.removeEventListener("touchstart", handler);
     };
@@ -37,18 +36,17 @@ function MenuItem({item, itemIndex, depthLevel}) {
     return (
       <li className={`menu-item level-${depthLevel}`}
           ref={ref}
-          // Uncomment 2 lines below if you want to open levels on hover
           onMouseEnter={onMouseEnter}
-          onMouseLeave={onMouseLeave} 
+          onMouseLeave={onMouseLeave}
       >
-      { item.children && item.children.length !== 0 && item.name !== "Wholesale" ? ( 
+      { item.children && item.children.length !== 0 && item.name !== "Wholesale" ? (
             <React.Fragment>
               <button type="button" aria-haspopup = "menu" aria-expanded = {dropdown ? "true" : "false"}
                 onClick = {
                   () => setDropdown((prev) => !prev)
                 } >
-                <a href={(getRouterBasename() + item.path.replace(process.env.REACT_APP_MGNL_APP_BASE, "")).replace("//", "/")} 
-                  key={item.id} 
+                <a href={(getRouterBasename() + item.path.replace(process.env.REACT_APP_MGNL_APP_BASE, "")).replace("//", "/")}
+                  key={item.id}
                   className={itemIndex === 0 ? "active" : ""}
                   onClick={(e) => {
                     e.preventDefault();
@@ -56,21 +54,20 @@ function MenuItem({item, itemIndex, depthLevel}) {
                     window.scrollTo(0, 0);
                     events.emit("popstate");
                   }}
-                >  
+                >
                   {item.name}
-                  {" "} 
-                  {/* {depthLevel > 0 ? < span > &raquo; </span> : <span className="arrow" />}  */}
-                </a>            
-              </button> 
+                  {" "}
+                </a>
+              </button>
               <Dropdown depthLevel={depthLevel}
                         submenus={item.children}
                         dropdown={dropdown}
-              /> 
+              />
             </React.Fragment>
-          ) :  ( 
+          ) :  (
             <button type="button">
               <a href={(getRouterBasename() + item.path.replace(process.env.REACT_APP_MGNL_APP_BASE, "")).replace("//", "/")}
-                key={item.id} 
+                key={item.id}
                 className={itemIndex === 0 ? "active" : ""}
                 onClick={(e) => {
                   e.preventDefault();
@@ -78,16 +75,16 @@ function MenuItem({item, itemIndex, depthLevel}) {
                   window.scrollTo(0, 0);
                   events.emit("popstate");
                 }}
-              >  
-                {item.name} 
+              >
+                {item.name}
               </a>
             </button>
           )
-      } 
+      }
       </li>
     )
-  } 
-  else { 
+  }
+  else {
       return null ;
     }
   };

@@ -17,12 +17,11 @@ export default function DocumentTemplateTypeFilter({ onUpdateSelectedTemplateTyp
         const transformedParents = mapData(JSON.parse(templateTypeObject.options));
         setParents(transformedParents);
 
-        // After setting the parents, also set the correct selected option based on prop
         const correspondingSelected = transformedParents.find(parent => parent.value === selectedTemplateType);
         setSelectedOption(correspondingSelected || null);
       })
       .catch((error) => {
-        console.error("Greška prilikom preuzimanja podataka:", error);
+        console.error("Error fetching data:", error);
       });
   }, [selectedTemplateType]);
 
@@ -36,13 +35,13 @@ export default function DocumentTemplateTypeFilter({ onUpdateSelectedTemplateTyp
 
   const handleSelectChange = (e) => {
     const selectedValue = e.target.value;
-    
+
     if (selectedValue === "none") {
       setSelectedOption(null);
       onUpdateSelectedTemplateType(null);
       return;
     }
-    
+
     const selectedItem = parents.find(item => item.value === selectedValue);
     setSelectedOption(selectedItem);
     onUpdateSelectedTemplateType(selectedValue);

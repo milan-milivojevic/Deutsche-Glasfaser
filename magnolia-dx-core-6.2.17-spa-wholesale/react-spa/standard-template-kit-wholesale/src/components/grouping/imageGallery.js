@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { getAPIBase } from '../../helpers/AppHelpers';
 
-function ImageGallery ({     
+function ImageGallery ({
     multi = {},
     layout = "Custom",
     col1width,
@@ -30,15 +30,15 @@ function ImageGallery ({
     imageBorderWidth,
     imageBorderStyle,
     imageBorderColor,
-    imageBorderRadius,  
+    imageBorderRadius,
     styleName,
     noStyles
 }) {
-  
+
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -51,7 +51,7 @@ function ImageGallery ({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
@@ -66,7 +66,7 @@ function ImageGallery ({
 
   let gridTemplateColumns;
 
-  if (layout === "Custom") {   
+  if (layout === "Custom") {
     gridTemplateColumns = `${col1width || ''} ${col2width || ''} ${col3width || ''} ${col4width || ''} ${col5width || ''} ${col6width || ''}`
     console.log(gridTemplateColumns);
   }
@@ -102,7 +102,7 @@ function ImageGallery ({
   return (
     <div className='imageGalleryWrapper'>
       <div className={`imageGalleryComponent layout${layout || configProps?.layout}`} style={imageGalleryComponentStyles}>
-        {activeImages.map((image, i) =>      
+        {activeImages.map((image, i) =>
           <img key={i} className="galleryImage" src={image['@link']} alt="" style={galleryImageStyles}/>
         )}
       </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAPIBase } from '../../helpers/AppHelpers';
 
-function Divider({ 
+function Divider({
     borderWidth,
     borderStyle,
     borderColor,
@@ -11,7 +11,7 @@ function Divider({
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -24,19 +24,19 @@ function Divider({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       })
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
 
-  const dividerStyles = { 
+  const dividerStyles = {
     borderBottomWidth:  borderWidth || configProps?.borderWidth || null,
     borderBottomStyle:  borderStyle || configProps?.borderStyle || null,
     borderBottomColor:  borderColor || configProps?.borderColor || null
   }
 
   return (
-    <div className='dividerWrapper'>  
+    <div className='dividerWrapper'>
       <div className="divider" style={dividerStyles}></div>
     </div>
   );

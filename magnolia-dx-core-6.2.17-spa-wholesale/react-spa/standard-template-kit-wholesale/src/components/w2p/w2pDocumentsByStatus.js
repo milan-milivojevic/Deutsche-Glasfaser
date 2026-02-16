@@ -3,7 +3,7 @@ import { myDocumentsService, inWorkDocumentsService, finalizedDocumentsService, 
 import DocumentCard from './helpers/DocumentCard';
 
 
-function W2PDocumentsByStatus ({  
+function W2PDocumentsByStatus ({
   documentStatuses,
   sortOrderDocuments,
   cardsLimit,
@@ -11,7 +11,7 @@ function W2PDocumentsByStatus ({
   defaultView,
 
   detailsButton,
-  editButton,  
+  editButton,
   downloadButton,
   emailButton,
   deleteButton,
@@ -27,7 +27,7 @@ function W2PDocumentsByStatus ({
   titlePaddingLeft,
   titlePaddingRight
 }) {
-  
+
   const initialSortOrder = sortOrderDocuments ? sortOrderDocuments : "modificationDate,desc";
   const splitedSortOrder = initialSortOrder.split(',');
   const initialSortType = splitedSortOrder[0];
@@ -101,9 +101,9 @@ function W2PDocumentsByStatus ({
     paddingRight: titlePaddingRight || null,
     paddingBottom: titlePaddingBottom || null,
     paddingLeft: titlePaddingLeft || null
-  }  
+  }
 
-  
+
   return (
     <div className='mpSearchComponent w2p documents'>
       {title &&
@@ -113,7 +113,7 @@ function W2PDocumentsByStatus ({
       }
       {products && products.length > 0 ? (
           <div className={`mpSearchContainer ${defaultView}`} style={{ gridTemplateColumns: `repeat(${perRow ? perRow : 5}, 1fr)` }}>
-            {products.map(c => 
+            {products.map(c =>
               <DocumentCard
                 documentData={c}
                 key={c.id}
@@ -123,7 +123,7 @@ function W2PDocumentsByStatus ({
           </div>
         ) : (
           <div className='mpSearchContainer'>No Results</div>
-      )}      
+      )}
     </div>
   )
 

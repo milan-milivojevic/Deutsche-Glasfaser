@@ -2,7 +2,6 @@ title: Content Page
 
 baseUrl: http://localhost:3000 
 routeTemplate: '/{language}{{@path}}'
-# templateScript: /standard-template-kit-landing/webresources/build/index.html
 
 dialog: standard-template-kit-landing:pages/content
 
@@ -29,5 +28,3 @@ areas:
     availableComponents:      
       mainSection:
         id: standard-template-kit-landing:components/sections/mainSection
-
-

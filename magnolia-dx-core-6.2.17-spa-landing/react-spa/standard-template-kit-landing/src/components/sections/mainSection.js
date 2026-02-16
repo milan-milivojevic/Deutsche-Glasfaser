@@ -1,8 +1,8 @@
 import React from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function MainSection ({ 
-  column1, 
+function MainSection ({
+  column1,
   column2,
   column3,
   column4,
@@ -29,10 +29,10 @@ function MainSection ({
 }) {
 
   let list = [column1, column2, column3, column4, column5, column6];
-  
+
   const HeadlineLevel = headlineLevel || "h1";
   const columnsCount = Math.floor(layout / 10) === 0 ? layout : Math.floor(layout / 10);
-  
+
   const headlineStyles = {
     fontFamily: headlineFontFamily || null,
     textAlign:  headlinePosition || null,
@@ -56,7 +56,7 @@ function MainSection ({
 
   return (
     <React.Fragment>
-      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}   
+      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}
       <ul className={`mainSection columnSections layout${layout}`} style={mainSectionStyles}>
         {list.slice(0, columnsCount).map((item, i) => item ? <EditableArea key={i} className={`column-${i} sectionAllArea`} content={item} /> : null)}
       </ul>

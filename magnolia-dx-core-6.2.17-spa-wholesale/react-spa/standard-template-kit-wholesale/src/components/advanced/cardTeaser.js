@@ -14,16 +14,16 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
 `;
 
 function CardTeaser ({
-  headline,   
+  headline,
   headlineLevel,
   headlineFontFamily,
   headlinePosition,
@@ -101,8 +101,8 @@ function CardTeaser ({
   bordersToShow,
   componentWidth,
   componentHeight,
-  componentPosition,   
-  componentBoxShadow, 
+  componentPosition,
+  componentBoxShadow,
   teaserLayout,
   descLinkLayout,
   descRowLayoutWidth,
@@ -118,11 +118,11 @@ function CardTeaser ({
   noStyles,
 }) {
 
-    
+
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -135,11 +135,11 @@ function CardTeaser ({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
-  
+
   const [linkConfigProps, setLinkConfigProps] = useState();
 
   useEffect(() => {
@@ -152,7 +152,7 @@ function CardTeaser ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, configProps?.linkStyleName, apiBase, restPath, nodeName]);
@@ -161,8 +161,8 @@ function CardTeaser ({
     window.open(href, linkLocation || "_blank");
   };
 
-  const HeadlineLevel = headlineLevel || configProps?.headlineLevel || "h1";  
-  const downloadLink = download ? download['@link'] : baseUrl;  
+  const HeadlineLevel = headlineLevel || configProps?.headlineLevel || "h1";
+  const downloadLink = download ? download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Wholesale/Wholesale", "Wholesale") : linkType === "external" ? external : downloadLink;
 
   const cursorPointer = clickableImage === "true" ? "cursorPointer" : configProps?.clickableImage === "true" ? "cursorPointer" : null;
@@ -178,7 +178,7 @@ function CardTeaser ({
   const hovLinkBgColor = linkHoverBackColor || configProps?.linkHoverBackColor ||  linkConfigProps?.linkHoverBackColor || defLinkBgColor;
 
   const defLabelColor = labelDefaultColor || configProps?.labelDefaultColor || linkConfigProps?.labelDefaultColor || null;
-  const hovLabelColor = labelHoverColor || configProps?.labelHoverColor || linkConfigProps?.labelHoverColor || defLabelColor; 
+  const hovLabelColor = labelHoverColor || configProps?.labelHoverColor || linkConfigProps?.labelHoverColor || defLabelColor;
 
   const defChevronColor = chevronDefaultColor || configProps?.chevronDefaultColor || linkConfigProps?.chevronDefaultColor || null;
   const hovChevronColor = chevronHoverColor || configProps?.chevronHoverColor || linkConfigProps?.chevronHoverColor || defChevronColor;
@@ -258,9 +258,9 @@ function CardTeaser ({
     paddingTop: linkPaddingTop || configProps?.linkPaddingTop || linkConfigProps?.linkPaddingTop || null,
     paddingRight: linkPaddingRight || configProps?.linkPaddingRight || linkConfigProps?.linkPaddingRight || null,
     paddingBottom: linkPaddingBottom || configProps?.linkPaddingBottom || linkConfigProps?.linkPaddingBottom || null,
-    paddingLeft: linkPaddingLeft || configProps?.linkPaddingLeft || linkConfigProps?.linkPaddingLeft || null,  
+    paddingLeft: linkPaddingLeft || configProps?.linkPaddingLeft || linkConfigProps?.linkPaddingLeft || null,
     justifyContent: linkHorizontalPosition || configProps?.linkHorizontalPosition || "flex-start",
-    alignItems: linkVerticalPosition || configProps?.linkVerticalPosition || "flex-start"                  
+    alignItems: linkVerticalPosition || configProps?.linkVerticalPosition || "flex-start"
   }
 
   const linkStyles = {
@@ -269,7 +269,7 @@ function CardTeaser ({
     paddingTop: labelPaddingTop || configProps?.labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || configProps?.labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || configProps?.labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || configProps?.labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || configProps?.labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: linkBorderColor || configProps?.linkBorderColor || linkConfigProps?.linkBorderColor || null,
     borderWidth: linkBorderWidth || configProps?.linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || configProps?.linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -285,7 +285,7 @@ function CardTeaser ({
     fontStyle: linkItalic || configProps?.linkItalic || linkConfigProps?.linkItalic || null
   }
 
-  return (    
+  return (
     <Wrapper className='cardTeaserWrapper'
       hovBgColor={hovBgColor}
       hovBorderColor={hovBorderColor}
@@ -299,10 +299,10 @@ function CardTeaser ({
         <img className={`image ${cursorPointer}`} style={imageStyles} src={image['@link']} alt=""
              onClick={clickableImage === "true" ? openLink : configProps?.clickableImage === "true" ? openLink : null}
         />
-        <div className={`cardTeaser flexColumn  ${showBorders}`} style={cardTeaserStyles}> 
-          {headline &&     
+        <div className={`cardTeaser flexColumn  ${showBorders}`} style={cardTeaserStyles}>
+          {headline &&
             <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>
-          }           
+          }
           <div className='descriptionLinkWrapper flex' style={descriptionLinkWrapperStyles}>
             { description &&
               <div className={`description ${descriptionStyle || configProps?.descriptionStyle || null}`}

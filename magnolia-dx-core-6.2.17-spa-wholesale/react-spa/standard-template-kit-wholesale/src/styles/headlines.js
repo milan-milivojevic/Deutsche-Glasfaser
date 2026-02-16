@@ -7,11 +7,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.h1FontSize};
     font-family: ${(props) => props.h1FontFamily};
     font-weight: ${(props) => props.h1Bold};
-    font-style: ${(props) => props.h1Italic};  
+    font-style: ${(props) => props.h1Italic};
     letter-spacing: ${(props) => props.h1LetterSpacing};
     color: ${(props) => props.h1Color};
     line-height: ${(props) => props.h1LineHeight};
-    text-align: ${(props) => props.h1Position};  
+    text-align: ${(props) => props.h1Position};
     text-transform: ${(props) => props.h1TextTransform};
     padding-top: ${(props) => props.h1PaddingTop};
     padding-bottom: ${(props) => props.h1PaddingBottom};
@@ -22,7 +22,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.h2FontSize};
     font-family: ${(props) => props.h2FontFamily};
     font-weight: ${(props) => props.h2Bold};
-    font-style: ${(props) => props.h2Italic};  
+    font-style: ${(props) => props.h2Italic};
     letter-spacing: ${(props) => props.h2LetterSpacing};
     color: ${(props) => props.h2Color};
     line-height: ${(props) => props.h2LineHeight};
@@ -37,11 +37,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.h3FontSize};
     font-family: ${(props) => props.h3FontFamily};
     font-weight: ${(props) => props.h3Bold};
-    font-style: ${(props) => props.h3Italic};  
+    font-style: ${(props) => props.h3Italic};
     letter-spacing: ${(props) => props.h3LetterSpacing};
     color: ${(props) => props.h3Color};
     line-height: ${(props) => props.h3LineHeight};
-    text-align: ${(props) => props.h3Position}; 
+    text-align: ${(props) => props.h3Position};
     text-transform: ${(props) => props.h3TextTransform};
     padding-top: ${(props) => props.h3PaddingTop};
     padding-bottom: ${(props) => props.h3PaddingBottom};
@@ -52,11 +52,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.h4FontSize};
     font-family: ${(props) => props.h4FontFamily};
     font-weight: ${(props) => props.h4Bold};
-    font-style: ${(props) => props.h4Italic};  
+    font-style: ${(props) => props.h4Italic};
     letter-spacing: ${(props) => props.h4LetterSpacing};
     color: ${(props) => props.h4Color};
     line-height: ${(props) => props.h4LineHeight};
-    text-align: ${(props) => props.h4Position}; 
+    text-align: ${(props) => props.h4Position};
     text-transform: ${(props) => props.h4TextTransform};
     padding-top: ${(props) => props.h4PaddingTop};
     padding-bottom: ${(props) => props.h4PaddingBottom};
@@ -67,11 +67,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.h5FontSize};
     font-family: ${(props) => props.h5FontFamily};
     font-weight: ${(props) => props.h5Bold};
-    font-style: ${(props) => props.h5Italic};  
+    font-style: ${(props) => props.h5Italic};
     letter-spacing: ${(props) => props.h5LetterSpacing};
     color: ${(props) => props.h5Color};
     line-height: ${(props) => props.h5LineHeight};
-    text-align: ${(props) => props.h5Position}; 
+    text-align: ${(props) => props.h5Position};
     text-transform: ${(props) => props.h5TextTransform};
     padding-top: ${(props) => props.h5PaddingTop};
     padding-bottom: ${(props) => props.h5PaddingBottom};
@@ -82,11 +82,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.h6FontSize};
     font-family: ${(props) => props.h6FontFamily};
     font-weight: ${(props) => props.h6Bold};
-    font-style: ${(props) => props.h6Italic};  
+    font-style: ${(props) => props.h6Italic};
     letter-spacing: ${(props) => props.h6LetterSpacing};
     color: ${(props) => props.h6Color};
     line-height: ${(props) => props.h6LineHeight};
-    text-align: ${(props) => props.h6Position}; 
+    text-align: ${(props) => props.h6Position};
     text-transform: ${(props) => props.h6TextTransform};
     padding-top: ${(props) => props.h6PaddingTop};
     padding-bottom: ${(props) => props.h6PaddingBottom};
@@ -97,7 +97,7 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.pFontSize};
     font-family: ${(props) => props.pFontFamily};
     font-weight: ${(props) => props.pBold};
-    font-style: ${(props) => props.pItalic};  
+    font-style: ${(props) => props.pItalic};
     letter-spacing: ${(props) => props.pLetterSpacing};
     color: ${(props) => props.pColor};
     line-height: ${(props) => props.pLineHeight};
@@ -112,11 +112,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.pSmallFontSize};
     font-family: ${(props) => props.pSmallFontFamily};
     font-weight: ${(props) => props.pSmallBold};
-    font-style: ${(props) => props.pSmallItalic};  
+    font-style: ${(props) => props.pSmallItalic};
     letter-spacing: ${(props) => props.pSmallLetterSpacing};
     color: ${(props) => props.pSmallColor};
     line-height: ${(props) => props.pSmallLineHeight};
-    text-align: ${(props) => props.pSmallPosition}; 
+    text-align: ${(props) => props.pSmallPosition};
     text-transform: ${(props) => props.pSmallTextTransform};
     padding-top: ${(props) => props.pSmallPaddingTop};
     padding-bottom: ${(props) => props.pSmallPaddingBottom};
@@ -125,11 +125,11 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-function HeadlinesStyles() {  
-  
+function HeadlinesStyles() {
+
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -254,7 +254,7 @@ function HeadlinesStyles() {
   const pSmallPaddingRight = configProps?.pSmallPaddingRight || "";
 
   return (
-    <GlobalStyles 
+    <GlobalStyles
       h1FontSize={h1FontSize}
       h1FontFamily={h1FontFamily}
       h1Position={h1Position}

@@ -1,8 +1,8 @@
 import React from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function InnerSection ({ 
-  column1, 
+function InnerSection ({
+  column1,
   column2,
   column3,
   column4,
@@ -47,21 +47,21 @@ function InnerSection ({
 
   let activeColumnWidths = [];
 
-  if (layout === "Custom") {  
-    const columnWidths = [col1width, col2width, col3width, col4width, col5width, col6width];    
+  if (layout === "Custom") {
+    const columnWidths = [col1width, col2width, col3width, col4width, col5width, col6width];
 
     activeColumnWidths = columnWidths.filter((colWidth) => {
       return colWidth !== undefined;
-    })    
+    })
 
     columnsCount = activeColumnWidths.length;
 
     if (columnsCount === 0) {
       columnsCount = 1;
       activeColumnWidths = ["100%"];
-    }    
+    }
   }
-  
+
   const headlineStyles = {
     fontFamily: headlineFontFamily || null,
     textAlign:  headlinePosition || null,
@@ -72,7 +72,7 @@ function InnerSection ({
     paddingTop: headlinePaddingTop || null,
     paddingRight: headlinePaddingRight || null,
     paddingBottom: headlinePaddingBottom || null,
-    paddingLeft: headlinePaddingLeft || null,    
+    paddingLeft: headlinePaddingLeft || null,
   }
 
   const innerSectionStyles = {
@@ -90,8 +90,8 @@ function InnerSection ({
 
   return (
     <React.Fragment>
-      {headline && <HeadlineLevel className="headline"style={headlineStyles}>{headline || null}</HeadlineLevel>}   
-      <ul className={`innerSection ${className || ""} columnSections layout${layout}`} style={innerSectionStyles}> 
+      {headline && <HeadlineLevel className="headline"style={headlineStyles}>{headline || null}</HeadlineLevel>}
+      <ul className={`innerSection ${className || ""} columnSections layout${layout}`} style={innerSectionStyles}>
       {list.slice(0, columnsCount).map((item, i) => item ? <div key={i} className={`column-${i} innerSectionArea`} style={{width: activeColumnWidths[i] || null}}><EditableArea content={item} /></div> : null)}
       </ul>
     </React.Fragment>

@@ -2,7 +2,6 @@ title: Configuration Page (Layout Components)
 
 baseUrl: http://localhost:3000
 routeTemplate: '/{language}{{@path}}'
-# templateScript: /standard-template-kit-wholesale/webresources/build/index.html
 
 dialog: standard-template-kit-wholesale:pages/config/layoutComponents
 
@@ -20,5 +19,3 @@ areas:
     availableComponents:      
       specialLayoutComponentConfig:
         id: standard-template-kit-wholesale:components/advanced/config/specialLayoutComponentConfig
-
-

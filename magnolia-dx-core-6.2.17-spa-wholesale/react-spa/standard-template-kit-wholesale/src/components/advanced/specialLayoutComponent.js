@@ -13,10 +13,10 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
   figure:hover, .videoComponent:hover, .embedVideoComponent:hover {
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 }`
 
 function SpecialLayoutComponent ({
-    headline,   
+    headline,
     headlineLevel,
     headlineFontFamily,
     headlinePosition,
@@ -91,7 +91,7 @@ function SpecialLayoutComponent ({
     chevronHoverColor,
     mediaType,
     embed,
-    video, 
+    video,
     autoplay,
     loop,
     muted,
@@ -136,7 +136,7 @@ function SpecialLayoutComponent ({
     wrapperBorderColor,
     wrapperBorderWidth,
     wrapperBorderStyle,
-    wrapperBorderRadius,   
+    wrapperBorderRadius,
     layout,
     imageLayoutWidth,
     imageTextGap,
@@ -148,13 +148,13 @@ function SpecialLayoutComponent ({
     noStyles
   }) {
 
-  const id = useId(); 
+  const id = useId();
 
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
-    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
+
   const [configProps, setconfigProps] = useState();
 
   useEffect(() => {
@@ -166,7 +166,7 @@ function SpecialLayoutComponent ({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setconfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
@@ -183,7 +183,7 @@ function SpecialLayoutComponent ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, configProps?.linkStyleName, apiBase, restPath, nodeName]);
@@ -191,8 +191,8 @@ function SpecialLayoutComponent ({
 
   const linkExist = page || external || download || null;
 
-  const HeadlineLevel = headlineLevel || configProps?.headlineLevel || "h1";  
-  const downloadLink = download ? download['@link'] : baseUrl;  
+  const HeadlineLevel = headlineLevel || configProps?.headlineLevel || "h1";
+  const downloadLink = download ? download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Wholesale/Wholesale", "Wholesale") : linkType === "external" ? external : downloadLink;
 
   const layouts = layout || configProps?.layout || "layout1";
@@ -217,10 +217,10 @@ function SpecialLayoutComponent ({
   const imgHovBgColor = imageHoverBackColor || configProps?.imageHoverBackColor || null;
 
   const figureDefBgColor = imageWrapperDefaultBackColor || configProps?.imageWrapperDefaultBackColor || null;
-  const figureHovBgColor = imageWrapperHoverBackColor || configProps?.imageWrapperHoverBackColor || figureDefBgColor; 
+  const figureHovBgColor = imageWrapperHoverBackColor || configProps?.imageWrapperHoverBackColor || figureDefBgColor;
 
   const linkIcons = linkIcon || configProps?.linkIcon || linkConfigProps?.linkIcon || "";
-  
+
   const specialLayoutComponentStyles = {
     paddingTop: wrapperPaddingTop || configProps?.wrapperPaddingTop || null,
     paddingRight: wrapperPaddingRight || configProps?.wrapperPaddingRight || null,
@@ -258,14 +258,14 @@ function SpecialLayoutComponent ({
     borderWidth: descriptionBorderWidth || configProps?.descriptionBorderWidth || null,
     borderStyle: descriptionBorderStyle || configProps?.descriptionBorderStyle || null,
     borderRadius: descriptionBorderRadius || configProps?.descriptionBorderRadius || null,
-    textAlign: descriptionAlign || configProps?.descriptionAlign || null       
+    textAlign: descriptionAlign || configProps?.descriptionAlign || null
   }
 
   const linkComponentStyles = {
     paddingTop: linkPaddingTop || configProps?.linkPaddingTop || linkConfigProps?.linkPaddingTop || null,
     paddingRight: linkPaddingRight || configProps?.linkPaddingRight || linkConfigProps?.linkPaddingRight || null,
     paddingBottom: linkPaddingBottom || configProps?.linkPaddingBottom || linkConfigProps?.linkPaddingBottom || null,
-    paddingLeft: linkPaddingLeft || configProps?.linkPaddingLeft || linkConfigProps?.linkPaddingLeft || null, 
+    paddingLeft: linkPaddingLeft || configProps?.linkPaddingLeft || linkConfigProps?.linkPaddingLeft || null,
     justifyContent: linkPosition || configProps?.linkPosition || null
   }
 
@@ -275,7 +275,7 @@ function SpecialLayoutComponent ({
     paddingTop: labelPaddingTop || configProps?.labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || configProps?.labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || configProps?.labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || configProps?.labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || configProps?.labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: linkBorderColor || configProps?.linkBorderColor || linkConfigProps?.linkBorderColor || null,
     borderWidth: linkBorderWidth || configProps?.linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || configProps?.linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -290,9 +290,9 @@ function SpecialLayoutComponent ({
     fontWeight: linkBold || configProps?.linkBold || linkConfigProps?.linkBold || null,
     fontStyle: linkItalic || configProps?.linkItalic || linkConfigProps?.linkItalic || null
   }
-  
+
   const figureWidth = imageLayoutWidth || configProps?.imageLayoutWidth || null
-  
+
   const figureStyles = {
     alignItems: imageWrapperPosition || configProps?.imageWrapperPosition || null,
     width: figureWidth || null,
@@ -339,11 +339,11 @@ function SpecialLayoutComponent ({
       hovLinkBorderColor={hovLinkBorderColor}
       defChevronColor={defChevronColor}
       hovChevronColor={hovChevronColor}
-      imgHovBgColor={imgHovBgColor} 
-      figureHovBgColor={figureHovBgColor}    
+      imgHovBgColor={imgHovBgColor}
+      figureHovBgColor={figureHovBgColor}
     >
-      <div className={`specialLayoutComponent ${layouts}`} style={specialLayoutComponentStyles}>         
-        {headline &&          
+      <div className={`specialLayoutComponent ${layouts}`} style={specialLayoutComponentStyles}>
+        {headline &&
           <HeadlineLevel className="headline"style={headlineStyles}>
             {headline ? headline : null}
           </HeadlineLevel>
@@ -353,12 +353,12 @@ function SpecialLayoutComponent ({
             <figure className="imageComponent" style={figureStyles}>
               <img className="image" src={image['@link']} alt="" style={imageStyles}/>
               <figcaption style={figcaptionStyles}>{imageCaption || null}</figcaption>
-            </figure> 
+            </figure>
           }
           {mediaType === "video" && video &&
             <div className="videoComponent" style={figureStyles}>
-              <video 
-                src={baseUrl + video['@link']} 
+              <video
+                src={baseUrl + video['@link']}
                 style={imageStyles}
                 preload="auto"
                 autoPlay={autoplay === (false || "false") ? null : "autoplay"}
@@ -371,27 +371,27 @@ function SpecialLayoutComponent ({
             </div>
           }
           {mediaType === "embed" && embed &&
-            <div className="embedVideoComponent" style={figureStyles} 
+            <div className="embedVideoComponent" style={figureStyles}
               dangerouslySetInnerHTML={{ __html:embed || null }}>
             </div>
           }
           <div className='descLinkWrapper' style={{width: `calc(100% - ${figureWidth || configProps?.figureWidth} - ${imageTextGap || configProps?.imageTextGap || 0})`, justifyContent: descLinkVerticalPosition || configProps?.descLinkVerticalPosition}}>
             {description &&
-              <div className={`description ${descriptionStyle || configProps?.descriptionStyle}`} 
-                    dangerouslySetInnerHTML={{ __html:description || null }} 
-                    style={descriptionStyles}>                      
+              <div className={`description ${descriptionStyle || configProps?.descriptionStyle}`}
+                    dangerouslySetInnerHTML={{ __html:description || null }}
+                    style={descriptionStyles}>
               </div>
             }
             {linkExist &&
               <div className='linkComponent' style={linkComponentStyles} >
-                <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer"style= {linkStyles}> 
-                  {linkLabel ? linkLabel : ""} 
+                <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer"style= {linkStyles}>
+                  {linkLabel ? linkLabel : ""}
                   {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
                 </a>
               </div>
             }
           </div>
-        </div>        
+        </div>
       </div>
     </Wrapper>
   )

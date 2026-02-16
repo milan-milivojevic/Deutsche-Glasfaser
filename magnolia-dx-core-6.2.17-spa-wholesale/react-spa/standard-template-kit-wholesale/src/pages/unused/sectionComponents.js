@@ -3,7 +3,7 @@ import { EditableArea } from '@magnolia/react-editor';
 import '../../css.css';
 
 function SectionComponentsConfiguration (props) {
-  const { 
+  const {
     accordionInnerSectionComponents,
     bannerSectionComponents,
     innerSectionComponents,

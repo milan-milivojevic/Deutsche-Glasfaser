@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 import { getAPIBase } from '../../helpers/AppHelpers';
 
-function ImageTeaserList ({ 
+function ImageTeaserList ({
   column1,
   layout,
   columnGap,
@@ -35,7 +35,7 @@ function ImageTeaserList ({
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -48,7 +48,7 @@ function ImageTeaserList ({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
@@ -83,13 +83,13 @@ const listComponentStyles = {
     borderWidth: wrapperBorderWidth || configProps?.wrapperBorderWidth || null,
     borderStyle: wrapperBorderStyle || configProps?.wrapperBorderStyle || null,
     borderColor: wrapperBorderColor || configProps?.wrapperBorderColor || null,
-    borderRadius: wrapperBorderRadius || configProps?.wrapperBorderRadius || null                     
+    borderRadius: wrapperBorderRadius || configProps?.wrapperBorderRadius || null
   }
 
   return (
     <div className='imageTeaserListWrapper'>
       <div className='imageTeaserListComponent' style={listComponentStyles}>
-      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}   
+      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}
       <ul className={`imageTeaserList`} style={listStyles}>
         { column1 && <EditableArea className={`listComponents imageTeasersArea layout${layout || configProps?.layout}`} content={column1}/>}
       </ul>

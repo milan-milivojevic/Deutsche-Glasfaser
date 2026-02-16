@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function CardTeaserListConfig ({ 
+function CardTeaserListConfig ({
   column1,
   layout,
   columnGap,
@@ -27,7 +27,7 @@ function CardTeaserListConfig ({
   wrapperBorderWidth,
   wrapperBorderStyle,
   wrapperBorderColor,
-  wrapperBorderRadius,  
+  wrapperBorderRadius,
   styleName
 }) {
 
@@ -68,19 +68,19 @@ function CardTeaserListConfig ({
     borderWidth: wrapperBorderWidth || null,
     borderStyle: wrapperBorderStyle || null,
     borderColor: wrapperBorderColor || null,
-    borderRadius: wrapperBorderRadius || null                
+    borderRadius: wrapperBorderRadius || null
   }
 
   return (
     <div className='cardTeaserListWrapper configComponents'>
-      <div className="copyStyleName">      
+      <div className="copyStyleName">
         <h4>Style Name: <span className="copyText" ref={myRef}>{styleName || null}</span></h4>
         <button onClick={handleClick}>
           Copy Style Name
         </button>
-      </div>  
+      </div>
       <div className='cardTeaserListComponent' style={listComponentStyles}>
-        {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}   
+        {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}
         <ul className={`cardTeaserList`}style={listStyles}>
           {column1 && <EditableArea className={`listComponents cardTeasersArea layout${layout}`} content={column1}/>}
         </ul>

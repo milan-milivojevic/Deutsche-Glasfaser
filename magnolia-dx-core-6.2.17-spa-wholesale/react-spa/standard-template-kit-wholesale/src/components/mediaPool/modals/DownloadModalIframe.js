@@ -11,18 +11,18 @@ const DownloadModalIframe = ({ assetId, isOpen, onClose, closeModal }) => {
       onRequestClose={onClose}
       contentLabel="Download Modal"
       className="detailsReactModal"
-    > 
+    >
       <div className='detailsModalWrapper iframe'>
         <div class="closeButtonWrapper">
           <button className="closeButton" onClick={onClose}><AiOutlineClose/></button>
         </div>
-        <div className='detailsModal w2p'>          
+        <div className='detailsModal w2p'>
           <iframe className="detailsIframe"
                   title={"Asset Download"}
                   src={'/MediapoolDownloadMedia.do?popup=true&mediaGUID=' + assetId }
           ></iframe>
         </div>
-      </div>      
+      </div>
     </Modal>
   );
 };

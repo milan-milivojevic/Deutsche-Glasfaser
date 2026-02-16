@@ -35,25 +35,25 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.languageFontSize};
     font-family: ${(props) => props.languageFontFamily};
     color: ${(props) => props.languageColor};
-  } 
+  }
   .languages span:hover {
     color: ${(props) => props.languageHoverColor};
-  } 
+  }
   .userLinks a {
     font-size: ${(props) => props.userFontSize};
     font-family: ${(props) => props.userFontFamily};
     color: ${(props) => props.userColor};
-  } 
+  }
   .userLinks a:hover {
     color: ${(props) => props.userHoverColor};
-  } 
+  }
 `;
 
-function HeaderStyles() {  
-  
+function HeaderStyles() {
+
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -100,7 +100,7 @@ function HeaderStyles() {
   const languageFontFamily = configProps?.languageFontFamily || "";
 
   return (
-    <GlobalStyles 
+    <GlobalStyles
       logoWidth={logoWidth}
       logoHeight={logoHeight}
       logoPosition={logoPosition}
@@ -112,7 +112,7 @@ function HeaderStyles() {
       headerPaddingTop={headerPaddingTop}
       headerPaddingBottom={headerPaddingBottom}
       headerPaddingLeft={headerPaddingLeft}
-      headerPaddingRight={headerPaddingRight}      
+      headerPaddingRight={headerPaddingRight}
 
       logoutColor={logoutColor}
       logoutHoverColor={logoutHoverColor}

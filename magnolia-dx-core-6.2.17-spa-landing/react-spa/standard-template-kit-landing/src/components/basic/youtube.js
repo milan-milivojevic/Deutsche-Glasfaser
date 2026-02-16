@@ -1,6 +1,6 @@
 import React, { useId } from 'react';
 
-function Youtube ({ 
+function Youtube ({
   video,
   autoplay,
   loop,
@@ -25,24 +25,24 @@ function Youtube ({
   const justifyContent = position;
 
   return (
-    <div className='youtubeEditMode'> {/* this div is workaround for editMode problem. */}
+    <div className='youtubeEditMode'> {}
       <div className='youtubeWrapper'
         style={{display: 'flex',
                 justifyContent: justifyContent !== undefined ? justifyContent : "left"
               }}
-      ><video 
-        src={"http://localhost:8080" + video['@link']} 
+      ><video
+        src={"http://localhost:8080" + video['@link']}
         preload="auto"
         autoplay={autoplay !== undefined ? autoplay : false}
         controls={controls !== undefined ? controls : true}
         muted={muted !== undefined ? muted : false}
-        loop={loop !== undefined ? loop : false} 
+        loop={loop !== undefined ? loop : false}
         id={"video_" + id}
         className="youtube"
         style={{paddingTop: paddingTop !== undefined ? paddingTop : null,
                 paddingRight: paddingRight !== undefined ? paddingRight : null,
                 paddingBottom: paddingBottom !== undefined ? paddingBottom : null,
-                paddingLeft: paddingLeft !== undefined ? paddingLeft : null,    
+                paddingLeft: paddingLeft !== undefined ? paddingLeft : null,
                 backgroundColor: defaultBackColor !== undefined ? defaultBackColor : null,
                 borderColor: borderColor !== undefined ? borderColor: null,
                 borderWidth: borderWidth !== undefined ? borderWidth: null,
@@ -50,7 +50,7 @@ function Youtube ({
                 borderRadius: borderRadius !== undefined ? borderRadius: null,
                 width: width !== undefined ? width : null,
                 height: height !== undefined ? height : null
-              }}     
+              }}
         ></video>
       </div>
     </div>

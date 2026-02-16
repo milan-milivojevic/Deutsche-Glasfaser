@@ -13,16 +13,16 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
 }`
 
 function TextLinkConfig ({
-    headline,   
+    headline,
     headlineLevel,
     headlineFontFamily,
     headlinePosition,
@@ -92,7 +92,7 @@ function TextLinkConfig ({
     wrapperBorderColor,
     wrapperBorderWidth,
     wrapperBorderStyle,
-    wrapperBorderRadius,    
+    wrapperBorderRadius,
     descLinkLayout,
     descRowLayoutWidth,
     linkRowLayoutWidth,
@@ -115,8 +115,8 @@ function TextLinkConfig ({
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
-  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
+
   const [linkConfigProps, setLinkConfigProps] = useState();
 
   useEffect(() => {
@@ -128,17 +128,17 @@ function TextLinkConfig ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, apiBase, restPath, nodeName]);
 
   const HeadlineLevel = headlineLevel || "h1";
-  const downloadLink = download ? download['@link'] : baseUrl;  
+  const downloadLink = download ? download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Wholesale/Wholesale", "Wholesaleesale") : linkType === "external" ? external : downloadLink;
 
-  const defBgColor = wrapperDefaultBackColor || null;  
-  const hovBgColor = wrapperHoverBackColor || defBgColor || null; 
+  const defBgColor = wrapperDefaultBackColor || null;
+  const hovBgColor = wrapperHoverBackColor || defBgColor || null;
 
   const defLabelColor = labelDefaultColor || linkConfigProps?.labelDefaultColor || null;
   const hovLabelColor = labelHoverColor || linkConfigProps?.labelHoverColor || defLabelColor;
@@ -158,7 +158,7 @@ function TextLinkConfig ({
     paddingTop: wrapperPaddingTop ? wrapperPaddingTop : null,
     paddingRight: wrapperPaddingRight ? wrapperPaddingRight : null,
     paddingBottom: wrapperPaddingBottom ? wrapperPaddingBottom : null,
-    paddingLeft: wrapperPaddingLeft ? wrapperPaddingLeft : null,    
+    paddingLeft: wrapperPaddingLeft ? wrapperPaddingLeft : null,
     backgroundColor: defBgColor,
     borderColor: wrapperBorderColor ? wrapperBorderColor : null,
     borderWidth: wrapperBorderWidth ? wrapperBorderWidth : null,
@@ -182,7 +182,7 @@ function TextLinkConfig ({
     paddingLeft: headlinePaddingLeft || null
   }
 
-  const descriptionLinkWrapperStyles = { 
+  const descriptionLinkWrapperStyles = {
     flexDirection: descLinkLayout || "column",
     gap: descLinkGap || null,
     alignItems: descLinkPosition || null
@@ -211,13 +211,13 @@ function TextLinkConfig ({
     alignItems: linkHorizontalPosition || "flex-end"
   }
 
-  const linkStyles = { 
+  const linkStyles = {
     backgroundColor: defLinkBgColor,
     color: defLabelColor,
     paddingTop: labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: defLinkBorderColor,
     borderWidth: linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -249,12 +249,12 @@ function TextLinkConfig ({
         </button>
       </div>
       <div className={`textLink flexColumn`} style={textLinkStyles}>
-        {headline && 
+        {headline &&
           <HeadlineLevel className="headline" style={headlineStyles}>{headline ? headline : null}</HeadlineLevel>
-        }   
+        }
         <div className='descriptionLinkWrapper flex' style={descriptionLinkWrapperStyles}>
           {description &&
-            <div className={`description ${descriptionStyle || null}`} 
+            <div className={`description ${descriptionStyle || null}`}
                  dangerouslySetInnerHTML={{ __html:description ? description : null }}
                  style={descriptionStyles}
             ></div>
@@ -262,7 +262,7 @@ function TextLinkConfig ({
           {(linkIcons || linkLabel) &&
             <div className='linkComponent flex' style={linkComponentStyles}>
               <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer" style={linkStyles} >
-                {linkLabel ? linkLabel : ""} 
+                {linkLabel ? linkLabel : ""}
                 {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
               </a>
             </div>

@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 function TextConfig ({
-  headline,   
+  headline,
   headlineLevel,
   headlineFontFamily,
   headlinePosition,
@@ -49,7 +49,7 @@ function TextConfig ({
   wrapperPosition,
   styleName
 }) {
-  
+
   const myRef = useRef(null);
 
   const handleClick = () => {
@@ -58,7 +58,7 @@ function TextConfig ({
   };
 
   const HeadlineLevel = headlineLevel || "h1";
-  
+
   const defBgColor = wrapperDefaultBackColor || null;
   const hovBgColor = wrapperHoverBackColor || defBgColor;
 
@@ -66,7 +66,7 @@ function TextConfig ({
     paddingTop: wrapperPaddingTop || null,
     paddingRight: wrapperPaddingRight || null,
     paddingBottom: wrapperPaddingBottom || null,
-    paddingLeft: wrapperPaddingLeft || null,    
+    paddingLeft: wrapperPaddingLeft || null,
     backgroundColor: defBgColor,
     borderColor: wrapperBorderColor || null,
     borderWidth: wrapperBorderWidth || null,
@@ -104,24 +104,24 @@ function TextConfig ({
     borderRadius: descriptionBorderRadius || null,
     textAlign: descriptionAlign || null
   }
-  
+
   return (
     <Wrapper className='textWrapper configComponents'
-      hovBgColor={hovBgColor} 
+      hovBgColor={hovBgColor}
     >
       <div className="copyStyleName">
         <h4>Style Name: <span className="copyText" ref={myRef}>{styleName || null}</span></h4>
         <button onClick={handleClick}>
           Copy Style Name
         </button>
-      </div>  
+      </div>
       <div className='textComponent'style={textComponentStyles} >
         {headline &&
           <HeadlineLevel className="headline"style={headlineStyles}>{headline || null}</HeadlineLevel>
-        }  
+        }
         {description &&
-          <div className={`description ${descriptionStyle}`} 
-               dangerouslySetInnerHTML={{ __html:description || null }} 
+          <div className={`description ${descriptionStyle}`}
+               dangerouslySetInnerHTML={{ __html:description || null }}
                style={descriptionStyles}
           ></div>
         }

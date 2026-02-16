@@ -1,7 +1,5 @@
 title: Wholesale Search Page - MP Search
 
-# baseUrl: http://localhost:3000 
-# routeTemplate: '/{language}{{@path}}'
 templateScript: /standard-template-kit-wholesale/webresources/build/index.html
 
 dialog: standard-template-kit-wholesale:pages/search/mpSearch

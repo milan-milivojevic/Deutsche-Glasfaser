@@ -1,8 +1,8 @@
 import React from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function FooterSection ({ 
-  column1, 
+function FooterSection ({
+  column1,
   column2,
   column3,
   column4,
@@ -28,7 +28,7 @@ function FooterSection ({
     paddingTop: wrapperPaddingTop || null,
     paddingRight: wrapperPaddingRight || null,
     paddingBottom: wrapperPaddingBottom || null,
-    paddingLeft: wrapperPaddingLeft || null,                
+    paddingLeft: wrapperPaddingLeft || null,
     topBorderWidth: wrapperBorderWidth || null,
     topBorderStyle: wrapperBorderStyle || null,
     topBorderColor: wrapperBorderColor || null,

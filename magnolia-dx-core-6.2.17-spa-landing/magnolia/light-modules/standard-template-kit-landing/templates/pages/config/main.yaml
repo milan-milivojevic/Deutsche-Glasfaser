@@ -1,7 +1,5 @@
 title: Main Configuration Page
 
-# baseUrl: http://localhost:3000
-# routeTemplate: '/{language}{{@path}}'
 templateScript: /standard-template-kit-landing/webresources/build/index.html
 
 dialog: standard-template-kit-landing:pages/config/main
@@ -44,4 +42,3 @@ areas:
     availableComponents:      
       paragraphsConfig:
         id: standard-template-kit-landing:components/mainConfig/paragraphsConfig
-

@@ -7,9 +7,9 @@ const Wrapper = styled.div`
   }
 `;
 
-function VideoConfig ({ 
+function VideoConfig ({
   videoType,
-  video, 
+  video,
   embed,
   autoplay,
   loop,
@@ -39,16 +39,16 @@ function VideoConfig ({
     navigator.clipboard.writeText(copyText);
   };
 
-  const baseUrl = process.env.REACT_APP_MGNL_HOST;   
+  const baseUrl = process.env.REACT_APP_MGNL_HOST;
 
   const defBgColor = defaultBackColor || null;
-  const hovBgColor = hoverBackColor || defBgColor;  
+  const hovBgColor = hoverBackColor || defBgColor;
 
   const videoStyles = {
     paddingTop: paddingTop || null,
     paddingRight: paddingRight || null,
     paddingBottom: paddingBottom || null,
-    paddingLeft: paddingLeft || null,    
+    paddingLeft: paddingLeft || null,
     backgroundColor: defBgColor,
     borderColor: borderColor || null,
     borderWidth: borderWidth || null,
@@ -62,7 +62,7 @@ function VideoConfig ({
     paddingTop: paddingTop || null,
     paddingRight: paddingRight || null,
     paddingBottom: paddingBottom || null,
-    paddingLeft: paddingLeft || null,    
+    paddingLeft: paddingLeft || null,
     backgroundColor: defBgColor,
     borderColor: borderColor || null,
     borderWidth: borderWidth || null,
@@ -75,7 +75,7 @@ function VideoConfig ({
 
   return (
     <Wrapper className='videoWrapper configComponents'
-      hovBgColor={hovBgColor} 
+      hovBgColor={hovBgColor}
     >
       <div className="copyStyleName">
         <h4>Style Name: <span className="copyText" ref={myRef}>{styleName || null}</span></h4>
@@ -84,9 +84,9 @@ function VideoConfig ({
         </button>
       </div>
       {videoType === "video" && video &&
-        <div className='videoComponent' style={{ justifyContent: position || "left"}}> 
-          <video 
-            src={video['@link']} 
+        <div className='videoComponent' style={{ justifyContent: position || "left"}}>
+          <video
+            src={video['@link']}
             preload="auto"
             autoPlay={autoplay === (false || "false") ? null : "autoplay"}
             controls="controls"
@@ -94,7 +94,7 @@ function VideoConfig ({
             loop={loop === (false || "false") ? null : "loop"}
             id={"video_" + id}
             className="video"
-            style={videoStyles}    
+            style={videoStyles}
           ></video>
         </div>
       }

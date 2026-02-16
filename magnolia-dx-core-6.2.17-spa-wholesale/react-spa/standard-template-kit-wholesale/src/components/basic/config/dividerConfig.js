@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-function DividerConfig ({ 
+function DividerConfig ({
     borderWidth,
     borderStyle,
     borderColor,
@@ -13,8 +13,8 @@ function DividerConfig ({
     const copyText = myRef.current.innerText;
     navigator.clipboard.writeText(copyText);
   };
-  
-  const dividerStyles = { 
+
+  const dividerStyles = {
     borderBottomWidth:  borderWidth || null,
     borderBottomStyle:  borderStyle || null,
     borderBottomColor:  borderColor || null

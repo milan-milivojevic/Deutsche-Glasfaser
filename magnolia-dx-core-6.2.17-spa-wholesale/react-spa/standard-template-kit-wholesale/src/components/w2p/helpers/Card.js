@@ -18,32 +18,32 @@ const Card = ({ templateData, buttonProps }) => {
   const isCreateDocumentButton = createDocumentButton === "true";
   const isCopyLinkButton = copyLinkButton === "true";
 
-  const [showDetailsModal, setShowDetailsModal] = useState(false);  
+  const [showDetailsModal, setShowDetailsModal] = useState(false);
   const [isFavourite, setIsFavourite] = useState(false);
   const [showCreateModal, setShowCreateModal] = useState(false);
-  
+
   const [isImgHovered, setIsImgHovered] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [message, setMesage] = useState("");  
+  const [message, setMesage] = useState("");
 
-  const baseURL = process.env.REACT_APP_MGNL_APP_HOST; 
+  const baseURL = process.env.REACT_APP_MGNL_APP_HOST;
   const apiBase = getAPIBase();
 
   const templateId = templateData.id;
   const isOnline = templateData.online;
   var title = templateData.title;
   var modificationDate = templateData.modificationDate;
-  var creationDate = templateData.creationDate; 
+  var creationDate = templateData.creationDate;
 
   title = title
-    .replace(/-/g, '_') // Replace dashes with underscores
-    .split('_') // Split the string by underscores into an array
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-    .join(' '); // Join the words back together with spaces
+    .replace(/-/g, '_')
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 
   modificationDate = moment(modificationDate).utc().format('MM/DD/YYYY');
   creationDate = moment(creationDate).utc().format('MM/DD/YYYY');
-  
+
   const imageMouseEnter = () => {
     setIsImgHovered(true);
   };
@@ -91,13 +91,13 @@ const Card = ({ templateData, buttonProps }) => {
       addToFavourites(templateId);
     }
     setIsFavourite(!isFavourite);
-  }  
+  }
 
   return (
     <div className='assetCard w2p' onMouseEnter={imageMouseEnter} onMouseLeave={imageMouseLeave}>
       <div className='assetCardPreview w2p' onClick={toggleDetailsModal}>
         <TemplatePreview templateId={templateId} isOnline={isOnline}></TemplatePreview>
-      </div>      
+      </div>
       <div className={`assetActionButtons w2p ${isImgHovered ? 'show' : ''}`}>
         {isDetailsButton && (
           <button onClick={toggleDetailsModal}><GrZoomIn/></button>
@@ -106,7 +106,7 @@ const Card = ({ templateData, buttonProps }) => {
           <button onClick={toggleAddToFavourite} className={isFavourite ? 'isFavourite' : 'notFavourite'}><FiHeart/></button>
         )}
         {isCreateDocumentButton && (
-          <button onClick={toggleCreateModal}><FiEdit/></button>        
+          <button onClick={toggleCreateModal}><FiEdit/></button>
         )}
         {isCopyLinkButton && (
           <button onClick={copyLink}><FiLink/></button>
@@ -115,13 +115,12 @@ const Card = ({ templateData, buttonProps }) => {
       <div className='assetCardContent w2p'>
         <h2 className='assetTitle w2p'>{title}</h2>
         <p><span>Template ID: </span>{templateId}</p>
-        {/* <p><span>Upload Date:</span>{uploadDate}</p> */}
-        <p><span>Last change: </span>{modificationDate}</p>       
+        <p><span>Last change: </span>{modificationDate}</p>
       </div>
 
       {showAlert && <AlertPopup showAlert={showAlert} alertMessage={message} />}
 
-      {showDetailsModal && <DetailsModal  templateId={templateId} isOpen={showDetailsModal} onClose={toggleDetailsModal}></DetailsModal>}      
+      {showDetailsModal && <DetailsModal  templateId={templateId} isOpen={showDetailsModal} onClose={toggleDetailsModal}></DetailsModal>}
       {showCreateModal && <CreateModal templateId={templateId} isOpen={showCreateModal} onClose={toggleCreateModal}></CreateModal>}
     </div>
   )

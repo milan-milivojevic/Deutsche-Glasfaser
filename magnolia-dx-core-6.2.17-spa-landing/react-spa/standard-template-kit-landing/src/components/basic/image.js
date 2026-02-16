@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   }
 `;
 
-function Image({ 
+function Image({
     image,
     imageCaption,
     imagePosition,
@@ -47,10 +47,10 @@ function Image({
     noStyles
 }) {
 
-  const baseUrl = process.env.REACT_APP_MGNL_HOST; 
+  const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -63,17 +63,17 @@ function Image({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
-  
+
   const imgDefBgColor = imageDefaultBackColor || configProps?.imageDefaultBackColor || null;
   const imgHovBgColor = imageHoverBackColor || configProps?.imageHoverBackColor || imgDefBgColor;
 
   const figureDefBgColor = imageWrapperDefaultBackColor || configProps?.imageWrapperDefaultBackColor || null;
-  const figureHovBgColor = imageWrapperHoverBackColor || configProps?.imageWrapperHoverBackColor || figureDefBgColor; 
-  
+  const figureHovBgColor = imageWrapperHoverBackColor || configProps?.imageWrapperHoverBackColor || figureDefBgColor;
+
   const figureStyles = {
     alignItems:  imageWrapperPosition || configProps?.imageWrapperPosition || null,
     borderColor: imageWrapperBorderColor || configProps?.imageWrapperBorderColor || null,
@@ -114,7 +114,7 @@ function Image({
   return (
     <Wrapper className='imageWrapper'
       imgHovBgColor={imgHovBgColor}
-      figureHovBgColor={figureHovBgColor}  
+      figureHovBgColor={figureHovBgColor}
     >
       <figure style={figureStyles} >
         <img className="image" src={image['@link']} alt="" style={imageStyles} />

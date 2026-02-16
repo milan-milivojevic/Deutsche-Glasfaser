@@ -2,7 +2,6 @@ import HomePage from "./pages/home";
 import ContentPage from "./pages/content";
 import LeftHandNavigationPage from "./pages/leftHandNavigation";
 import RedirectPage from "./pages/redirect";
-// import LandingPage from "./pages/landingPage";
 
 import MainPage from "./pages/config/main";
 import BasicComponentsConfiguration from "./pages/config/basicComponents";
@@ -127,7 +126,6 @@ const config = {
         "standard-template-kit-wholesale:pages/content": ContentPage,
         "standard-template-kit-wholesale:pages/leftHandNavigation": LeftHandNavigationPage,
         "standard-template-kit-wholesale:pages/redirect": RedirectPage,
-        // "standard-template-kit-wholesale:pages/landingPage": LandingPage,
         "standard-template-kit-wholesale:pages/config/basicComponents": BasicComponentsConfiguration,
         "standard-template-kit-wholesale:pages/config/advancedComponents": AdvancedComponentsConfiguration,
         "standard-template-kit-wholesale:pages/config/layoutComponents": LayoutComponentsConfiguration,
@@ -197,7 +195,7 @@ const config = {
         "standard-template-kit-wholesale:components/grouping/config/linkListConfig": LinkListConfig,
         "standard-template-kit-wholesale:components/grouping/config/tabsConfig": TabsConfig,
         "standard-template-kit-wholesale:components/grouping/config/textLinkListConfig": TextLinkListConfig,
-        
+
         "standard-template-kit-wholesale:components/advanced/accordion": Accordion,
         "standard-template-kit-wholesale:components/grouping/accordionList": AccordionList,
         "standard-template-kit-wholesale:components/basic/audio": Audio,

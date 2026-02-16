@@ -1,6 +1,6 @@
 import { React, useId, useRef } from 'react';
 
-function YoutubeConfig ({ 
+function YoutubeConfig ({
   video,
   autoplay,
   loop,
@@ -33,7 +33,7 @@ function YoutubeConfig ({
   };
 
   return (
-    <div className='youtubeEditMode configComponents'> {/* this div is workaround for editMode problem. */}
+    <div className='youtubeEditMode configComponents'> {}
       <div className="copyStyleName">
         <h4>Style Name: <span className="copyAccText" ref={myRef}>{styleName ? styleName : 0}</span></h4>
         <button onClick={handleClick}>
@@ -44,19 +44,19 @@ function YoutubeConfig ({
         style={{display: 'flex',
                 justifyContent: justifyContent !== undefined ? justifyContent : "left"
               }}
-      ><video 
-        src={"http://localhost:8080" + video['@link']} 
+      ><video
+        src={"http://localhost:8080" + video['@link']}
         preload="auto"
         autoplay={autoplay !== undefined ? autoplay : false}
         controls={controls !== undefined ? controls : true}
         muted={muted !== undefined ? muted : false}
-        loop={loop !== undefined ? loop : false} 
+        loop={loop !== undefined ? loop : false}
         id={"video_" + id}
         className="youtube"
         style={{paddingTop: paddingTop !== undefined ? paddingTop : null,
                 paddingRight: paddingRight !== undefined ? paddingRight : null,
                 paddingBottom: paddingBottom !== undefined ? paddingBottom : null,
-                paddingLeft: paddingLeft !== undefined ? paddingLeft : null,    
+                paddingLeft: paddingLeft !== undefined ? paddingLeft : null,
                 backgroundColor: defaultBackColor !== undefined ? defaultBackColor : null,
                 borderColor: borderColor !== undefined ? borderColor: null,
                 borderWidth: borderWidth !== undefined ? borderWidth: null,
@@ -64,7 +64,7 @@ function YoutubeConfig ({
                 borderRadius: borderRadius !== undefined ? borderRadius: null,
                 width: width !== undefined ? width : null,
                 height: height !== undefined ? height : null
-              }}     
+              }}
         ></video>
       </div>
     </div>

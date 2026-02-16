@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   }
 `;
 
-function ImageConfig ({ 
+function ImageConfig ({
     image,
     imageCaption,
     imagePosition,
@@ -44,7 +44,7 @@ function ImageConfig ({
     imageWrapperHoverBackColor,
     styleName
 }) {
-  
+
   const myRef = useRef(null);
 
   const handleClick = () => {
@@ -57,9 +57,9 @@ function ImageConfig ({
   const imgDefBgColor = imageDefaultBackColor || null;
   const imgHovBgColor = imageHoverBackColor || imgDefBgColor;
 
-  const figureDefBgColor = imageWrapperDefaultBackColor || null;  
+  const figureDefBgColor = imageWrapperDefaultBackColor || null;
   const figureHovBgColor = imageWrapperHoverBackColor || figureDefBgColor;
-  
+
   const figureStyles = {
     alignItems:  imageWrapperPosition || null,
     borderColor: imageWrapperBorderColor || null,
@@ -98,8 +98,8 @@ function ImageConfig ({
   }
 
   return (
-    <Wrapper className='imageWrapper configComponents' 
-      imgHovBgColor={imgHovBgColor} 
+    <Wrapper className='imageWrapper configComponents'
+      imgHovBgColor={imgHovBgColor}
       figureHovBgColor={figureHovBgColor}
     >
       <div className="copyStyleName">
