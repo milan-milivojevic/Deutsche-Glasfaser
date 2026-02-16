@@ -1,0 +1,10 @@
+label: Description
+$type: compositeField
+layout:
+  $type: horizontal
+itemProvider:
+  $type: currentItemProvider
+properties:
+  descriptionBackground: !include:/standard-template-kit-wholesale/includes/dialogs/teasersShared/includes/descriptionBackground.yaml
+  descriptionStyle: !include:/standard-template-kit-wholesale/includes/dialogs/text/includes/descriptionType.yaml
+  descriptionAlign: !include:/standard-template-kit-wholesale/includes/dialogs/text/includes/textAlign.yaml  

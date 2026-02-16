@@ -1,0 +1,15 @@
+label: ""
+$type: compositeField
+layout:
+  $type: horizontal
+itemProvider:
+  $type: currentItemProvider
+properties:  
+  titleColor: !include:/standard-template-kit-wholesale/includes/dialogs/text/includes/fontColor.yaml
+    label: Title Font Color
+  titleBackground: !include:/standard-template-kit-wholesale/includes/dialogs/teasersShared/includes/titleBackground.yaml
+    label: Title Background Color
+  descBackground: !include:/standard-template-kit-wholesale/includes/dialogs/teasersShared/includes/descriptionBackground.yaml
+    label: Description Background Color
+  
+  

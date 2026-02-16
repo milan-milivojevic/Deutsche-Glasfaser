@@ -1,0 +1,16 @@
+title: Banner Section Configuration
+dialog: standard-template-kit-wholesale:components/sections/config/bannerSectionConfig
+areas:
+  bannerSection:
+    title: Banner Components
+    availableComponents:
+      carousel:
+        id: standard-template-kit-wholesale:components/advanced/carousel
+      carouselTeaser:
+        id: standard-template-kit-wholesale:components/advanced/carouselTeaser
+      image:
+        id: standard-template-kit-wholesale:components/basic/image
+      imageTeaser:
+        id: standard-template-kit-wholesale:components/advanced/imageTeaser
+      video:
+        id: standard-template-kit-wholesale:components/basic/video

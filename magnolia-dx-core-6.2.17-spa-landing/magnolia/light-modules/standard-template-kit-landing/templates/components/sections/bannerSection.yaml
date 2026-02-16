@@ -1,0 +1,18 @@
+title: Banner Section
+dialog: standard-template-kit-landing:components/sections/bannerSection
+areas:
+  bannerSection:
+    title: Banner Components
+    availableComponents:
+      carousel:
+        id: standard-template-kit-landing:components/advanced/carousel
+      carouselTeaser:
+        id: standard-template-kit-landing:components/advanced/carouselTeaser
+      image:
+        id: standard-template-kit-landing:components/basic/image
+      imageTeaser:
+        id: standard-template-kit-landing:components/advanced/imageTeaser
+      imageGallery:
+        id: standard-template-kit-landing:components/grouping/imageGallery
+      video:
+        id: standard-template-kit-landing:components/basic/video

@@ -1,0 +1,29 @@
+label: W2P Documents By Status
+wide: true
+form:
+  properties:
+    
+    documentsByStatusConfig: !include:/standard-template-kit-wholesale/includes/dialogs/w2p/documentsByStatusConfig.yaml  
+    documentActions: !include:/standard-template-kit-wholesale/includes/dialogs/w2p/documentActions.yaml
+
+    title: !include:/standard-template-kit-wholesale/includes/dialogs/mpAsset/title.yaml
+    titleStyles: !include:/standard-template-kit-wholesale/includes/dialogs/mpAsset/titleStyles.yaml
+    titlePaddings: !include:/standard-template-kit-wholesale/includes/dialogs/mpAsset/titlePaddings.yaml
+      
+  layout:
+    $type: tabbedLayout
+    tabs:
+      - name: title
+      - label: Title
+        fields:
+          - name: title
+          - name: titleStyles   
+          - name: titlePaddings
+      - name: searchConfig
+      - label: Search Config
+        fields:
+          - name: documentsByStatusConfig
+      - name: actions
+      - label: Actions
+        fields:
+          - name: documentActions

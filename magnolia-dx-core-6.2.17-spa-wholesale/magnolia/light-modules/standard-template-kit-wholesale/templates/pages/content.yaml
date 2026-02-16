@@ -1,0 +1,33 @@
+title: Wholesale Content Page
+
+# baseUrl: http://localhost:3000 
+# routeTemplate: '/{language}{{@path}}'
+templateScript: /standard-template-kit-wholesale/webresources/build/index.html
+
+dialog: standard-template-kit-wholesale:pages/content
+
+renderType: spa
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
+areas:
+  bannerSection:
+    title: Banner Area
+    availableComponents:
+      carousel:
+        id: standard-template-kit-wholesale:components/advanced/carousel
+      carouselTeaser:
+        id: standard-template-kit-wholesale:components/advanced/carouselTeaser
+      image:
+        id: standard-template-kit-wholesale:components/basic/image
+      imageTeaser:
+        id: standard-template-kit-wholesale:components/advanced/imageTeaser
+      imageGallery:
+        id: standard-template-kit-wholesale:components/grouping/imageGallery
+      video:
+        id: standard-template-kit-wholesale:components/basic/video
+  mainSection:
+    title: Main Area
+    availableComponents:      
+      mainSection:
+        id: standard-template-kit-wholesale:components/sections/mainSection
+
+

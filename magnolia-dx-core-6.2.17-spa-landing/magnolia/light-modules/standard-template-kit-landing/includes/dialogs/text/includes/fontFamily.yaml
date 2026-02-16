@@ -1,0 +1,23 @@
+label: Font Family
+$type: comboBoxField
+datasource:
+  $type: optionListDatasource
+  options:
+    - name: default
+      value: default
+      label: default
+    - name: Sohne Buch
+      value: Sohne Buch
+      label: Sohne Buch
+    - name: Sohne Buch Kursiv
+      value: Sohne Buch Kursiv
+      label: Sohne Buch Kursiv
+    - name: Sohne Halbfett
+      value: Sohne Halbfett
+      label: Sohne Halbfett
+    - name: Sohne Halbfett Kursiv
+      value: Sohne Halbfett Kursiv
+      label: Sohne Halbfett Kursiv
+    - name: Sohne Schmal Halbfett
+      value: Sohne Schmal Halbfett
+      label: Sohne Schmal Halbfett

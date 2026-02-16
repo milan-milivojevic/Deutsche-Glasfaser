@@ -1,0 +1,17 @@
+title: Wholesale Search Page - Global Search
+
+# baseUrl: http://localhost:3000 
+# routeTemplate: '/{language}{{@path}}'
+templateScript: /standard-template-kit-wholesale/webresources/build/index.html
+
+dialog: standard-template-kit-wholesale:pages/search/globalSearch
+
+renderType: spa
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
+
+areas:
+  globalSearchArea:
+    title: Global Search Area
+    availableComponents:
+      globalSearch:
+        id: standard-template-kit-wholesale:components/search/globalSearch

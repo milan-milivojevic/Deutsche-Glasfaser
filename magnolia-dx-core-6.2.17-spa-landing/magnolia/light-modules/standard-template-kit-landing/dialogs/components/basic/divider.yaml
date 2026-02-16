@@ -1,0 +1,5 @@
+label: Divider
+form:
+  properties:
+      styleWithCheckbox: !include:/standard-template-kit-landing/includes/dialogs/shared/styleWithCheckbox.yaml
+      divider: !include:/standard-template-kit-landing/includes/dialogs/separators/divider.yaml

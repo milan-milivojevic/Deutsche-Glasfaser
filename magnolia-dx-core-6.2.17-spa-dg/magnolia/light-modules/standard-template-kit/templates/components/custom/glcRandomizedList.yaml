@@ -1,0 +1,8 @@
+title: Randomized List (GLC)
+dialog: standard-template-kit:components/custom/glcRandomizedList
+areas:
+  column1: &column1
+    title: Global Layout Components
+    availableComponents:
+      globalLayoutComponent:
+        id: standard-template-kit:components/advanced/globalLayoutComponent

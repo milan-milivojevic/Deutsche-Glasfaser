@@ -1,0 +1,41 @@
+@charset 'UTF-8';
+
+@font-face {
+  font-family: 'Sohne Buch';
+  src: url("../fonts/SohneApp-Buch/soehne-web-buch.eot");
+  src: url("../fonts/SohneApp-Buch/soehne-web-buch.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/SohneApp-Buch/soehne-web-buch.woff") format("woff"),
+       url("../fonts/SohneApp-Buch/soehne-app-buch.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sohne Buch Kursiv';
+  src: url("../fonts/SohneApp-BuchKursiv/soehne-web-buch-kursiv.eot");
+  src: url("../fonts/SohneApp-BuchKursiv/soehne-web-buch-kursiv.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/SohneApp-BuchKursiv/soehne-web-buch-kursiv.woff") format("woff"),
+       url("../fonts/SohneApp-BuchKursiv/soehne-app-buch-kursiv.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sohne Halbfett';
+  src: url("../fonts/SohneApp-Halbfett/soehne-web-halbfett.eot");
+  src: url("../fonts/SohneApp-Halbfett/soehne-web-halbfett.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/SohneApp-Halbfett/soehne-web-halbfett.woff") format("woff"),
+       url("../fonts/SohneApp-Halbfett/soehne-app-halbfett.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sohne Halbfett Kursiv';
+  src: url("../fonts/SohneApp-HalbfettKursiv/soehne-web-halbfett-kursiv.eot");
+  src: url("../fonts/SohneApp-HalbfettKursiv/soehne-web-halbfett-kursiv.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/SohneApp-HalbfettKursiv/soehne-web-halbfett-kursiv.woff") format("woff"),
+       url("../fonts/SohneApp-HalbfettKursiv/soehne-app-halbfettKursiv.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'Sohne Schmal Halbfett';
+  src: url("../fonts/SohneDGAppSchmal-Halbfett/soehnedg-web-schmal-halbfett.eot");
+  src: url("../fonts/SohneDGAppSchmal-Halbfett/soehnedg-web-schmal-halbfett.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/SohneDGAppSchmal-Halbfett/soehnedg-web-schmal-halbfett.woff") format("woff"),
+       url("../fonts/SohneDGAppSchmal-Halbfett/soehnedg-app-schmal-halbfett.ttf") format("truetype");
+}
