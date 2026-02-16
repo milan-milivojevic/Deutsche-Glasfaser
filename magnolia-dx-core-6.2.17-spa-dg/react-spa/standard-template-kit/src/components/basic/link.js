@@ -10,10 +10,10 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovBorderColor && props.hovBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
 `;
@@ -62,7 +62,7 @@ function Link({
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -75,7 +75,7 @@ function Link({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
@@ -85,30 +85,30 @@ function Link({
   const defLabelColor = labelDefaultColor || configProps?.labelDefaultColor || null;
   const hovLabelColor = labelHoverColor || configProps?.labelHoverColor || defLabelColor;
   const defChevronColor = chevronDefaultColor || configProps?.chevronDefaultColor || null;
-  const hovChevronColor = chevronHoverColor || configProps?.chevronHoverColor || defChevronColor;  
+  const hovChevronColor = chevronHoverColor || configProps?.chevronHoverColor || defChevronColor;
   const defBorderColor = linkBorderColor || configProps?.linkBorderColor || null;
   const hovBorderColor = linkBorderHoverColor || configProps?.linkBorderHoverColor || defBorderColor;
-  
-  const downloadLink = download ? download['@link'] : baseUrl;  
+
+  const downloadLink = download ? download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Home/Home", "Home") : linkType === "external" ? external : downloadLink;
 
   const linkIcons = linkIcon || configProps?.linkIcon || "";
-  
+
   const linkComponentStyles = {
     paddingTop: linkPaddingTop || configProps?.linkPaddingTop || null,
     paddingRight: linkPaddingRight || configProps?.linkPaddingRight || null,
     paddingBottom: linkPaddingBottom || configProps?.linkPaddingBottom || null,
-    paddingLeft: linkPaddingLeft || configProps?.linkPaddingLeft || null, 
+    paddingLeft: linkPaddingLeft || configProps?.linkPaddingLeft || null,
     justifyContent: linkHorizontalPosition || configProps?.linkHorizontalPosition || "left"
   }
-  
+
   const linkStyles = {
     backgroundColor: defBgColor,
     color: defLabelColor,
     paddingTop: labelPaddingTop || configProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || configProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || configProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || configProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || configProps?.labelPaddingLeft || null,
     borderColor: defBorderColor,
     borderWidth: linkBorderWidth || configProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || configProps?.linkBorderStyle || null,
@@ -126,15 +126,15 @@ function Link({
 
   return (
     <Wrapper className='linkWrapper'
-      hovBgColor={hovBgColor} 
+      hovBgColor={hovBgColor}
       hovLabelColor={hovLabelColor}
       hovBorderColor={hovBorderColor}
       defChevronColor={defChevronColor}
       hovChevronColor={hovChevronColor}
     >
       <div className='linkComponent flex' style={linkComponentStyles}>
-        <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer" style= {linkStyles}> 
-          {linkLabel || ""} 
+        <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer" style= {linkStyles}>
+          {linkLabel || ""}
           {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
         </a>
       </div>

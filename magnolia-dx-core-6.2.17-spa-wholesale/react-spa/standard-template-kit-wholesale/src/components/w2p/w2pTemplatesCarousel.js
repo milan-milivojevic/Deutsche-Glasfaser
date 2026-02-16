@@ -6,9 +6,9 @@ import { idSearch, templatesSearchService, newTemplates, recentlyUsedTemplates, 
 import Card from './helpers/Card';
 import CryptoJS from 'crypto-js';
 
-function W2PTemplatesCarousel({ 
-  templateIds, 
-  linkToSearchResult, 
+function W2PTemplatesCarousel({
+  templateIds,
+  linkToSearchResult,
 
   templatesSearchType,
   sortOrderTemplates,
@@ -16,12 +16,12 @@ function W2PTemplatesCarousel({
 
   detailsButton,
   favouritesButton,
-  createDocumentButton,  
+  createDocumentButton,
   copyLinkButton,
 
-  slidesToShow, 
-  slidesToScroll, 
-  showDots, 
+  slidesToShow,
+  slidesToScroll,
+  showDots,
   loop,
   autoplay,
 
@@ -45,10 +45,10 @@ function W2PTemplatesCarousel({
 
   const sliderRef = useRef(null);
   const [products, setProducts] = useState([]);
-  
+
   const settings = {
-    
-    slidesToShow: slidesToShow || 5, // 
+
+    slidesToShow: slidesToShow || 5,
     slidesToScroll: slidesToScroll || 1,
     speed: 500,
     autoplay: autoplay === "false" ? false : true,
@@ -60,14 +60,14 @@ function W2PTemplatesCarousel({
         breakpoint: 1440,
         settings: {
           slidesToShow: 4,
-          slidesToScroll: 1, // Na manjim ekranima prikazuje samo 1 aset istovremeno
+          slidesToScroll: 1,
         },
       },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1, // Na manjim ekranima prikazuje samo 1 aset istovremeno
+          slidesToScroll: 1,
         },
       },
     ],
@@ -78,7 +78,6 @@ function W2PTemplatesCarousel({
 
   const resetTransform = () => {
     var interval = setInterval(() => {
-      // Delay the transformation to give react-slick time to update
       const slickList = sliderRef.current.innerSlider.list;
       if (slickList) {
         const slickTrack = slickList.querySelector('.slick-track');
@@ -99,12 +98,12 @@ function W2PTemplatesCarousel({
   }
 
   const size = cardsLimit ? cardsLimit > 40 ? 40 : cardsLimit : 20;
-  const calculatedSize = size - templatesIdsArray?.length;  
+  const calculatedSize = size - templatesIdsArray?.length;
 
   const templatesSearch = async () => {
 
     let url = new URL(linkToSearchResult);
-    let searchParams = new URLSearchParams(url.search);  
+    let searchParams = new URLSearchParams(url.search);
     const encryptedData = searchParams.get('data');
 
     let decryptedData = undefined;
@@ -194,7 +193,7 @@ function W2PTemplatesCarousel({
     paddingRight: titlePaddingRight || null,
     paddingBottom: titlePaddingBottom || null,
     paddingLeft: titlePaddingLeft || null
-  } 
+  }
 
   return (
     <div className='mpCarouselWrapper' id={navigationId && navigationId}>
@@ -205,7 +204,7 @@ function W2PTemplatesCarousel({
       }
       {products && products.length > 0 ? (
           <Slider ref={sliderRef} {...settings}>
-            {products.map(c => 
+            {products.map(c =>
               <Card
                 templateData={c}
                 key={c.id}

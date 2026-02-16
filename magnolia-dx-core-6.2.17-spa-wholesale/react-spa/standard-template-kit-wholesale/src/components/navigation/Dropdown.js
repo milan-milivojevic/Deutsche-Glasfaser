@@ -6,7 +6,7 @@ function Dropdown({submenus,dropdown,depthLevel}) {
 
   const dropdownClass = depthLevel > 1 ? "dropdown-submenu" : "";
 
-  return ( 
+  return (
     <ul className = {`dropdown ${dropdownClass} level-${depthLevel} ${dropdown ? "show" : ""}`}>
       {
         submenus.map((submenu, index) => {
@@ -18,7 +18,7 @@ function Dropdown({submenus,dropdown,depthLevel}) {
             />
           );
         })
-      } 
+      }
     </ul>
   )
 }

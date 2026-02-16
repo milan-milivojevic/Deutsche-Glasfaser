@@ -14,21 +14,21 @@ function CorporateIdentityColors ({
   namePaddingLeft,
   previewStyle,
   previewHeight,
-  previewNameSize,  
+  previewNameSize,
   gap,
   componentWidth,
   componentPosition,
   wrapperPaddingTop,
   wrapperPaddingRight,
   wrapperPaddingBottom,
-  wrapperPaddingLeft,  
+  wrapperPaddingLeft,
   styleName,
   noStyles
 }) {
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -41,7 +41,7 @@ function CorporateIdentityColors ({
           result = data[0];
           } else if (noStyles !== (false || "false")) {
           result = null;
-          } 
+          }
           setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
@@ -50,12 +50,12 @@ function CorporateIdentityColors ({
 
   const useContainerDimensions = myRef => {
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
-  
+
     useEffect(() => {
       const getDimensions = () => ({
         width: myRef.current.offsetWidth,
         height: myRef.current.offsetHeight
-      })  
+      })
 
       const handleResize = () => {
         setDimensions(getDimensions())
@@ -63,22 +63,22 @@ function CorporateIdentityColors ({
 
       if (myRef.current) {
         setDimensions(getDimensions())
-      }      
-  
+      }
+
       window.addEventListener("resize", handleResize)
 
       const myInterval = setInterval(handleResize, 500);
-  
+
       return () => {
         window.removeEventListener("resize", handleResize);
         setTimeout(function(){
           clearInterval(myInterval);
         }, 5000);
-        
-      }     
+
+      }
 
     }, [myRef])
-  
+
     return dimensions;
   };
 
@@ -98,7 +98,7 @@ function CorporateIdentityColors ({
     fontSize: nameFontSize || configProps?.nameFontSize || null,
     fontFamily: nameFontFamily || configProps?.nameFontFamily || null,
     color: nameColor || configProps?.nameColor || null,
-    textAlign: namePosition || configProps?.namePosition || null,    
+    textAlign: namePosition || configProps?.namePosition || null,
     fontWeight: nameBold || configProps?.nameBold || null,
     paddingTop: namePaddingTop || configProps?.namePaddingTop || null,
     paddingRight: namePaddingRight || configProps?.namePaddingRight || null,
@@ -125,9 +125,9 @@ function CorporateIdentityColors ({
   return (
     <div className='corporateIdentityColorsWrapper configComponents'>
       <div className={`corporateIdentityColors layout${layout}`} style={componentStyles}>
-        {activeColorNames.map((colors, i) =>      
+        {activeColorNames.map((colors, i) =>
           <div className={`corporateIdentityColor color${i}`} ref={widthRef} key={i}>
-            <div className="previewColor" 
+            <div className="previewColor"
                  style={{backgroundColor: multi[`multi${i}`]?.previewColor,
                          border: multi[`multi${i}`]?.previewBorder,
                          borderRadius: borderRadius,
@@ -141,8 +141,8 @@ function CorporateIdentityColors ({
               {showName ? multi[`multi${i}`]?.colorName : null}
             </div>
             <div className="colorName" style={nameStyles}>{multi[`multi${i}`]?.colorName}</div>
-            <div className={`colorModes`} 
-                 dangerouslySetInnerHTML={{ __html:multi[`multi${i}`]?.colorModes || null }}  
+            <div className={`colorModes`}
+                 dangerouslySetInnerHTML={{ __html:multi[`multi${i}`]?.colorModes || null }}
             ></div>
           </div>
         )}
@@ -150,7 +150,6 @@ function CorporateIdentityColors ({
     </div>
   )
 }
-
 
 
 export default CorporateIdentityColors;

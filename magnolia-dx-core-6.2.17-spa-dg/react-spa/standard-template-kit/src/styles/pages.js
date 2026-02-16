@@ -34,11 +34,11 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-function PagesStyles() {  
+function PagesStyles() {
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -74,28 +74,28 @@ function PagesStyles() {
   const lhnPagesPaddingRight = configProps?.lhnPagesPaddingRight || "";
 
   return (
-    <GlobalStyles 
+    <GlobalStyles
       bodyBackColor={bodyBackColor}
       homePageWidth={homePageWidth}
-      homePageBackColor={homePageBackColor}    
+      homePageBackColor={homePageBackColor}
       homePagePaddingTop={homePagePaddingTop}
       homePagePaddingBottom={homePagePaddingBottom}
-      homePagePaddingLeft={homePagePaddingLeft} 
-      homePagePaddingRight={homePagePaddingRight}  
+      homePagePaddingLeft={homePagePaddingLeft}
+      homePagePaddingRight={homePagePaddingRight}
 
       contentPagesWidth={contentPagesWidth}
-      contentPagesBackColor={contentPagesBackColor}    
+      contentPagesBackColor={contentPagesBackColor}
       contentPagesPaddingTop={contentPagesPaddingTop}
       contentPagesPaddingBottom={contentPagesPaddingBottom}
-      contentPagesPaddingLeft={contentPagesPaddingLeft} 
-      contentPagesPaddingRight={contentPagesPaddingRight}  
+      contentPagesPaddingLeft={contentPagesPaddingLeft}
+      contentPagesPaddingRight={contentPagesPaddingRight}
 
       lhnPagesWidth={lhnPagesWidth}
-      lhnPagesBackColor={lhnPagesBackColor}    
+      lhnPagesBackColor={lhnPagesBackColor}
       lhnPagesPaddingTop={lhnPagesPaddingTop}
       lhnPagesPaddingBottom={lhnPagesPaddingBottom}
-      lhnPagesPaddingLeft={lhnPagesPaddingLeft} 
-      lhnPagesPaddingRight={lhnPagesPaddingRight}  
+      lhnPagesPaddingLeft={lhnPagesPaddingLeft}
+      lhnPagesPaddingRight={lhnPagesPaddingRight}
     />
   );
 }

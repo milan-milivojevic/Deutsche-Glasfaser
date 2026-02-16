@@ -1,7 +1,5 @@
 title: Wholesale Content Page
 
-# baseUrl: http://localhost:3000 
-# routeTemplate: '/{language}{{@path}}'
 templateScript: /standard-template-kit-wholesale/webresources/build/index.html
 
 dialog: standard-template-kit-wholesale:pages/content
@@ -29,5 +27,3 @@ areas:
     availableComponents:      
       mainSection:
         id: standard-template-kit-wholesale:components/sections/mainSection
-
-

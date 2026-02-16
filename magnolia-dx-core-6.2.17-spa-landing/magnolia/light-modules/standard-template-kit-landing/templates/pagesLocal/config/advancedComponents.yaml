@@ -2,7 +2,6 @@ title: Configuration Page (Advanced Components)
 
 baseUrl: http://localhost:3000
 routeTemplate: '/{language}{{@path}}'
-# templateScript: /standard-template-kit-landing/webresources/build/index.html
 
 dialog: standard-template-kit-landing:pages/config/advancedComponents
 
@@ -55,6 +54,3 @@ areas:
     availableComponents:      
       textLinkConfig:
         id: standard-template-kit-landing:components/advanced/config/textLinkConfig
-  
-
-

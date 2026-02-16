@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   }
 }`
 
-function IFrame({ 
+function IFrame({
   link,
   position,
   paddingTop,
@@ -31,7 +31,7 @@ function IFrame({
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -44,19 +44,19 @@ function IFrame({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
 
   const defBgColor = defaultBackColor || configProps?.defaultBackColor || null;
   const hovBgColor = hoverBackColor || configProps?.hoverBackColor || defBgColor;
-  
-  const iframeStyles = { 
+
+  const iframeStyles = {
     paddingTop: paddingTop || configProps?.paddingTop || null,
     paddingRight: paddingRight || configProps?.paddingRight || null,
     paddingBottom: paddingBottom || configProps?.paddingBottom || null,
-    paddingLeft: paddingLeft || configProps?.paddingLeft || null,    
+    paddingLeft: paddingLeft || configProps?.paddingLeft || null,
     backgroundColor: defBgColor,
     borderColor: borderColor || configProps?.borderColor || null,
     borderWidth: borderWidth || configProps?.borderWidth || null,
@@ -67,7 +67,7 @@ function IFrame({
   return (
     <Wrapper className='iframeWrapper' hovBgColor={hovBgColor}>
       <div className='iframeComponent' style={{ justifyContent: position || configProps?.position || "left" }}>
-        <iframe 
+        <iframe
           src={link}
           width={width || configProps?.width || "100%"}
           height={height || configProps?.height || "auto"}
@@ -80,7 +80,7 @@ function IFrame({
         ></iframe>
       </div>
     </Wrapper>
-  ) 
+  )
 }
 
 export default IFrame;

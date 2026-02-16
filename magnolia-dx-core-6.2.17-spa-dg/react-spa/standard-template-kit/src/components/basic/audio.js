@@ -1,7 +1,7 @@
 import React, { useId, useState, useEffect } from 'react';
 import { getAPIBase } from '../../helpers/AppHelpers';
 
-function Audio ({ 
+function Audio ({
     audio,
     autoplay,
     loop,
@@ -25,8 +25,8 @@ function Audio ({
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
-  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
+
   const [configProps, setConfigProps] = useState();
 
   useEffect(() => {
@@ -38,25 +38,25 @@ function Audio ({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
-  }, [styleName, noStyles, apiBase, restPath, nodeName]);  
+  }, [styleName, noStyles, apiBase, restPath, nodeName]);
 
   const audioStyles = {
     marginTop: marginTop || configProps?.marginTop || null,
     marginRight: marginRight || configProps?.marginRight || null,
     marginBottom: marginBottom || configProps?.marginBottom || null,
-    marginLeft: marginLeft || configProps?.marginLeft || null,    
+    marginLeft: marginLeft || configProps?.marginLeft || null,
     borderColor: borderColor || configProps?.borderColor || null,
     borderWidth: borderWidth || configProps?.borderWidth || null,
     borderStyle: borderStyle || configProps?.borderStyle || null,
     borderRadius: borderRadius || configProps?.borderRadius || null,
     width: width || configProps?.width || "100%"
-  } 
+  }
 
-  return (  
-    <div className='audioWrapper'>      
+  return (
+    <div className='audioWrapper'>
       <div className='audioComponent' style={{justifyContent: position || configProps?.position || "left"}}>
         <audio
           src={audio['@link']}
@@ -64,11 +64,11 @@ function Audio ({
           autoPlay={autoplay === (false || "false") ? null : "autoplay"}
           controls="controls"
           muted={muted === (false || "false") ? null : "muted"}
-          loop={loop === (false || "false") ? null : "loop"} 
+          loop={loop === (false || "false") ? null : "loop"}
           id={"audio_" + id}
           className="audio"
           style={audioStyles}
-        ></audio>    
+        ></audio>
       </div>
     </div>
   )

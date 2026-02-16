@@ -15,7 +15,7 @@ import {
   getLanguages,
   getCurrentLanguage,
   changeLanguage,
-  getRouterBasename, 
+  getRouterBasename,
   events
 } from "../src/helpers/AppHelpers";
 
@@ -25,10 +25,9 @@ function App() {
 
   const isPagesApp = window.location.search.includes("mgnlPreview");
   const editMode = isPagesApp ? "editMode" : "";
-  
-  /* Rendering Languages */
+
   function renderLanguages() {
-    const currentLanguage = getCurrentLanguage();    
+    const currentLanguage = getCurrentLanguage();
     return (
       <div className="languages">
         {getLanguages().map((lang) => (
@@ -44,30 +43,24 @@ function App() {
     );
   }
 
-  const [query, setQuery] = useState("");  
+  const [query, setQuery] = useState("");
 
-  /* Setting top position and min-height of Page Content */
-  const headerRef = React.useRef(null);  
-  // const topNavRef = React.useRef(null); 
+  const headerRef = React.useRef(null);
   const pageRef = React.useRef(null);
-  
+
   React.useEffect(() => {
-    var interval = setInterval(() => {    
+    var interval = setInterval(() => {
       const headerHeight = headerRef.current ? headerRef.current.getBoundingClientRect().height : 0;
-      // const topNavHeight = topNavRef.current ? topNavRef.current.getBoundingClientRect().height : 0;
-      // const topHeight = headerHeight + topNavHeight;
-      // topNavRef.current.style.top = headerHeight + 'px';
       pageRef.current.style.top = headerHeight + 'px';
       pageRef.current.style.minHeight = `calc(100vh - ${headerHeight}px)`;
     }, 300)
     setTimeout(function( ) { clearInterval( interval ); }, 6000);
   }, []);
 
-  /* Getting props from headerConfig for setting logo and logo link */
-  const baseUrl = process.env.REACT_APP_MGNL_HOST; 
+  const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
   const [userData, setUserData] = useState();
@@ -95,13 +88,12 @@ function App() {
       });
   }, []);
 
-  /* Setting pathname */
   const [pathname, setPathname] = useState(window.location.pathname);
 
   useEffect(() => {
     function handlePopstate() {
       setPathname(window.location.pathname);
-    }   
+    }
 
     events.on('popstate', handlePopstate);
     window.addEventListener('popstate', handlePopstate);
@@ -112,10 +104,8 @@ function App() {
     };
   }, []);
 
-  /* Questionable part of the code because of querySelector */
   var leftNavInterval = setInterval(() => {
 
-    /* Adding active class on active nav item elemets */
     const links = document.querySelectorAll('.menu-item > button > a');
     const leftLinks = document.querySelectorAll('.leftHandNav .menu-item > button > a');
     function setActiveLink(link) {
@@ -137,22 +127,6 @@ function App() {
       setActiveLink(leftLink);
     }
 
-    // /* Setting all chevrons in the same place */
-    // const navItems = document.querySelectorAll('.leftHandNav ul li a');
-    // // console.log(navItems);
-    // let longestNavItemWidth = 0;
-    // // console.log(longestNavItemWidth);
-    // navItems.forEach(navItem => {
-    //   const navItemWidth = navItem.getBoundingClientRect().width;
-    //   // console.log(navItemWidth);
-    //   if (navItemWidth > longestNavItemWidth) {
-    //     longestNavItemWidth = navItemWidth;
-    //   }
-    // });
-    // // console.log(longestNavItemWidth);
-    // navItems.forEach(navItem => {
-    //   navItem.style.width = longestNavItemWidth + 'px';
-    // });
   }, 300);
   setTimeout(function( ) { clearInterval( leftNavInterval ); }, 6000);
 
@@ -179,14 +153,11 @@ function App() {
 
   return (
     <div className={`App ${editMode}`}>
-      <PagesStyles/>   
+      <PagesStyles/>
       <HeaderStyles/>
-      {/* <NavLevelsStyles/>
-      <TopNavStyles/>
-      <LeftNavStyles/> */}
       <HeadlinesStyles/>
       <ParagraphsStyles/>
-      <header ref={headerRef}>    
+      <header ref={headerRef}>
         <div className='header'>
           {configProps?.logo &&
             <div className='logo'>
@@ -195,41 +166,14 @@ function App() {
                   e.preventDefault();
                   window.history.pushState({}, "", e.currentTarget.href);
                   events.emit("popstate");
-                }}            
+                }}
               >
                 <img alt="" src={configProps?.logo['@link'] }/>
-              </a>    
+              </a>
             </div>
           }
-         {/* <div className='rightHeader'>
-            <div className='userLinks'>
-              <a href={configProps?.adminLink}>
-                {configProps?.adminLinkDisplayName || "Admin"}
-              </a>
-              <a href={configProps?.userLink}>
-                {configProps?.userLinkDisplayName || userData?.login || "User"}
-              </a>            
-            </div>
-            <div className='flex headerSearch'>
-              <input 
-                className='searchInput'
-                placeholder='Search...' 
-                onChange={(e) => setQuery(e.target.value)}
-              />
-              <button
-                type='button'
-                onClick={handleClick}
-              ><IoSearchOutline/></button>
-            </div>
-            { showLogout === "false" || false ? null :
-              <div className='logout'>
-                <div><IoLogOutOutline/></div>
-              </div> 
-            }            
-          </div> */}
         </div>
       </header>
-      {/* <ForwardedTopNav ref={topNavRef}></ForwardedTopNav> */}
       <div className='pageContainer' ref={pageRef}>
         <PageLoader pathname={pathname} />
         <footer>

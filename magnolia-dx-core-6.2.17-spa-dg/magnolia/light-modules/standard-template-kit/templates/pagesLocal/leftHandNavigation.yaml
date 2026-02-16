@@ -2,7 +2,6 @@ title: Content with Left Hand Navigation Page
 
 baseUrl: http://localhost:3000
 routeTemplate: '/{language}{{@path}}'
-# templateScript: /standard-template-kit/webresources/build/index.html
 
 dialog: standard-template-kit:pages/leftHandNavigation
 
@@ -29,5 +28,3 @@ areas:
     availableComponents:      
       mainSection:
         id: standard-template-kit:components/sections/mainSection
-
-

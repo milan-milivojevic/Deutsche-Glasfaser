@@ -5,7 +5,7 @@ import StaticSearch from "./staticSearch";
 import { IoSearchOutline } from 'react-icons/io5';
 
 function GlobalSearch({
-  sortOrder,  
+  sortOrder,
   perPage,
   perRow,
   defaultView,
@@ -20,11 +20,11 @@ function GlobalSearch({
   templatesDefaultView,
   detailsTemplateButton,
   favouritesButton,
-  createDocumentButton, 
+  createDocumentButton,
   copyTemplateLinkButton
 }) {
 
-  const [currentView, setCurrentView] = useState('static'); 
+  const [currentView, setCurrentView] = useState('static');
   const [query, setQuery] = useState("");
   const [tempQuery, setTempQuery] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -51,17 +51,12 @@ function GlobalSearch({
   };
 
   const handleSearch = () => {
-    // if (tempQuery?.length < 2) {
-    //   setErrorMessage("Mindestens 2 Zeichen eingeben");
-    //   return;
-    // }
-    // setErrorMessage("");
     setQuery(tempQuery);
   };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
-      e.preventDefault(); 
+      e.preventDefault();
       handleSearch();
     }
   };
@@ -70,17 +65,6 @@ function GlobalSearch({
     <div className="globalSearch">
 
       <div className="globalSearchHeader">
-        {/* <div className="globalSearchButtons">
-          <button className={currentView === 'static' ? "active" : null} onClick={() => setCurrentView('static')}>
-            Content Suche
-          </button>
-          <button className={currentView === 'mp' ? "active" : null} onClick={() => setCurrentView('mp')}>
-            Mediendatenbank Suche
-          </button>
-          <button className={currentView === 'w2p' ? "active" : null} onClick={() => setCurrentView('w2p')}>
-            W2P Suche
-          </button>        
-        </div> */}
 
         <div className="flex headerSearch">
           <input
@@ -88,21 +72,16 @@ function GlobalSearch({
             type="text"
             placeholder={getPlaceholderText(currentView)}
             value={tempQuery || ""}
-            onChange={(e) => setTempQuery(e.target.value)}   
+            onChange={(e) => setTempQuery(e.target.value)}
             onKeyDown={handleKeyDown}
           />
           <button type="button" onClick={handleSearch}>
             <IoSearchOutline />
           </button>
-          {/* {errorMessage && (
-          <div className="searchError">
-            {errorMessage}
-          </div>
-          )} */}
         </div>
       </div>
 
-      
+
 
       {currentView === 'mp' &&
         <MpSearch
@@ -131,7 +110,7 @@ function GlobalSearch({
         />
       }
       {currentView === 'static' &&
-        <StaticSearch 
+        <StaticSearch
           globalQuery={query}
         />
       }

@@ -21,7 +21,7 @@ export default function TemplateDetailsFilter({ onUpdateSelectedDetails, selecte
         setSelectedOption(correspondingSelected || null);
       })
       .catch((error) => {
-        console.error("Greška prilikom preuzimanja podataka:", error);
+        console.error("Error fetching data:", error);
       });
   }, [selectedDetails]);
 
@@ -35,13 +35,13 @@ export default function TemplateDetailsFilter({ onUpdateSelectedDetails, selecte
 
   const handleSelectChange = (e) => {
     const selectedValue = e.target.value;
-    
+
     if (selectedValue === "none") {
       setSelectedOption(null);
       onUpdateSelectedDetails(null);
       return;
     }
-    
+
     const selectedItem = parents.find(item => item.value === selectedValue);
     setSelectedOption(selectedItem);
     onUpdateSelectedDetails(selectedValue);

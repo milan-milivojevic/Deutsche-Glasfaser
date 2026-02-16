@@ -13,10 +13,10 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
   figure:hover, .videoComponent:hover, .embedVideoComponent:hover {
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 }`
 
 function SpecialLayoutComponentConfig ({
-    headline,   
+    headline,
     headlineLevel,
     headlineFontFamily,
     headlinePosition,
@@ -91,7 +91,7 @@ function SpecialLayoutComponentConfig ({
     chevronHoverColor,
     mediaType,
     embed,
-    video, 
+    video,
     autoplay,
     loop,
     muted,
@@ -144,11 +144,11 @@ function SpecialLayoutComponentConfig ({
     linkPosition,
     linkStyleName,
     linkNoStyles,
-    styleName      
+    styleName
   }) {
 
-  const id = useId(); 
-  
+  const id = useId();
+
   const myRef = useRef(null);
 
   const handleClick = () => {
@@ -159,7 +159,7 @@ function SpecialLayoutComponentConfig ({
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [linkConfigProps, setLinkConfigProps] = useState();
 
@@ -172,7 +172,7 @@ function SpecialLayoutComponentConfig ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, apiBase, restPath, nodeName]);
@@ -180,8 +180,8 @@ function SpecialLayoutComponentConfig ({
 
   const linkExist = page || external || download || null;
 
-  const HeadlineLevel = headlineLevel || "h1";  
-  const downloadLink = download ? download['@link'] : baseUrl; 
+  const HeadlineLevel = headlineLevel || "h1";
+  const downloadLink = download ? download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Wholesale/Wholesale", "Wholesale") : linkType === "external" ? external : downloadLink;
 
   const layouts = layout || "layout1";
@@ -204,9 +204,9 @@ function SpecialLayoutComponentConfig ({
   const imgDefBgColor = imageDefaultBackColor || null;
   const imgHovBgColor = imageHoverBackColor || null;
 
-  const figureDefBgColor = imageWrapperDefaultBackColor || null;  
+  const figureDefBgColor = imageWrapperDefaultBackColor || null;
   const figureHovBgColor = imageWrapperHoverBackColor || figureDefBgColor;
-  
+
   const linkIcons = linkIcon || linkConfigProps?.linkIcon || "";
 
   const specialLayoutComponentStyles = {
@@ -246,7 +246,7 @@ function SpecialLayoutComponentConfig ({
     borderWidth: descriptionBorderWidth || null,
     borderStyle: descriptionBorderStyle || null,
     borderRadius: descriptionBorderRadius || null,
-    textAlign: descriptionAlign || null       
+    textAlign: descriptionAlign || null
   }
 
   const linkComponentStyles = {
@@ -263,7 +263,7 @@ function SpecialLayoutComponentConfig ({
     paddingTop: labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: linkBorderColor || linkConfigProps?.linkBorderColor || null,
     borderWidth: linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -278,9 +278,9 @@ function SpecialLayoutComponentConfig ({
     fontWeight: linkBold || linkConfigProps?.linkBold || null,
     fontStyle: linkItalic || linkConfigProps?.linkItalic || null
   }
-  
+
   const figureWidth = imageLayoutWidth || null
-  
+
   const figureStyles = {
     alignItems: imageWrapperPosition || null,
     width: figureWidth,
@@ -318,7 +318,7 @@ function SpecialLayoutComponentConfig ({
     paddingLeft: imagePaddingLeft || null,
     backgroundColor: imgDefBgColor
   }
-  
+
   return (
     <Wrapper className='specialLayoutComponentWrapper configComponents'
       hovBgColor={hovBgColor}
@@ -327,17 +327,17 @@ function SpecialLayoutComponentConfig ({
       hovLinkBorderColor={hovLinkBorderColor}
       defChevronColor={defChevronColor}
       hovChevronColor={hovChevronColor}
-      imgHovBgColor={imgHovBgColor} 
-      figureHovBgColor={figureHovBgColor}     
+      imgHovBgColor={imgHovBgColor}
+      figureHovBgColor={figureHovBgColor}
     >
       <div className="copyStyleName">
         <h4>Style Name: <span className="copyText" ref={myRef}>{styleName || null}</span></h4>
         <button onClick={handleClick}>
           Copy Style Name
         </button>
-      </div>  
-      <div className={`specialLayoutComponent ${layouts}`} style={specialLayoutComponentStyles}> 
-        {headline &&         
+      </div>
+      <div className={`specialLayoutComponent ${layouts}`} style={specialLayoutComponentStyles}>
+        {headline &&
           <HeadlineLevel className="headline"style={headlineStyles}>
             {headline ? headline : null}
           </HeadlineLevel>
@@ -347,12 +347,12 @@ function SpecialLayoutComponentConfig ({
             <figure className="imageComponent" style={figureStyles}>
               <img className="image" src={image['@link']} alt="" style={imageStyles}/>
               <figcaption style={figcaptionStyles}>{imageCaption || null}</figcaption>
-            </figure> 
+            </figure>
           }
           {mediaType === "video" && video &&
             <div className="videoComponent" style={figureStyles}>
-              <video 
-                src={baseUrl + video['@link']} 
+              <video
+                src={baseUrl + video['@link']}
                 style={imageStyles}
                 preload="auto"
                 autoPlay={autoplay === (false || "false") ? null : "autoplay"}
@@ -365,21 +365,21 @@ function SpecialLayoutComponentConfig ({
             </div>
           }
           {mediaType === "embed" && embed &&
-            <div className="embedVideoComponent" style={figureStyles} 
+            <div className="embedVideoComponent" style={figureStyles}
               dangerouslySetInnerHTML={{ __html:embed || null }}>
             </div>
           }
           <div className='descLinkWrapper' style={{width: `calc(100% - ${figureWidth} - ${imageTextGap || 0})`, justifyContent: descLinkVerticalPosition}}>
             {description &&
-              <div className={`description ${descriptionStyle}`} 
-                    dangerouslySetInnerHTML={{ __html:description || null }} 
-                    style={descriptionStyles}>                      
+              <div className={`description ${descriptionStyle}`}
+                    dangerouslySetInnerHTML={{ __html:description || null }}
+                    style={descriptionStyles}>
               </div>
             }
             {linkExist &&
               <div className='linkComponent' style={linkComponentStyles}>
                 <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer" style= {linkStyles}>
-                  {linkLabel ? linkLabel : ""} 
+                  {linkLabel ? linkLabel : ""}
                   {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
                 </a>
               </div>

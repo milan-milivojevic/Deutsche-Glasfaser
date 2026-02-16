@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   }
 }`
 
-function IFrameConfig ({ 
+function IFrameConfig ({
   link,
   position,
   paddingTop,
@@ -34,13 +34,13 @@ function IFrameConfig ({
   };
 
   const defBgColor = defaultBackColor || null;
-  const hovBgColor = hoverBackColor || defBgColor;  
+  const hovBgColor = hoverBackColor || defBgColor;
 
-  const iframeStyles = { 
+  const iframeStyles = {
     paddingTop: paddingTop || null,
     paddingRight: paddingRight || null,
     paddingBottom: paddingBottom || null,
-    paddingLeft: paddingLeft || null,    
+    paddingLeft: paddingLeft || null,
     backgroundColor: defBgColor,
     borderColor: borderColor || null,
     borderWidth: borderWidth || null,
@@ -57,7 +57,7 @@ function IFrameConfig ({
         </button>
       </div>
       <div className='iframeComponent' style={{ justifyContent: position || "left" }}>
-        <iframe 
+        <iframe
           src={link}
           width={width || "100%"}
           height={height || "auto"}
@@ -70,7 +70,7 @@ function IFrameConfig ({
         ></iframe>
       </div>
     </Wrapper>
-  ) 
+  )
 }
 
 export default IFrameConfig;

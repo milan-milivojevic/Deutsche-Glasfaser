@@ -1,7 +1,7 @@
 import React from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function BannerSection ({ 
+function BannerSection ({
   bannerSection,
   wrapperPaddingLeft,
   wrapperPaddingBottom,

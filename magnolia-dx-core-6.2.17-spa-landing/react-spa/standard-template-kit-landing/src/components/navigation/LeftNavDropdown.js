@@ -6,7 +6,7 @@ function LeftNavDropdown({submenus,itemIndex,dropdown,depthLevel}) {
 
   const dropdownClass = depthLevel > 1 ? "dropdown-submenu" : "";
 
-  return ( 
+  return (
     <ul className = {`dropdown ${dropdownClass, depthLevel === 2 ? "show" : ""} level-${depthLevel} ${dropdown ? "show" : ""}`}>
       {
         submenus.map((submenu, index) => {
@@ -19,7 +19,7 @@ function LeftNavDropdown({submenus,itemIndex,dropdown,depthLevel}) {
             />
           );
         })
-      } 
+      }
     </ul>
   )
 }

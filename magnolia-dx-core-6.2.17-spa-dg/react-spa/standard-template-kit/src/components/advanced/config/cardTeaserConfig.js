@@ -14,16 +14,16 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
 `;
 
 function CardTeaserConfig ({
-  headline,   
+  headline,
   headlineLevel,
   headlineFontFamily,
   headlinePosition,
@@ -92,7 +92,7 @@ function CardTeaserConfig ({
   componentPaddingBottom,
   componentPaddingLeft,
   componentDefaultBackColor,
-  componentHoverBackColor,  
+  componentHoverBackColor,
   componentBorderColor,
   componentBorderHoverColor,
   componentBorderWidth,
@@ -101,8 +101,8 @@ function CardTeaserConfig ({
   bordersToShow,
   componentWidth,
   componentHeight,
-  componentPosition,   
-  componentBoxShadow, 
+  componentPosition,
+  componentBoxShadow,
   teaserLayout,
   descLinkLayout,
   descRowLayoutWidth,
@@ -116,7 +116,7 @@ function CardTeaserConfig ({
   linkNoStyles,
   styleName,
   }) {
-  
+
   const myRef = useRef(null);
 
   const handleClick = () => {
@@ -127,8 +127,8 @@ function CardTeaserConfig ({
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
-  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
+
   const [linkConfigProps, setLinkConfigProps] = useState();
 
   useEffect(() => {
@@ -140,7 +140,7 @@ function CardTeaserConfig ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, apiBase, restPath, nodeName]);
@@ -150,13 +150,13 @@ function CardTeaserConfig ({
   };
 
   const HeadlineLevel = headlineLevel || "h1";
-  const downloadLink = download ? download['@link'] : baseUrl;  
+  const downloadLink = download ? download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Home/Home", "Home") : linkType === "external" ? external : downloadLink;
 
   const cursorPointer = clickableImage === "true" ? "cursorPointer" : null;
   const showBorders = bordersToShow || null;
 
-  const defBgColor = componentDefaultBackColor || null;  
+  const defBgColor = componentDefaultBackColor || null;
   const hovBgColor = componentHoverBackColor || defBgColor;
 
   const defBorderColor = componentBorderColor || null;
@@ -191,14 +191,14 @@ function CardTeaserConfig ({
     height: imageHeight || null
   }
 
-  const cardTeaserStyles = {  
+  const cardTeaserStyles = {
     minHeight: `calc(${componentHeight} - ${imageHeight})`,
     justifyContent: teaserLayout || null,
     paddingTop: componentPaddingTop || null,
     paddingRight: componentPaddingRight || null,
     paddingBottom: componentPaddingBottom || null,
-    paddingLeft: componentPaddingLeft || null,    
-    backgroundColor: defBgColor,    
+    paddingLeft: componentPaddingLeft || null,
+    backgroundColor: defBgColor,
     borderColor: componentBorderColor || null,
     borderWidth: componentBorderWidth || null,
     borderStyle: componentBorderStyle || null,
@@ -222,7 +222,7 @@ function CardTeaserConfig ({
     paddingLeft: headlinePaddingLeft || null
   }
 
-  const descriptionLinkWrapperStyles = { 
+  const descriptionLinkWrapperStyles = {
     flexDirection: descLinkLayout || "column",
     gap: descLinkGap || null,
     alignItems: descLinkPosition || null
@@ -251,13 +251,13 @@ function CardTeaserConfig ({
     alignItems: linkVerticalPosition || "flex-start"
   }
 
-  const linkStyles = { 
+  const linkStyles = {
     backgroundColor: defLinkBgColor,
     color: defLabelColor,
     paddingTop: labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: defLinkBorderColor,
     borderWidth: linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -294,9 +294,9 @@ function CardTeaserConfig ({
              onClick={clickableImage === "true" ? openLink : null}
         />
         <div className={`cardTeaser flexColumn ${showBorders}`} style={cardTeaserStyles}>
-          {headline && 
+          {headline &&
             <HeadlineLevel className="headline"style={headlineStyles}>{headline || null}</HeadlineLevel>
-          }             
+          }
           <div className='descriptionLinkWrapper flex' style={descriptionLinkWrapperStyles}>
             { description &&
               <div className={`description ${descriptionStyle || null}`}
@@ -306,8 +306,8 @@ function CardTeaserConfig ({
             }
             {(linkIcons || linkLabel) &&
               <div className='linkComponent flex' style={linkComponentStyles}>
-                <a className='link' href={href} style={linkStyles} target={linkLocation || "_blank"} rel="noreferrer" > 
-                  {linkLabel || ""} 
+                <a className='link' href={href} style={linkStyles} target={linkLocation || "_blank"} rel="noreferrer" >
+                  {linkLabel || ""}
                   {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
                 </a>
               </div>

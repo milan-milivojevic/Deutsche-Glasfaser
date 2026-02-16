@@ -5,7 +5,7 @@ function Spacer({ spacer, styleName, noStyles }) {
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -18,13 +18,13 @@ function Spacer({ spacer, styleName, noStyles }) {
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
 
   return (
-    <div className='spacerWrapper'>  
+    <div className='spacerWrapper'>
       <div className='spacer' style={{paddingTop:  spacer || configProps?.spacer || null}}></div>
     </div>
   );

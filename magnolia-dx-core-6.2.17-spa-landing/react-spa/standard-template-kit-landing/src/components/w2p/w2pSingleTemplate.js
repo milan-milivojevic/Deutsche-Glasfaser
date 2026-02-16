@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { idSearch } from '../../api/w2pSearchService'
 import Card from './helpers/Card';
 
-function W2PSingleTemplate ({ 
+function W2PSingleTemplate ({
   templateId,
   defaultView,
-  
+
   detailsButton,
   favouritesButton,
   createDocumentButton,
@@ -24,7 +24,7 @@ function W2PSingleTemplate ({
 }) {
 
   const [products, setProducts] = useState([]);
-  
+
   const searchById = async (templateId) => {
     const response = await idSearch(templateId);
     setProducts([]);
@@ -53,7 +53,7 @@ function W2PSingleTemplate ({
     paddingRight: titlePaddingRight || null,
     paddingBottom: titlePaddingBottom || null,
     paddingLeft: titlePaddingLeft || null
-  }  
+  }
 
   return (
     <div className={`mpAssetWrapper w2p ${defaultView}`}>
@@ -63,7 +63,7 @@ function W2PSingleTemplate ({
         </TitleLevel>
       }
       {products && products.length > 0 ? (
-          products.map(c => 
+          products.map(c =>
             <Card
               templateData={c}
               key={c.id}

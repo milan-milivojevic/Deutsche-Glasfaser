@@ -11,10 +11,10 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
 }`
@@ -42,7 +42,7 @@ function CarouselTeaserConfig ({
   headlineMarginLeft,
   descriptionBackground,
   descriptionStyle,
-  descriptionAlign, 
+  descriptionAlign,
   descriptionPaddingTop,
   descriptionPaddingRight,
   descriptionPaddingBottom,
@@ -63,11 +63,11 @@ function CarouselTeaserConfig ({
   linkBorderStyle,
   linkBorderRadius,
   linkWidth,
-  linkHeight,      
+  linkHeight,
   linkDefaultBackColor,
   linkHoverBackColor,
   labelDefaultColor,
-  labelHoverColor,  
+  labelHoverColor,
   linkLabelDecoration,
   linkLabelVerticalPosition,
   linkLabelHorizontalPosition,
@@ -89,17 +89,17 @@ function CarouselTeaserConfig ({
   arrowColor,
   arrowFontSize,
   arrowIndent,
-  indicatorType,  
+  indicatorType,
   indicatorFontSize,
-  indicatorIndent,  
+  indicatorIndent,
   indicatorColor,
   indicatorActiveColor,
   indicatorGap,
   indicatorBorderWidth,
   indicatorBorderStyle,
   indicatorBorderColor,
-  indicatorActiveBorderColor, 
-  
+  indicatorActiveBorderColor,
+
   carouselBorderWidth,
   carouselBorderStyle,
   carouselBorderColor,
@@ -112,7 +112,7 @@ function CarouselTeaserConfig ({
   carouselMarginBottom,
   carouselMarginRight,
   carouselMarginTop,
-  
+
   teaserLayout,
   descLinkLayout,
   descRowLayoutWidth,
@@ -122,11 +122,11 @@ function CarouselTeaserConfig ({
   linkHorizontalPosition,
   linkVerticalPosition,
   clickableComponent,
-  
+
   styleName,
   linkStyleName,
   linkNoStyles,
-}) {  
+}) {
 
   const myRef = useRef(null);
 
@@ -137,8 +137,8 @@ function CarouselTeaserConfig ({
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
-  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
+
   const [linkConfigProps, setLinkConfigProps] = useState();
 
   useEffect(() => {
@@ -150,14 +150,12 @@ function CarouselTeaserConfig ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, apiBase, restPath, nodeName]);
 
   const dimensionsRef = useRef()
-  // const headlineRef = useRef()
-  // const descLinkRef = useRef()
   const useContainerDimensions = myRef => {
     const [dimensions, setDimensions] = useState({ width: 0, height: 0})
     const myRefCurrent = myRef.current;
@@ -165,9 +163,7 @@ function CarouselTeaserConfig ({
       const getDimensions = () => ({
         width: myRefCurrent.offsetWidth,
         height: myRefCurrent.offsetHeight,
-        // headlineHeight: myRefCurrent.offsetHeight,
-        // descLinkHeight: myRefCurrent.offsetHeight,
-      })  
+      })
       const handleResize = () => {
         setDimensions(getDimensions())
       }
@@ -177,20 +173,16 @@ function CarouselTeaserConfig ({
         setDimensions(getDimensions())} , 200);
         setTimeout(function( ) { clearInterval( interval ); }, 5000);
       }
-      window.addEventListener("resize", handleResize)  
+      window.addEventListener("resize", handleResize)
       return () => {
         window.removeEventListener("resize", handleResize)
       }
     }, [myRefCurrent])
     return dimensions;
-  };  
+  };
   const { width, height } = useContainerDimensions(dimensionsRef);
-  // const { headlineHeight } = useContainerDimensions(headlineRef);
-  // const { descLinkHeight } = useContainerDimensions(descLinkRef);
-  // console.log(headlineHeight, descLinkHeight);
-  // const acctualHeight = headlineHeight + descLinkHeight + componentPaddingTop + componentPaddingBottom;
 
-  
+
   const images = [];
   for (let i = 0; i <= 20; i++) {
     images.push(multi[`multi${i}`]?.image);
@@ -223,7 +215,7 @@ function CarouselTeaserConfig ({
   };
 
   const carouselTeaserComponentStyles = {
-    width: carouselWidth || "100%",    
+    width: carouselWidth || "100%",
     margin: carouselPosition || null
   };
 
@@ -241,7 +233,7 @@ function CarouselTeaserConfig ({
     left: arrowIndent || null
   }
 
-  const rightArrowStyles = { 
+  const rightArrowStyles = {
     color: arrowColor || null,
     fontSize: arrowFontSize || null,
     right: arrowIndent || null
@@ -289,16 +281,16 @@ function CarouselTeaserConfig ({
 
   const HeadlineLevel = headlineLevel || "h1";
   const currentDownload = multi['multi' + currentIndex]?.download
-  const downloadLink = currentDownload ? currentDownload['@link'] : baseUrl;  
+  const downloadLink = currentDownload ? currentDownload['@link'] : baseUrl;
   const href = multi['multi' + currentIndex]?.linkType === "page" ? multi['multi' + currentIndex]?.page : multi['multi' + currentIndex]?.linkType === "external" ? multi['multi' + currentIndex]?.external : downloadLink;
-  
+
   const cursorPointer = clickableComponent === "true" ? "cursorPointer" : null;
 
-  const linkIcons = linkIcon || linkConfigProps?.linkIcon || null;  
+  const linkIcons = linkIcon || linkConfigProps?.linkIcon || null;
 
   const defLabelColor = labelDefaultColor || linkConfigProps?.labelDefaultColor || null;
   const hovLabelColor = labelHoverColor || linkConfigProps?.labelHoverColor || defLabelColor;
-  
+
   const defLinkBgColor = linkDefaultBackColor || linkConfigProps?.linkDefaultBackColor || null;
   const hovLinkBgColor = linkHoverBackColor || linkConfigProps?.linkHoverBackColor || defLinkBgColor;
 
@@ -306,9 +298,9 @@ function CarouselTeaserConfig ({
   const hovChevronColor = chevronHoverColor || linkConfigProps?.chevronHoverColor || defChevronColor;
 
   const defLinkBorderColor = linkBorderColor || linkConfigProps?.linkBorderColor || null;
-  const hovLinkBorderColor = linkBorderHoverColor || linkConfigProps?.linkBorderHoverColor || defLinkBorderColor;  
+  const hovLinkBorderColor = linkBorderHoverColor || linkConfigProps?.linkBorderHoverColor || defLinkBorderColor;
 
-  const carouselTeaserWrapperStyles = { 
+  const carouselTeaserWrapperStyles = {
     width: carouselWidth || null,
     height: carouselHeight || null,
   }
@@ -320,7 +312,7 @@ function CarouselTeaserConfig ({
     paddingTop: carouselPaddingTop || null,
     paddingRight: carouselPaddingRight || null,
     paddingBottom: carouselPaddingBottom || null,
-    paddingLeft: carouselPaddingLeft || null,   
+    paddingLeft: carouselPaddingLeft || null,
     borderColor: carouselBorderColor || null,
     borderWidth: carouselBorderWidth || null,
     borderStyle: carouselBorderStyle || null,
@@ -333,7 +325,7 @@ function CarouselTeaserConfig ({
   }
 
   const headlineStyles = {
-    fontFamily: headlineFontFamily || null,    
+    fontFamily: headlineFontFamily || null,
     fontSize: headlineFontSize || null,
     lineHeight: headlineLineHeight || null,
     color: multi['multi' + currentIndex]?.titleColor || headlineColor || null,
@@ -351,7 +343,7 @@ function CarouselTeaserConfig ({
     marginLeft: headlineMarginLeft || null
   }
 
-  const descriptionLinkWrapperStyles = { 
+  const descriptionLinkWrapperStyles = {
     flexDirection: descLinkLayout || "column",
     gap: descLinkGap || null,
     alignItems: descLinkPosition || null
@@ -386,7 +378,7 @@ function CarouselTeaserConfig ({
     paddingTop: labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: linkBorderColor || linkConfigProps?.linkBorderColor || null,
     borderWidth: linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -400,7 +392,7 @@ function CarouselTeaserConfig ({
     lineHeight: linkLabelLineHeight || linkConfigProps?.linkLabelLineHeight || null,
     fontWeight: linkBold || linkConfigProps?.linkBold || null,
     fontStyle: linkItalic || linkConfigProps?.linkItalic || null
-  }   
+  }
 
   return (
     <Wrapper className='carouselWrapper configComponents'
@@ -430,28 +422,28 @@ function CarouselTeaserConfig ({
           }
           <div className={`carouselTeaserWrapper flex`} style={carouselTeaserWrapperStyles} ref={dimensionsRef}>
             <img className="image" src={url} alt="" />
-            <div className={`carouselTeaser flexColumn ${cursorPointer}`} 
+            <div className={`carouselTeaser flexColumn ${cursorPointer}`}
                  onClick={clickableComponent === "true" ? openLink : null}
                  style={carouselTeaserStyles}
             >
-              {multi['multi' + currentIndex]?.headline && 
+              {multi['multi' + currentIndex]?.headline &&
                 <div className='headlineWrapper' style={headlineWrapperStyles}>
                   <HeadlineLevel className={`headline ${multi['multi' + currentIndex]?.titleBackground || headlineBackground || null}`}
                     style={headlineStyles}
                   >{multi['multi' + currentIndex]?.headline  || null}</HeadlineLevel>
                 </div>
-              }   
+              }
               <div className='descriptionLinkWrapper flex' style={descriptionLinkWrapperStyles}>
                 {multi['multi' + currentIndex]?.description &&
-                  <div className={`description ${descriptionStyle || null} ${multi['multi' + currentIndex]?.descBackground || descriptionBackground || null}`} 
+                  <div className={`description ${descriptionStyle || null} ${multi['multi' + currentIndex]?.descBackground || descriptionBackground || null}`}
                        dangerouslySetInnerHTML={{ __html:multi['multi' + currentIndex]?.description || null }}
                        style={descriptionStyles}
                   ></div>
                 }
                 {(linkIcons || multi['multi' + currentIndex]?.linkLabel) &&
                   <div className='linkComponent flex' style={linkComponentStyles}>
-                    <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer"style={linkStyles}> 
-                      {multi['multi' + currentIndex]?.linkLabel || ""} 
+                    <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer"style={linkStyles}>
+                      {multi['multi' + currentIndex]?.linkLabel || ""}
                       {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
                     </a>
                   </div>
@@ -459,7 +451,7 @@ function CarouselTeaserConfig ({
               </div>
             </div>
           </div>
-          <div className="indicatorsWrapper" style={{ bottom: indicatorIndent || null}}>          
+          <div className="indicatorsWrapper" style={{ bottom: indicatorIndent || null}}>
             <div className="indicatorsContainer" style={{gap: indicatorGap || null}}>
               {activeImages.map((image, imageIndex) => (
                 <div
@@ -467,7 +459,7 @@ function CarouselTeaserConfig ({
                   style={activeIndicatorIndex !== imageIndex ? indicatorStyles : activeIndicatorStyles}
                   key={imageIndex}
                   onClick={() => goToSlide(imageIndex)}
-                > 
+                >
                   {indicatorType === "squares" ? <FaSquareFull style={activeIndicatorIndex !== imageIndex ? iconStyles : activeIconStyles}/> : indicatorType === "lines" ? <span className="lineIndicator"></span> : <FaCircle style={activeIndicatorIndex !== imageIndex ? iconStyles : activeIconStyles}/>}
                 </div>
               ))}

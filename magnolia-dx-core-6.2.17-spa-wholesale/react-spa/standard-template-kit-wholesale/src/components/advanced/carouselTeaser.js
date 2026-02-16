@@ -11,10 +11,10 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
 }`
@@ -42,7 +42,7 @@ function CarouselTeaser ({
   headlineMarginLeft,
   descriptionBackground,
   descriptionStyle,
-  descriptionAlign, 
+  descriptionAlign,
   descriptionPaddingTop,
   descriptionPaddingRight,
   descriptionPaddingBottom,
@@ -63,11 +63,11 @@ function CarouselTeaser ({
   linkBorderStyle,
   linkBorderRadius,
   linkWidth,
-  linkHeight,      
+  linkHeight,
   linkDefaultBackColor,
   linkHoverBackColor,
   labelDefaultColor,
-  labelHoverColor,  
+  labelHoverColor,
   linkLabelDecoration,
   linkLabelVerticalPosition,
   linkLabelHorizontalPosition,
@@ -88,16 +88,16 @@ function CarouselTeaser ({
   arrowColor,
   arrowFontSize,
   arrowIndent,
-  indicatorType,  
+  indicatorType,
   indicatorFontSize,
-  indicatorIndent,  
+  indicatorIndent,
   indicatorColor,
   indicatorActiveColor,
   indicatorGap,
   indicatorBorderWidth,
   indicatorBorderStyle,
   indicatorBorderColor,
-  indicatorActiveBorderColor,  
+  indicatorActiveBorderColor,
   carouselBorderWidth,
   carouselBorderStyle,
   carouselBorderColor,
@@ -109,7 +109,7 @@ function CarouselTeaser ({
   carouselMarginLeft,
   carouselMarginBottom,
   carouselMarginRight,
-  carouselMarginTop,  
+  carouselMarginTop,
   teaserLayout,
   descLinkLayout,
   descRowLayoutWidth,
@@ -127,7 +127,7 @@ function CarouselTeaser ({
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -140,7 +140,7 @@ function CarouselTeaser ({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
@@ -156,7 +156,7 @@ function CarouselTeaser ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, apiBase, restPath, nodeName]);
@@ -170,7 +170,7 @@ function CarouselTeaser ({
       const getDimensions = () => ({
         width: myRefCurrent.offsetWidth,
         height: myRefCurrent.offsetHeight,
-      })  
+      })
       const handleResize = () => {
         setDimensions(getDimensions())
       }
@@ -180,15 +180,15 @@ function CarouselTeaser ({
         setDimensions(getDimensions())} , 200);
         setTimeout(function( ) { clearInterval( interval ); }, 5000);
       }
-      window.addEventListener("resize", handleResize)  
+      window.addEventListener("resize", handleResize)
       return () => {
         window.removeEventListener("resize", handleResize)
       }
     }, [myRefCurrent])
     return dimensions;
-  };  
+  };
   const { width, height } = useContainerDimensions(dimensionsRef);
-  
+
   const images = [];
   for (let i = 0; i <= 20; i++) {
     images.push(multi[`multi${i}`]?.image);
@@ -221,7 +221,7 @@ function CarouselTeaser ({
   };
 
   const carouselTeaserComponentStyles = {
-    width: carouselWidth || configProps?.carouselWidth || "100%",    
+    width: carouselWidth || configProps?.carouselWidth || "100%",
     margin: carouselPosition || configProps?.carouselPosition || null
   };
 
@@ -239,7 +239,7 @@ function CarouselTeaser ({
     left: arrowIndent || configProps?.arrowIndent || null
   }
 
-  const rightArrowStyles = { 
+  const rightArrowStyles = {
     color: arrowColor || configProps?.arrowColor || null,
     fontSize: arrowFontSize || configProps?.arrowFontSize || null,
     right: arrowIndent || configProps?.arrowIndent || null
@@ -271,7 +271,7 @@ function CarouselTeaser ({
     borderRadius: (indicatorType || configProps?.indicatorType) === "dot" ? "inherit" : null,
     backgroundColor: indicatorColor || configProps?.indicatorColor || null,
   }
-  
+
   const activeIconStyles = {
     ...iconStyles,
     backgroundColor: indicatorActiveColor || configProps?.indicatorActiveColor || null,
@@ -287,18 +287,18 @@ function CarouselTeaser ({
 
   const HeadlineLevel = headlineLevel || "h1";
   const currentDownload = multi['multi' + currentIndex]?.download
-  const downloadLink = currentDownload ? currentDownload['@link'] : baseUrl;  
+  const downloadLink = currentDownload ? currentDownload['@link'] : baseUrl;
   const href = multi['multi' + currentIndex]?.linkType === "page" ? (getRouterBasename() + multi['multi' + currentIndex]?.page).replace("//", "/").replace("Wholesale/Wholesale", "Wholesale") : multi['multi' + currentIndex]?.linkType === "external" ? multi['multi' + currentIndex]?.external : downloadLink;
-  
+
   const cursorPointer = clickableComponent === "false" ? null : clickableComponent === "true" || configProps?.clickableComponent === "true" ? "cursorPointer" : null;
 
-  const linkIcons = linkIcon || configProps?.linkIcon || linkConfigProps?.linkIcon || null;  
+  const linkIcons = linkIcon || configProps?.linkIcon || linkConfigProps?.linkIcon || null;
 
   const defLinkBgColor = linkDefaultBackColor || configProps?.linkDefaultBackColor || linkConfigProps?.linkDefaultBackColor || null;
   const hovLinkBgColor = linkHoverBackColor || configProps?.linkHoverBackColor ||  linkConfigProps?.linkHoverBackColor || defLinkBgColor;
 
   const defLabelColor = labelDefaultColor || configProps?.labelDefaultColor || linkConfigProps?.labelDefaultColor || null;
-  const hovLabelColor = labelHoverColor || configProps?.labelHoverColor || linkConfigProps?.labelHoverColor || defLabelColor; 
+  const hovLabelColor = labelHoverColor || configProps?.labelHoverColor || linkConfigProps?.labelHoverColor || defLabelColor;
 
   const defChevronColor = chevronDefaultColor || configProps?.chevronDefaultColor || linkConfigProps?.chevronDefaultColor || null;
   const hovChevronColor = chevronHoverColor || configProps?.chevronHoverColor || linkConfigProps?.chevronHoverColor || defChevronColor;
@@ -306,7 +306,7 @@ function CarouselTeaser ({
   const defLinkBorderColor = linkBorderColor || configProps?.linkBorderColor || linkConfigProps?.linkBorderColor || null;
   const hovLinkBorderColor = linkBorderHoverColor || configProps?.linkBorderHoverColor || linkConfigProps?.linkBorderHoverColor || defLinkBorderColor;
 
-  const carouselTeaserWrapperStyles = { 
+  const carouselTeaserWrapperStyles = {
     width: carouselWidth || configProps?.carouselWidth || null,
     height: carouselHeight || configProps?.carouselHeight || null,
   }
@@ -331,7 +331,7 @@ function CarouselTeaser ({
   }
 
   const headlineStyles = {
-    fontFamily: headlineFontFamily || null,    
+    fontFamily: headlineFontFamily || null,
     fontSize: headlineFontSize || null,
     lineHeight: headlineLineHeight || null,
     color: multi['multi' + currentIndex]?.titleColor || headlineColor || configProps?.headlineColor || null,
@@ -373,9 +373,9 @@ function CarouselTeaser ({
     paddingTop: linkPaddingTop || configProps?.linkPaddingTop || linkConfigProps?.linkPaddingTop || null,
     paddingRight: linkPaddingRight || configProps?.linkPaddingRight || linkConfigProps?.linkPaddingRight || null,
     paddingBottom: linkPaddingBottom || configProps?.linkPaddingBottom || linkConfigProps?.linkPaddingBottom || null,
-    paddingLeft: linkPaddingLeft || configProps?.linkPaddingLeft || linkConfigProps?.linkPaddingLeft || null,  
+    paddingLeft: linkPaddingLeft || configProps?.linkPaddingLeft || linkConfigProps?.linkPaddingLeft || null,
     justifyContent: linkHorizontalPosition || configProps?.linkHorizontalPosition || "flex-start",
-    alignItems: linkVerticalPosition || configProps?.linkVerticalPosition || "flex-start"  
+    alignItems: linkVerticalPosition || configProps?.linkVerticalPosition || "flex-start"
   }
 
   const linkStyles = {
@@ -384,7 +384,7 @@ function CarouselTeaser ({
     paddingTop: labelPaddingTop || configProps?.labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || configProps?.labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || configProps?.labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || configProps?.labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || configProps?.labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: linkBorderColor || configProps?.linkBorderColor || linkConfigProps?.linkBorderColor || null,
     borderWidth: linkBorderWidth || configProps?.linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || configProps?.linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -398,7 +398,7 @@ function CarouselTeaser ({
     lineHeight: linkLabelLineHeight || configProps?.linkLabelLineHeight || linkConfigProps?.linkLabelLineHeight || null,
     fontWeight: linkBold || configProps?.linkBold || linkConfigProps?.linkBold || null,
     fontStyle: linkItalic || configProps?.linkItalic || linkConfigProps?.linkItalic || null
-  }   
+  }
 
   return (
     <Wrapper className='carouselWrapper configComponents'
@@ -422,17 +422,17 @@ function CarouselTeaser ({
           }
           <div className={`carouselTeaserWrapper flex`} style={carouselTeaserWrapperStyles} ref={dimensionsRef}>
             <img className="image" src={url} alt="" />
-            <div className={`carouselTeaser flexColumn ${cursorPointer}`} 
+            <div className={`carouselTeaser flexColumn ${cursorPointer}`}
                  onClick={clickableComponent === "false" ? null : clickableComponent === "true" ? openLink : configProps?.clickableComponent === "true" ? openLink : null}
                  style={carouselTeaserStyles}
             >
-              {multi['multi' + currentIndex]?.headline && 
+              {multi['multi' + currentIndex]?.headline &&
                 <div className='headlineWrapper' style={headlineWrapperStyles}>
                   <HeadlineLevel style={headlineStyles} className={`headline ${multi['multi' + currentIndex]?.titleBackground || headlineBackground  || configProps?.headlineBackground || null}`}>
                     {multi['multi' + currentIndex]?.headline  || null}
                   </HeadlineLevel>
                 </div>
-              }   
+              }
               <div className='descriptionLinkWrapper flex' style={descriptionLinkWrapperStyles}>
                 {multi['multi' + currentIndex]?.description &&
                   <div className={`description ${descriptionStyle || configProps?.descriptionStyle || null} ${multi['multi' + currentIndex]?.descBackground || descriptionBackground || configProps?.descriptionBackground || null}`}
@@ -443,7 +443,7 @@ function CarouselTeaser ({
                 {(linkIcons || multi['multi' + currentIndex]?.linkLabel) &&
                   <div className='linkComponent flex' style={linkComponentStyles}>
                     <a className='link' href={href} target={linkLocation || configProps?.linkLocation || "_blank"} rel="noreferrer" style={linkStyles} >
-                      {multi['multi' + currentIndex]?.linkLabel || ""} 
+                      {multi['multi' + currentIndex]?.linkLabel || ""}
                       {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
                     </a>
                   </div>
@@ -459,7 +459,7 @@ function CarouselTeaser ({
                   style={activeIndicatorIndex !== imageIndex ? indicatorStyles : activeIndicatorStyles}
                   key={imageIndex}
                   onClick={() => goToSlide(imageIndex)}
-                > 
+                >
                   {(indicatorType || configProps?.indicatorType) === "squares" ? <FaSquareFull style={activeIndicatorIndex !== imageIndex ? iconStyles : activeIconStyles}/> : (indicatorType || configProps?.indicatorType) === "lines" ? <span className="lineIndicator"></span> : <FaCircle style={activeIndicatorIndex !== imageIndex ? iconStyles : activeIconStyles}/>}
                 </div>
               ))}

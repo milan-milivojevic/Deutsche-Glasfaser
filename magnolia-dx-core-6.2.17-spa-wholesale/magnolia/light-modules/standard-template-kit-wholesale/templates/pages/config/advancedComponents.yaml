@@ -1,7 +1,5 @@
 title: Wholesale Configuration Page (Advanced Components)
 
-# baseUrl: http://localhost:3000
-# routeTemplate: '/{language}{{@path}}'
 templateScript: /standard-template-kit-wholesale/webresources/build/index.html
 
 dialog: standard-template-kit-wholesale:pages/config/advancedComponents
@@ -55,6 +53,3 @@ areas:
     availableComponents:      
       textLinkConfig:
         id: standard-template-kit-wholesale:components/advanced/config/textLinkConfig
-  
-
-

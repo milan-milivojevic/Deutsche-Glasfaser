@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AccordionItem from '../grouping/helper/accordionItem';
 import { getAPIBase } from '../../helpers/AppHelpers';
 
-function AccordionList ({  
+function AccordionList ({
   multi,
   accordionComponents1,
   accordionComponents2,
@@ -39,7 +39,7 @@ function AccordionList ({
   titleHoverColor,
   chevronColor,
   chevronHoverColor,
-  chevronFontSize,  
+  chevronFontSize,
   accordionInnerPaddingTop,
   accordionInnerPaddingRight,
   accordionInnerPaddingBottom,
@@ -56,11 +56,10 @@ function AccordionList ({
   accordionNoStyles
 }) {
 
-  /* Properties from AccordionListConfig component */
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -73,12 +72,11 @@ function AccordionList ({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
-  
-  /* Getting Properties from AccordionConfig component */
+
 
   const [accordionConfigProps, setAccordionConfigProps] = useState();
 
@@ -92,21 +90,18 @@ function AccordionList ({
           result = data[0];
         } else if (accordionNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setAccordionConfigProps(result);
       });
   }, [accordionStyleName, accordionNoStyles, configProps?.accordionStyleName, apiBase, restPath, nodeName]);
 
-
-  /* Creating titles & accordionComponents list which will be sent to AccordionItem component */
 
   const titles = [];
   for (let i = 0; i <= 20; i++) {
     titles.push(multi[`multi${i}`]?.title);
   }
   const accordionComponents = [accordionComponents1, accordionComponents2, accordionComponents3, accordionComponents4, accordionComponents5, accordionComponents6, accordionComponents7, accordionComponents8, accordionComponents9, accordionComponents10, accordionComponents11, accordionComponents12, accordionComponents13, accordionComponents14, accordionComponents15, accordionComponents16, accordionComponents17, accordionComponents18, accordionComponents19, accordionComponents20];
-  
-  /* Properties to send to the AcordionItem component */
+
 
   const accordionListProps = [{
     accordionInnerPaddingTop: accordionInnerPaddingTop || configProps?.accordionInnerPaddingTop || accordionConfigProps?.accordionInnerPaddingTop || null,
@@ -131,7 +126,7 @@ function AccordionList ({
     accordionBorderRadius: accordionBorderRadius || configProps?.accordionBorderRadius || accordionConfigProps?.accordionBorderRadius || null,
     groupWidth: groupWidth || configProps?.groupWidth || null
   }]
-  
+
   const accordionListStyles = {
     paddingTop: groupPaddingTop || configProps?.groupPaddingTop || null,
     paddingRight: groupPaddingRight || configProps?.groupPaddingRight || null,
@@ -139,13 +134,13 @@ function AccordionList ({
     paddingLeft: groupPaddingLeft || configProps?.groupPaddingLeft || null,
     alignItems: groupPosition || configProps?.groupPosition || null
   }
-  
+
   return (
-    <div className='accordionListWrapper'> 
-      <section className={`accordionList`} style={accordionListStyles}> 
+    <div className='accordionListWrapper'>
+      <section className={`accordionList`} style={accordionListStyles}>
         {titles.map((title, i) => title ?
           <AccordionItem key={i} title={title} accordionListProps={accordionListProps} accordionComponents={accordionComponents[i]}></AccordionItem> : null
-        )}        
+        )}
       </section>
     </div>
   );

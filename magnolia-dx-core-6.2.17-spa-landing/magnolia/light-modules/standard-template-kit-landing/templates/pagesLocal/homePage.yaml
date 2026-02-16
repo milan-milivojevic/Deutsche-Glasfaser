@@ -2,7 +2,6 @@ title: Landing Page
 
 baseUrl: http://localhost:3000
 routeTemplate: '/{language}{{@path}}'
-# templateScript: /standard-template-kit-landing/webresources/build/index.html
 
 dialog: standard-template-kit-landing:pages/home
 
@@ -34,6 +33,3 @@ areas:
     availableComponents:      
       footerSection:
           id: standard-template-kit-landing:components/sections/footerSection
-
-
-

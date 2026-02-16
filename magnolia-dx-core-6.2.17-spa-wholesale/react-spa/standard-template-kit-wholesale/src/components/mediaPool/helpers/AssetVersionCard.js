@@ -8,7 +8,7 @@ import moment from "moment";
 const AssetVersionCard = ({ assetVersionData }) => {
 
   const [showAlert, setShowAlert] = useState(false);
-  const [message, setMesage] = useState("");  
+  const [message, setMesage] = useState("");
   const [showDownloadModal, setShowDownloadModal] = useState(false);
 
   const assetId = assetVersionData.assetId;
@@ -28,10 +28,10 @@ const AssetVersionCard = ({ assetVersionData }) => {
   const download_version = 'FIXED';
 
   title = title
-    .replace(/-/g, '_') // Replace dashes with underscores
-    .split('_') // Split the string by underscores into an array
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-    .join(' '); // Join the words back together with spaces
+    .replace(/-/g, '_')
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 
   uploadDate = moment(uploadDate).utc().format('MM/DD/YYYY');
   fileFormat = fileFormat.toUpperCase();
@@ -40,8 +40,8 @@ const AssetVersionCard = ({ assetVersionData }) => {
 
     const data = await downloadFileDirect(assetId, selectedOption, download_version, language, null);
 
-    if (typeof data[0].download_url !== 'undefined') {        
-  
+    if (typeof data[0].download_url !== 'undefined') {
+
       if (isMobileDevice()) {
         openLink(data[0].download_url, '_blank');
       } else {
@@ -78,19 +78,19 @@ const AssetVersionCard = ({ assetVersionData }) => {
       setTimeout(() => {
         setShowAlert(false);
       }, 2500);
-    }    
+    }
   }
 
   return (
     <div className='assetCard'>
       <div className='assetCardPreview'>
         <AssetPreview assetId={assetId} assetVersion={assetVersion} assetPageCount={assetPageCount} assetResourceType={assetResourceType} isModal={false}></AssetPreview>
-      </div>      
-      <div className={`assetActionButtons show`}>        
+      </div>
+      <div className={`assetActionButtons show`}>
         {actionsMask === 15 && (
           <button onClick={toggleDownloadModal}><MdOutlinePictureAsPdf/></button>
         )}
-        <button onClick={toggleDownloadModal}><MdDownload/></button>        
+        <button onClick={toggleDownloadModal}><MdDownload/></button>
       </div>
       <div className='assetCardContent'>
         <p><span>Version: </span>{assetVersion}</p>

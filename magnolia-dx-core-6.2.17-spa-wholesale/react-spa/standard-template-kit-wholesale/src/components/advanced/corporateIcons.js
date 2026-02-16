@@ -4,7 +4,7 @@ import { getAPIBase } from '../../helpers/AppHelpers';
 
 function CorporateIcons ({
   title,
-  subtitle,   
+  subtitle,
   linkDefault,
   smallIconLink,
   external1,
@@ -26,11 +26,11 @@ function CorporateIcons ({
   titleFontFamily,
   titleTextTransform,
   titleBold,
-  titleItalic,    
+  titleItalic,
   titleFontSize,
-  titleLineHeight,   
-  titleColor,     
-  titleLetterSpacing,    
+  titleLineHeight,
+  titleColor,
+  titleLetterSpacing,
   titlePaddingTop,
   titlePaddingRight,
   titlePaddingBottom,
@@ -40,11 +40,11 @@ function CorporateIcons ({
   subtitleFontFamily,
   subtitleTextTransform,
   subtitleBold,
-  subtitleItalic,    
+  subtitleItalic,
   subtitleFontSize,
-  subtitleLineHeight,   
-  subtitleColor,     
-  subtitleLetterSpacing,    
+  subtitleLineHeight,
+  subtitleColor,
+  subtitleLetterSpacing,
   subtitlePaddingTop,
   subtitlePaddingRight,
   subtitlePaddingBottom,
@@ -58,50 +58,23 @@ function CorporateIcons ({
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE; 
-    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
+
   const [configProps, setConfigProps] = useState();
 
-  // useEffect(() => {
-  //   fetch(`${apiBase}${restPath}${nodeName}/Config-Pages/Advanced-Config/corporateIconsComponents/@nodes`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       let result = data.find(item => item.styleName === styleName);
-  //       if (!result && noStyles === (false || "false")) {
-  //         result = data[0];
-  //       } else if (noStyles !== (false || "false")) {
-  //         result = null;
-  //       } 
-  //       setConfigProps(result);
-  //     });
-  // }, [styleName, noStyles, apiBase, restPath, nodeName]);
-  
+
   const [dividerConfigProps, setDividerConfigProps] = useState();
 
-  // useEffect(() => {
-  //   fetch(`${apiBase}${restPath}${nodeName}/Config-Pages/Basics-Config/dividerComponents/@nodes`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       let styleName =  dividerStyleName || configProps?.dividerStyleName || null;
-  //       let result = data.find(item => item.styleName === styleName);
-  //       if (!result && dividerNoStyles === (false || "false")) {
-  //         result = data[0];
-  //       } else if (dividerNoStyles !== (false || "false")) {
-  //         result = null;
-  //       } 
-  //       setDividerConfigProps(result);
-  //     });
-  // }, [dividerStyleName, dividerNoStyles, configProps?.dividerStyleName, apiBase, restPath, nodeName]);
 
-  const downloadLink1 = download1 ? download1['@link'] : linkDefault;  
+  const downloadLink1 = download1 ? download1['@link'] : linkDefault;
   const href1 = smallIconLink === "external" && external1 ? external1 : downloadLink1;
-  const downloadLink2 = download2 ? download2['@link'] : linkDefault;  
+  const downloadLink2 = download2 ? download2['@link'] : linkDefault;
   const href2 = mediumIconLink === "external" && external2 ? external2 : downloadLink2;
-  const downloadLink3 = download3 ? download3['@link'] : linkDefault;  
+  const downloadLink3 = download3 ? download3['@link'] : linkDefault;
   const href3 = largeIconLink === "external" && external3 ? external3 : downloadLink3;
 
-  const TitleLevel = titleLevel || configProps?.titleLevel || "h4";  
-  const SubtitleLevel = subtitleLevel || configProps?.subtitleLevel || "h4";  
+  const TitleLevel = titleLevel || configProps?.titleLevel || "h4";
+  const SubtitleLevel = subtitleLevel || configProps?.subtitleLevel || "h4";
 
   const titleStyles = {
     fontFamily: titleFontFamily || configProps?.titleFontFamily || null,
@@ -140,11 +113,11 @@ function CorporateIcons ({
     borderBottomStyle: borderStyle || configProps?.borderStyle || dividerConfigProps?.borderStyle || null,
     borderBottomColor: borderColor || configProps?.borderColor || dividerConfigProps?.borderColor || null,
 }
-  
+
   return (
     <div className='corporateIcons_editMode'>
 
-      <div className={`corporateIcons`}>         
+      <div className={`corporateIcons`}>
 
         <div className="divider" style={dividerStyles}></div>
 
@@ -155,9 +128,9 @@ function CorporateIcons ({
         <SubtitleLevel className="subtitle" style={subtitleStyles}>
           {subtitle || null}
         </SubtitleLevel>
-        
-        
-        <div className='iconsWrapper'> 
+
+
+        <div className='iconsWrapper'>
           { image1 ?
             <div className="iconSmallWrapper">
               <img className="iconSmall" src={image1['@link']} alt="" />
@@ -180,7 +153,7 @@ function CorporateIcons ({
           : <div></div>  }
           { image3 ?
             <div className="iconLargeWrapper">
-              <img className="iconLarge" src={image3['@link']} alt="" />   
+              <img className="iconLarge" src={image3['@link']} alt="" />
               {href3 &&
                 <a className='iconLargeLink' href={href3} target={"_blank"} rel="noreferrer">
                   <TfiDownload />
@@ -189,7 +162,7 @@ function CorporateIcons ({
             </div>
           : <div></div> }
         </div>
-        
+
       </div>
     </div>
   )

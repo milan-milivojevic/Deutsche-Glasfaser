@@ -9,31 +9,25 @@ body {
     border-radius: 4px;
     box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
     box-shadow: 0 2px 1px -1px rgba(0,0,0,.18), rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;    
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     position: relative;
 }
 
-/* .mpAssetWrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 50px;
-} */
 
 .mpAssetWrapper {
     width: 100%;
     height: 100%;
 }
 
-.mpAssetWrapper .assetCard, 
+.mpAssetWrapper .assetCard,
 .list.mpAssetWrapper .assetCard {
     width: 100%;
     height: 100%;
     max-height: 336px;
 }
 
-.mpAssetWrapper .assetCard.w2p, 
+.mpAssetWrapper .assetCard.w2p,
 .list.mpAssetWrapper .assetCard.w2p {
     max-height: 279px;
 }
@@ -46,8 +40,8 @@ body {
 }
 
 .assetImage {
-    /* border-top-left-radius: 4px; */
-    /* border-top-right-radius: 4px; */
+
+
     height: 160px;
     border-bottom: 1px solid #eaeaea;
     object-fit: contain;
@@ -76,7 +70,7 @@ body {
     position: absolute;
     top: 20px;
     right: -1px;
-    /* background-color: #ffffffe6; */
+
     box-shadow: -1px 5px 15px 0 rgb(37 44 97 / 10%), 0px 0 15px 0 rgb(37 44 97 / 5%), -1px 2px 4px 0 rgb(93 100 148 / 10%), 0px -4px 16px 0 rgb(93 100 148 / 3%)
 }
 
@@ -179,7 +173,6 @@ body {
     padding-top: 10px;
 }
 
-/*MP Search*/
 
 .mpSearchContainer {
     display: grid;
@@ -280,7 +273,6 @@ body {
     background-color: #3c96dc;
 }
 
-/* Load More Button */
 
 .loadMoreItems {
     width: 100%;
@@ -332,8 +324,7 @@ body {
     background-color: #fff;
     width: 160px;
     border-radius: 0;
-    /* border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px; */
+
 }
 
 .mpSearch.staticSearch .headerSearch button {
@@ -346,7 +337,6 @@ body {
     gap: 20px;
 }
 
-/* FILTERS */
 
 .searchFilter > button {
     border: #3c96dc 1px solid;
@@ -541,7 +531,6 @@ body {
     width: 24px;
 }
 
-/* List view Asset */
 
 .mpSearchContainer.list {
     grid-template-columns: 1fr !important;
@@ -602,7 +591,6 @@ body {
     left: calc(40% + 10px);
 }
 
-/*Copy link to Search Result*/
 
 a.copyLinkToResult {
     color: #2d3748;
@@ -625,7 +613,6 @@ a.copyLinkToResult:hover {
     border-radius: 4px;
 }
 
-/* Global Search */
 
 .globalSearch {
     position: relative;
@@ -633,7 +620,7 @@ a.copyLinkToResult:hover {
 
 .globalSearchButtons {
     position: absolute;
-    /* top: 96px; */
+
     top: 40px;
     left: 40px;
     display: flex;
@@ -658,7 +645,7 @@ a.copyLinkToResult:hover {
     font-family: Tahoma;
 }
 
-.globalSearchButtons button:hover {    
+.globalSearchButtons button:hover {
     background-color: #f7f7f7;
 }
 

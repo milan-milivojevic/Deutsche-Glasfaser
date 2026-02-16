@@ -18,10 +18,10 @@ import rejectedDocuments from './documentStatusPayloads/rejectedDocuments.json'
 import archivedDocuments from './documentStatusPayloads/archivedDocuments.json'
 import invalidDocuments from './documentStatusPayloads/invalidDocuments.json'
 
-const BASE_URL = process.env.REACT_APP_MGNL_HOST; 
+const BASE_URL = process.env.REACT_APP_MGNL_HOST;
 
 const apiServiceHandler = async (url, options) => {
-  try {    
+  try {
     const response = await fetch(url, options);
 
     if (!response.ok) {
@@ -42,7 +42,7 @@ export const getApiBearerToken = () => apiServiceHandler(`${BASE_URL}/rest/sso/a
 const payloadIds = (templateId) => {
 
   const payloadCopy = payloadSingleTemplate;
-  
+
   payloadCopy.ids = [];
   payloadCopy.ids.push(templateId);
 
@@ -63,7 +63,7 @@ export const idSearch = async (templateId) => {
   })
 
   const data = await response;
-  
+
   return data;
 }
 
@@ -107,7 +107,6 @@ const templatesSearchPayload = (query, selectedTemplateType, selectedDetails, se
 
   payloadCopy.searchText = query;
 
-  // Postavite osnovnu vrednost za propertySelections
   payloadCopy.propertySelections = {};
 
   if (selectedTemplateType) {
@@ -135,7 +134,7 @@ export const templatesSearchService = async (query, sortType, sortDirection, siz
   })
 
   const data = await response;
-  
+
   return data;
 }
 
@@ -170,7 +169,6 @@ const documentsSearchPayload = (query, selectedTemplateType, selectedDetails, se
 
   payloadCopy.searchText = query;
 
-  // Postavite osnovnu vrednost za propertySelections
   payloadCopy.propertySelections = {};
 
   if (selectedTemplateType) {
@@ -198,11 +196,10 @@ export const documentsSearchService = async (query, sortType, sortDirection, siz
   })
 
   const data = await response;
-  
+
   return data;
 }
 
-/*Carousel + Payload Search*/
 
 export const payloadSearch = async (payload, sortType, sortDirection, from, size) => {
 
@@ -218,12 +215,12 @@ export const payloadSearch = async (payload, sortType, sortDirection, from, size
   })
 
   const data = await response;
-  
+
   return data;
 }
 
 export const favouriteTemplates = async (size) => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/v2/templates/favorites?sort=title&sort-direction=asc&size=${size || 20}&from=0`, {
     method: 'GET',
   })
@@ -234,7 +231,7 @@ export const favouriteTemplates = async (size) => {
 };
 
 export const recentlyUsedTemplates = async (size) => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/templates/recently-used?size=${size || 20}&from=0`, {
     method: 'GET',
   })
@@ -245,7 +242,7 @@ export const recentlyUsedTemplates = async (size) => {
 };
 
 export const newTemplates = async (size) => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/templates/newest?sort=creationDate&sort-direction=desc&size=${size || 20}&from=0`, {
     method: 'GET',
   })
@@ -269,12 +266,12 @@ export const myDocumentsService = async (size, sortType, sortDirection) => {
   })
 
   const myDocuments = await response;
-  
+
   return myDocuments;
 }
 
 export const inWorkDocumentsService = async (size, sortType, sortDirection) => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/instances/in-work/my?sort=${sortType}&sort-direction=${sortDirection}&size=${size || 26}&from=0`, {
     method: 'GET',
   })
@@ -285,7 +282,7 @@ export const inWorkDocumentsService = async (size, sortType, sortDirection) => {
 };
 
 export const finalizedDocumentsService = async (size, sortType, sortDirection) => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/instances/finalized/my?sort=${sortType}&sort-direction=${sortDirection}&size=${size || 26}&from=0&showArchived=false`, {
     method: 'GET',
   })
@@ -296,7 +293,7 @@ export const finalizedDocumentsService = async (size, sortType, sortDirection) =
 };
 
 export const rejectedDocumentsService = async (size, sortType, sortDirection) => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/instances/rejected/my?sort=${sortType}&sort-direction=${sortDirection}&size=${size || 26}&from=0`, {
     method: 'GET',
   })
@@ -307,7 +304,7 @@ export const rejectedDocumentsService = async (size, sortType, sortDirection) =>
 };
 
 export const waitingApprovalDocumentsService = async (size, sortType, sortDirection) => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/instances/waiting-approval/my?sort=${sortType}&sort-direction=${sortDirection}&size=${size || 26}&from=0`, {
     method: 'GET',
   })
@@ -318,7 +315,7 @@ export const waitingApprovalDocumentsService = async (size, sortType, sortDirect
 };
 
 export const archivedDocumentsService = async (size, sortType, sortDirection) => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/instances/finalized/my?sort=${sortType}&sort-direction=${sortDirection}&size=${size || 26}&from=0&showArchived=true`, {
     method: 'GET',
   })
@@ -331,7 +328,7 @@ export const archivedDocumentsService = async (size, sortType, sortDirection) =>
 export const findInstanceId = async (templateId) => {
 
   const token = await getApiBearerToken();
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/templates/${templateId}/instances`, {
     method: 'POST',
     headers: {
@@ -353,7 +350,7 @@ export const findInstanceId = async (templateId) => {
 
 
 export const findFavourites = async () => {
-  
+
   const response = apiServiceHandler(`${BASE_URL}/wp/rest/v2/templates/favorites?sort=title&sort-direction=asc&size=50&from=0`, {
     method: 'GET',
   })
@@ -364,24 +361,17 @@ export const findFavourites = async () => {
 };
 
 export const addToFavourites = async (templateId) => {
-  
+
   apiServiceHandler(`${BASE_URL}/wp/rest/v2/templates/favorites/T-${templateId}`, {
     method: 'POST',
   })
 };
 
 export const deleteFromFavourites = async (templateId) => {
-  
+
   apiServiceHandler(`${BASE_URL}/wp/rest/v2/templates/favorites/T-${templateId}`, {
     method: 'DELETE',
   })
 };
 
 
-
-// export const getApiBearerToken = () => apiServiceHandler(`${BASE_URL}/rest/sso/auth/jaas/jwt`);
-// const token = await getApiBearerToken();
-// headers: {
-//   "Authorization": `Bearer ${token.access_token}`,
-//   "Content-Type": "application/json"
-// },

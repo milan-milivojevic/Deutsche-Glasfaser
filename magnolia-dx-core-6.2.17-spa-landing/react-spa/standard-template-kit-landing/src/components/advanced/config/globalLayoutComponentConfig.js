@@ -13,10 +13,10 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
   .image1:hover, .video1Component video:hover  {
@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 }`
 
 function GlobalLayoutComponentConfig ({
-  headline,   
+  headline,
   headlineLevel,
   headlineFontFamily,
   headlinePosition,
@@ -92,7 +92,7 @@ function GlobalLayoutComponentConfig ({
   media1Type,
   image1,
   embed1,
-  video1, 
+  video1,
   autoplay1,
   loop1,
   muted1,
@@ -100,11 +100,11 @@ function GlobalLayoutComponentConfig ({
   media2Type,
   image2,
   embed2,
-  video2, 
+  video2,
   autoplay2,
   loop2,
   muted2,
-  controls2,        
+  controls2,
   image1BorderColor,
   image1BorderWidth,
   image1BorderStyle,
@@ -124,7 +124,7 @@ function GlobalLayoutComponentConfig ({
   image1DefaultBackColor,
   image1HoverBackColor,
   image2DefaultBackColor,
-  image2HoverBackColor,    
+  image2HoverBackColor,
   wrapperPaddingTop,
   wrapperPaddingRight,
   wrapperPaddingBottom,
@@ -147,16 +147,16 @@ function GlobalLayoutComponentConfig ({
   image2Width,
   imagesPosition,
   imagesHeight,
-  imagesGap,   
+  imagesGap,
   imagesFit,
-  imagesHorizontalPosition, 
+  imagesHorizontalPosition,
   linkStyleName,
   linkNoStyles,
-  styleName      
+  styleName
   }) {
 
-  const id = useId(); 
-  
+  const id = useId();
+
   const myRef = useRef(null);
 
   const handleClick = () => {
@@ -167,7 +167,7 @@ function GlobalLayoutComponentConfig ({
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [linkConfigProps, setLinkConfigProps] = useState();
 
@@ -180,7 +180,7 @@ function GlobalLayoutComponentConfig ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, apiBase, restPath, nodeName]);
@@ -188,8 +188,8 @@ function GlobalLayoutComponentConfig ({
 
   const linkExist = page || external || download || null;
 
-  const HeadlineLevel = headlineLevel || "h1";  
-  const downloadLink = download ?download['@link'] : baseUrl; 
+  const HeadlineLevel = headlineLevel || "h1";
+  const downloadLink = download ?download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Landing/Landing", "Landing") : linkType === "external" ? external : downloadLink;
 
   const layouts = layout || "layout1";
@@ -214,7 +214,7 @@ function GlobalLayoutComponentConfig ({
 
   const img2DefBgColor = image2DefaultBackColor || null;
   const img2HovBgColor = image2HoverBackColor || null;
-  
+
   const linkIcons = linkIcon || linkConfigProps?.linkIcon || "";
 
   const globalLayoutComponentStyles = {
@@ -227,7 +227,7 @@ function GlobalLayoutComponentConfig ({
     borderWidth: wrapperBorderWidth || null,
     borderStyle: wrapperBorderStyle || null,
     borderRadius: wrapperBorderRadius || null
-  } 
+  }
 
   const headlineStyles = {
     fontFamily: headlineFontFamily || null,
@@ -245,7 +245,7 @@ function GlobalLayoutComponentConfig ({
     paddingLeft: headlinePaddingLeft || null
   }
 
-  const descriptionLinkWrapperStyles = { 
+  const descriptionLinkWrapperStyles = {
     flexDirection: descLinkLayout || "column",
     gap: descLinkGap || null,
     alignItems: descLinkPosition || null
@@ -261,7 +261,7 @@ function GlobalLayoutComponentConfig ({
     borderWidth: descriptionBorderWidth || null,
     borderStyle: descriptionBorderStyle || null,
     borderRadius: descriptionBorderRadius || null,
-    textAlign: descriptionAlign || null       
+    textAlign: descriptionAlign || null
   }
 
   const linkComponentStyles = {
@@ -269,7 +269,7 @@ function GlobalLayoutComponentConfig ({
     paddingTop: linkPaddingTop || linkConfigProps?.linkPaddingTop || null,
     paddingRight: linkPaddingRight || linkConfigProps?.linkPaddingRight || null,
     paddingBottom: linkPaddingBottom || linkConfigProps?.linkPaddingBottom || null,
-    paddingLeft: linkPaddingLeft || linkConfigProps?.linkPaddingLeft || null, 
+    paddingLeft: linkPaddingLeft || linkConfigProps?.linkPaddingLeft || null,
     justifyContent: linkHorizontalPosition || "flex-start",
     alignItems: linkVerticalPosition || "flex-start"
   }
@@ -280,7 +280,7 @@ function GlobalLayoutComponentConfig ({
     paddingTop: labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: defLinkBorderColor,
     borderWidth: linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -327,7 +327,7 @@ function GlobalLayoutComponentConfig ({
     paddingLeft: image2PaddingLeft ||null,
     backgroundColor: img2DefBgColor
   }
-  
+
   return (
     <Wrapper className='globalLayoutComponentWrapper configComponents'
       hovBgColor={hovBgColor}
@@ -336,18 +336,18 @@ function GlobalLayoutComponentConfig ({
       hovLinkBorderColor={hovLinkBorderColor}
       defChevronColor={defChevronColor}
       hovChevronColor={hovChevronColor}
-      img1HovBgColor={img1HovBgColor} 
-      img2HovBgColor={img2HovBgColor}     
-    >      
+      img1HovBgColor={img1HovBgColor}
+      img2HovBgColor={img2HovBgColor}
+    >
       <div className="copyStyleName">
         <h4>Style Name: <span className="copyText" ref={myRef}>{styleName || null}</span></h4>
         <button onClick={handleClick}>
           Copy Style Name
         </button>
-      </div>  
+      </div>
       {layouts !== "layout4" ?
-        <div className={`globalLayoutComponent ${layouts}`} style={globalLayoutComponentStyles}> 
-          {headline &&         
+        <div className={`globalLayoutComponent ${layouts}`} style={globalLayoutComponentStyles}>
+          {headline &&
             <HeadlineLevel className="headline"style={headlineStyles}>
               {headline ? headline : null}
             </HeadlineLevel>
@@ -360,8 +360,8 @@ function GlobalLayoutComponentConfig ({
             }
             {media1Type === "video1" && video1 &&
               <div className="video1Component" style={{width:image1Width || "auto"}}>
-                <video 
-                  src={video1['@link']} 
+                <video
+                  src={video1['@link']}
                   style={image1Styles}
                   preload="auto"
                   autoPlay={autoplay1 === (false || "false") ? null : "autoplay"}
@@ -374,7 +374,7 @@ function GlobalLayoutComponentConfig ({
               </div>
             }
             {media1Type === "embed1" && embed1 &&
-              <div className="embedVideo1Component" style={{width:image1Width || "auto"}} 
+              <div className="embedVideo1Component" style={{width:image1Width || "auto"}}
                 dangerouslySetInnerHTML={{ __html:embed1 || null }}>
               </div>
             }
@@ -385,8 +385,8 @@ function GlobalLayoutComponentConfig ({
             }
             {media2Type === "video2" && video2 &&
               <div className="video2Component" style={{width:image2Width || "auto"}}>
-                <video 
-                  src={video2['@link']} 
+                <video
+                  src={video2['@link']}
                   style={image2Styles}
                   preload="auto"
                   autoPlay={autoplay2 === (false || "false") ? null : "autoplay"}
@@ -399,31 +399,31 @@ function GlobalLayoutComponentConfig ({
               </div>
             }
             {media2Type === "embed2" && embed2 &&
-              <div className="embedVideo2Component" style={{width:image2Width || "auto"}} 
+              <div className="embedVideo2Component" style={{width:image2Width || "auto"}}
                 dangerouslySetInnerHTML={{ __html:embed2 || null }}>
               </div>
             }
           </div>
           <div className='descriptionLinkWrapper flex' style={descriptionLinkWrapperStyles}>
             {description &&
-              <div className={`description ${descriptionStyle}`} 
-                  dangerouslySetInnerHTML={{ __html:description || null }} 
-                  style={descriptionStyles}>                  
+              <div className={`description ${descriptionStyle}`}
+                  dangerouslySetInnerHTML={{ __html:description || null }}
+                  style={descriptionStyles}>
               </div>
             }
             {linkExist &&
               <div className='linkComponent flex' style={linkComponentStyles}>
                 <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer" style= {linkStyles}>
-                  {linkLabel ? linkLabel : ""} 
+                  {linkLabel ? linkLabel : ""}
                   {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
                 </a>
               </div>
-            }      
+            }
           </div>
         </div>
         :
-        <div className={`globalLayoutComponent ${layouts}`} style={globalLayoutComponentStyles}> 
-          {headline &&         
+        <div className={`globalLayoutComponent ${layouts}`} style={globalLayoutComponentStyles}>
+          {headline &&
             <HeadlineLevel className="headline"style={headlineStyles}>
               {headline ? headline : null}
             </HeadlineLevel>
@@ -436,8 +436,8 @@ function GlobalLayoutComponentConfig ({
             }
             {media1Type === "video1" && video1 &&
               <div className="video1Component" style={{width:image1Width || "auto"}}>
-                <video 
-                  src={video1['@link']} 
+                <video
+                  src={video1['@link']}
                   style={image1Styles}
                   preload="auto"
                   autoPlay={autoplay1 === (false || "false") ? null : "autoplay"}
@@ -450,7 +450,7 @@ function GlobalLayoutComponentConfig ({
               </div>
             }
             {media1Type === "embed1" && embed1 &&
-              <div className="embedVideo1Component" style={{width:image1Width || "auto"}} 
+              <div className="embedVideo1Component" style={{width:image1Width || "auto"}}
                 dangerouslySetInnerHTML={{ __html:embed1 || null }}>
               </div>
             }
@@ -461,8 +461,8 @@ function GlobalLayoutComponentConfig ({
             }
             {media2Type === "video2" && video2 &&
               <div className="video2Component" style={{width:image2Width || "auto"}}>
-                <video 
-                  src={video2['@link']} 
+                <video
+                  src={video2['@link']}
                   style={image2Styles}
                   preload="auto"
                   autoPlay={autoplay2 === (false || "false") ? null : "autoplay"}
@@ -475,25 +475,25 @@ function GlobalLayoutComponentConfig ({
               </div>
             }
             {media2Type === "embed2" && embed2 &&
-              <div className="embedVideo2Component" style={{width:image2Width || "auto"}} 
+              <div className="embedVideo2Component" style={{width:image2Width || "auto"}}
                 dangerouslySetInnerHTML={{ __html:embed2 || null }}>
               </div>
             }
           </div>
           {description &&
-            <div className={`description ${descriptionStyle}`} 
-                dangerouslySetInnerHTML={{ __html:description || null }} 
-                style={descriptionStyles}>                  
+            <div className={`description ${descriptionStyle}`}
+                dangerouslySetInnerHTML={{ __html:description || null }}
+                style={descriptionStyles}>
             </div>
           }
           {linkExist &&
             <div className='linkComponent flex' style={linkComponentStyles}>
               <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer" style= {linkStyles}>
-                {linkLabel ? linkLabel : ""} 
+                {linkLabel ? linkLabel : ""}
                 {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
               </a>
             </div>
-          }      
+          }
         </div>
       }
     </Wrapper>

@@ -7,11 +7,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.pDefaultFontSize};
     font-family: ${(props) => props.pDefaultFontFamily};
     font-weight: ${(props) => props.pDefaultBold};
-    font-style: ${(props) => props.pDefaultItalic};  
+    font-style: ${(props) => props.pDefaultItalic};
     letter-spacing: ${(props) => props.pDefaultLetterSpacing};
     color: ${(props) => props.pDefaultColor};
     line-height: ${(props) => props.pDefaultLineHeight};
-    text-align: ${(props) => props.pDefaultPosition}; 
+    text-align: ${(props) => props.pDefaultPosition};
     text-transform: ${(props) => props.pDefaultTextTransform};
     padding-top: ${(props) => props.pDefaultPaddingTop};
     padding-bottom: ${(props) => props.pDefaultPaddingBottom};
@@ -23,11 +23,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.pSmallFontSize};
     font-family: ${(props) => props.pSmallFontFamily};
     font-weight: ${(props) => props.pSmallBold};
-    font-style: ${(props) => props.pSmallItalic};  
+    font-style: ${(props) => props.pSmallItalic};
     letter-spacing: ${(props) => props.pSmallLetterSpacing};
     color: ${(props) => props.pSmallColor};
     line-height: ${(props) => props.pSmallLineHeight};
-    text-align: ${(props) => props.pSmallPosition}; 
+    text-align: ${(props) => props.pSmallPosition};
     text-transform: ${(props) => props.pSmallTextTransform};
     padding-top: ${(props) => props.pSmallPaddingTop};
     padding-bottom: ${(props) => props.pSmallPaddingBottom};
@@ -39,11 +39,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.pNormalFontSize};
     font-family: ${(props) => props.pNormalFontFamily};
     font-weight: ${(props) => props.pNormalBold};
-    font-style: ${(props) => props.pNormalItalic};  
+    font-style: ${(props) => props.pNormalItalic};
     letter-spacing: ${(props) => props.pNormalLetterSpacing};
     color: ${(props) => props.pNormalColor};
     line-height: ${(props) => props.pNormalLineHeight};
-    text-align: ${(props) => props.pNormalPosition}; 
+    text-align: ${(props) => props.pNormalPosition};
     text-transform: ${(props) => props.pNormalTextTransform};
     padding-top: ${(props) => props.pNormalPaddingTop};
     padding-bottom: ${(props) => props.pNormalPaddingBottom};
@@ -55,11 +55,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.pBigFontSize};
     font-family: ${(props) => props.pBigFontFamily};
     font-weight: ${(props) => props.pBigBold};
-    font-style: ${(props) => props.pBigItalic};  
+    font-style: ${(props) => props.pBigItalic};
     letter-spacing: ${(props) => props.pBigLetterSpacing};
     color: ${(props) => props.pBigColor};
     line-height: ${(props) => props.pBigLineHeight};
-    text-align: ${(props) => props.pBigPosition}; 
+    text-align: ${(props) => props.pBigPosition};
     text-transform: ${(props) => props.pBigTextTransform};
     padding-top: ${(props) => props.pBigPaddingTop};
     padding-bottom: ${(props) => props.pBigPaddingBottom};
@@ -70,20 +70,20 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.captionFontSize};
     font-family: ${(props) => props.captionFontFamily};
     font-weight: ${(props) => props.captionBold};
-    font-style: ${(props) => props.captionItalic};  
+    font-style: ${(props) => props.captionItalic};
     letter-spacing: ${(props) => props.captionLetterSpacing};
     color: ${(props) => props.captionColor};
     line-height: ${(props) => props.captionLineHeight};
-    text-align: ${(props) => props.captionPosition}; 
+    text-align: ${(props) => props.captionPosition};
     text-transform: ${(props) => props.captionTextTransform};
   }
 `;
 
-function HeadlinesStyles() {  
+function HeadlinesStyles() {
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -163,7 +163,7 @@ function HeadlinesStyles() {
   const captionTextTransform = configProps?.captionTextTransform || "";
 
   return (
-    <GlobalStyles 
+    <GlobalStyles
       pDefaultFontSize={pDefaultFontSize}
       pDefaultFontFamily={pDefaultFontFamily}
       pDefaultPosition={pDefaultPosition}

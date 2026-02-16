@@ -8,9 +8,9 @@ const Wrapper = styled.div`
   }
 `;
 
-function Video ({ 
+function Video ({
   videoType,
-  video, 
+  video,
   embed,
   autoplay,
   loop,
@@ -33,12 +33,12 @@ function Video ({
   noStyles
 }) {
 
-  const id = useId(); 
+  const id = useId();
 
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -51,12 +51,12 @@ function Video ({
           result = data[0];
         } else if (noStyles === (false || "false")) {
           result = null;
-        } 
+        }
         setConfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
 
-  
+
 
   const defBgColor = defaultBackColor || configProps?.defaultBackColor || null;
   const hovBgColor = hoverBackColor || configProps?.hoverBackColor || defBgColor;
@@ -65,7 +65,7 @@ function Video ({
     paddingTop: paddingTop || configProps?.paddingTop || null,
     paddingRight: paddingRight || configProps?.paddingRight || null,
     paddingBottom: paddingBottom || configProps?.paddingBottom || null,
-    paddingLeft: paddingLeft || configProps?.paddingLeft || null,    
+    paddingLeft: paddingLeft || configProps?.paddingLeft || null,
     backgroundColor: defBgColor,
     borderColor: borderColor || configProps?.borderColor || null,
     borderWidth: borderWidth || configProps?.borderWidth || null,
@@ -79,7 +79,7 @@ function Video ({
     paddingTop: paddingTop || configProps?.paddingTop || null,
     paddingRight: paddingRight || configProps?.paddingRight || null,
     paddingBottom: paddingBottom || configProps?.paddingBottom || null,
-    paddingLeft: paddingLeft || configProps?.paddingLeft || null,    
+    paddingLeft: paddingLeft || configProps?.paddingLeft || null,
     backgroundColor: defBgColor,
     borderColor: borderColor || configProps?.borderColor || null,
     borderWidth: borderWidth || configProps?.borderWidth || null,
@@ -91,13 +91,13 @@ function Video ({
   }
 
   return (
-    <Wrapper className='videoWrapper' 
-      hovBgColor={hovBgColor} 
-    >     
+    <Wrapper className='videoWrapper'
+      hovBgColor={hovBgColor}
+    >
       {videoType === "video" && video &&
-        <div className='videoComponent' style={{ justifyContent: position || configProps?.position || "left"}}> 
-          <video 
-            src={video['@link']} 
+        <div className='videoComponent' style={{ justifyContent: position || configProps?.position || "left"}}>
+          <video
+            src={video['@link']}
             preload="auto"
             autoPlay={autoplay === (false || "false") ? null : "autoplay"}
             controls="controls"
@@ -105,7 +105,7 @@ function Video ({
             loop={loop === (false || "false") ? null : "loop"}
             id={"video_" + id}
             className="video"
-            style={videoStyles}    
+            style={videoStyles}
           ></video>
         </div>
       }

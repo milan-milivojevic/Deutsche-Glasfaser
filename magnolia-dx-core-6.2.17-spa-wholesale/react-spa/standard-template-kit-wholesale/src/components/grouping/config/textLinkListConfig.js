@@ -1,7 +1,7 @@
 import React, {useRef} from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function TextLinkListConfig ({ 
+function TextLinkListConfig ({
   column1,
   layout,
   columnGap,
@@ -27,10 +27,10 @@ function TextLinkListConfig ({
   wrapperBorderWidth,
   wrapperBorderStyle,
   wrapperBorderColor,
-  wrapperBorderRadius,  
+  wrapperBorderRadius,
   styleName
 }) {
-  
+
   const myRef = useRef(null);
 
   const handleClick = () => {
@@ -68,19 +68,19 @@ function TextLinkListConfig ({
     borderWidth: wrapperBorderWidth || null,
     borderStyle: wrapperBorderStyle || null,
     borderColor: wrapperBorderColor || null,
-    borderRadius: wrapperBorderRadius || null                
+    borderRadius: wrapperBorderRadius || null
   }
 
   return (
     <div className='textLinkListWrapper configComponents'>
-    <div className="copyStyleName">      
+    <div className="copyStyleName">
       <h4>Style Name: <span className="copyText" ref={myRef}>{styleName || null}</span></h4>
       <button onClick={handleClick}>
         Copy Style Name
       </button>
-    </div>  
+    </div>
     <div className='textLinkListComponent' style={listComponentStyles}>
-      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}   
+      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}
       <ul className={`textLinkList`}style={listStyles}>
         {column1 && <EditableArea className={`listComponents textLinksArea layout${layout}`} content={column1}/>}
       </ul>

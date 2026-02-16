@@ -8,21 +8,21 @@ import DocumentDetailsFilter from "../w2p/filters/DocumentDetailsFilter";
 import DocumentTemplateTypeFilter from "../w2p/filters/DocumentTemplateTypeFilter";
 import DocumentStatusFilter from "../w2p/filters/DocumentStatusFilter";
 
-function W2PDocumentsSearch ({   
+function W2PDocumentsSearch ({
   sortOrderDocuments,
   perPage,
-  perRow,  
-  defaultView, 
+  perRow,
+  defaultView,
 
   detailsButton,
-  editButton,  
+  editButton,
   downloadButton,
   emailButton,
   deleteButton,
 }) {
 
   const elementRef = useRef(null);
-  
+
   const initialSortOrder = sortOrderDocuments ? sortOrderDocuments : "creationDate,desc";
   const splitedSortOrder = initialSortOrder.split(',');
   const initialSortType = splitedSortOrder[0];
@@ -34,7 +34,7 @@ function W2PDocumentsSearch ({
   const [sortType, setSortType] = useState(initialSortType);
   const [sortDirection, setSortDirection] = useState(initialSortDirection);
   const [offset, setOffset] = useState(0);
-  const [hasMore, setHasMore] = useState(true);  
+  const [hasMore, setHasMore] = useState(true);
   const [matches, setMatches] = useState(0);
   const [view, setView] = useState(defaultView || "grid");
   const [size, setSize] = useState(perPage ? (Number(perPage) + 6) : 29);
@@ -42,13 +42,13 @@ function W2PDocumentsSearch ({
 
   const [selectedDetails, setSelectedDetails] = useState();
   const [selectedTemplateType, setSelectedTemplateType] = useState();
-  const [selectedDocumentStatus, setSelectedDocumentStatus] = useState("in-work");  
+  const [selectedDocumentStatus, setSelectedDocumentStatus] = useState("in-work");
 
-  useEffect(() => {   
+  useEffect(() => {
 
-    documentsSearch(query, sortType, sortDirection, size, offset, selectedTemplateType, selectedDetails, selectedDocumentStatus).then((data) => {      
+    documentsSearch(query, sortType, sortDirection, size, offset, selectedTemplateType, selectedDetails, selectedDocumentStatus).then((data) => {
       setProducts([]);
-      setProducts(data);      
+      setProducts(data);
     });
 
   }, []);
@@ -59,24 +59,24 @@ function W2PDocumentsSearch ({
 
   const updateSelectedDetails = (selectedValues) => {
     setSelectedDetails(selectedValues);
-  }; 
+  };
 
   const updateSelectedDocumentStatus = (selectedValues) => {
     setSelectedDocumentStatus(selectedValues);
-  }; 
+  };
 
   const documentsSearch = async (query, sortType, sortDirection, size, offset, selectedTemplateType, selectedDetails, selectedDocumentStatus) => {
-  
+
     const data = await documentsSearchService(query, sortType, sortDirection, size, offset, selectedTemplateType, selectedDetails, selectedDocumentStatus);
 
     setProducts(data.rows);
-    setMatches(data.results);    
+    setMatches(data.results);
 
     const hasMoreAssets = offset < data.results - 25;
-    setHasMore(hasMoreAssets);     
+    setHasMore(hasMoreAssets);
 
     return data.rows;
-  };  
+  };
 
   const changeSorting = (e) => {
 
@@ -90,11 +90,11 @@ function W2PDocumentsSearch ({
     setSortDirection(sortDirectionRaw);
     setOffset(0);
     const currentOffset = 0;
-    
 
-    documentsSearch(query, sortTypeRaw, sortDirectionRaw, size, currentOffset, selectedTemplateType, selectedDetails, selectedDocumentStatus).then((data) => {      
+
+    documentsSearch(query, sortTypeRaw, sortDirectionRaw, size, currentOffset, selectedTemplateType, selectedDetails, selectedDocumentStatus).then((data) => {
       setProducts([]);
-      setProducts(data);      
+      setProducts(data);
     });
   };
 
@@ -102,15 +102,15 @@ function W2PDocumentsSearch ({
 
     setOffset(0);
     const currentOffset = 0;
-    
+
     const data = await documentsSearchService(query, sortType, sortDirection, size, currentOffset, selectedTemplateType, selectedDetails, selectedDocumentStatus);
 
     setProducts([]);
     setProducts(data.rows);
-    setMatches(data.results);     
-    
+    setMatches(data.results);
+
     const hasMoreAssets = currentOffset < data.results - 25;
-    setHasMore(hasMoreAssets);     
+    setHasMore(hasMoreAssets);
   };
 
   const fetchMoreDocuments = async (query, sortType, sortDirection, size, offset, selectedTemplateType, selectedDetails, selectedDocumentStatus) => {
@@ -121,10 +121,10 @@ function W2PDocumentsSearch ({
     setMatches(data.results);
 
     const hasMoreAssets = offset < data.results - 25 ? true : false;
-    setHasMore(hasMoreAssets); 
+    setHasMore(hasMoreAssets);
 
-    return data.rows;    
-  };      
+    return data.rows;
+  };
 
   const loadMoreDocuments = () => {
     const currentOffset = offset + 25;
@@ -133,7 +133,7 @@ function W2PDocumentsSearch ({
 
     fetchMoreDocuments(query, sortType, sortDirection, size, currentOffset, selectedTemplateType, selectedDetails, selectedDocumentStatus);
   }
-  
+
   const buttonProps = {
     detailsButton,
     editButton,
@@ -147,8 +147,8 @@ function W2PDocumentsSearch ({
   };
   const toggleListView = () => {
     setView("list");
-  }; 
-  
+  };
+
   return (
     <div className="mpSearchComponent w2p documents">
       <div className="staticSearch mpSearch">
@@ -168,7 +168,7 @@ function W2PDocumentsSearch ({
         <DocumentTemplateTypeFilter onUpdateSelectedTemplateType={updateSelectedTemplateType} selectedTemplateType={selectedTemplateType}/>
         <DocumentDetailsFilter onUpdateSelectedDetails={updateSelectedDetails} selectedDetails={selectedDetails}/>
       </div>
-      </div>      
+      </div>
       <div className="searchActions">
         <div className="searchResult">
           <div className="matches">{matches} matches</div>
@@ -201,17 +201,17 @@ function W2PDocumentsSearch ({
             </button>
           </div>
         </div>
-      </div>      
+      </div>
       {products && products.length > 0 ? (
         <>
           <div className={`mpSearchContainer ${view}`} style={{ gridTemplateColumns: `repeat(${perRow ? perRow : 5}, 1fr)` }}>
-            {products.map(c => 
+            {products.map(c =>
               <DocumentCard
                 documentData={c}
                 key={c.id}
                 buttonProps={buttonProps}
               />
-            )}            
+            )}
           </div>
           {hasMore && (
             <div className="loadMoreItems" style={{ width: "100%" }} ref={elementRef}>
@@ -224,7 +224,7 @@ function W2PDocumentsSearch ({
       ) : (
         <div className='mpSearchContainer'>No Results</div>
       )}
-      
+
     </div>
   );
 }

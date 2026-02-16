@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     background-color: ${(props) => props.hovBgColor && props.hovBgColor + "!important"};
     color: ${(props) => props.hoverTitleColor && props.hoverTitleColor + "!important"};
   }
-  .title:hover svg { 
+  .title:hover svg {
     color: ${(props) => props.hoverChevronColor && props.hoverChevronColor + "!important"};
   }
 `
@@ -24,7 +24,7 @@ function Accordion ({
   titleHoverColor,
   chevronColor,
   chevronHoverColor,
-  chevronFontSize,    
+  chevronFontSize,
   accordionInnerPaddingTop,
   accordionInnerPaddingRight,
   accordionInnerPaddingBottom,
@@ -59,15 +59,15 @@ function Accordion ({
 
   const HeadlineLevel = titleLevel || "h3";
 
-  const defBgColor = accordionDefaultBackColor || null;    
+  const defBgColor = accordionDefaultBackColor || null;
   const hovBgColor = accordionHoverBackColor || defBgColor;
 
-  const defTitleColor = titleColor || null; 
+  const defTitleColor = titleColor || null;
   const hoverTitleColor = titleHoverColor || defTitleColor;
 
-  const defChevronColor = chevronColor || null;    
+  const defChevronColor = chevronColor || null;
   const hoverChevronColor = chevronHoverColor || defChevronColor;
-  
+
   const itemStyles = {
     paddingTop: accordionOuterPaddingTop || null,
     paddingRight: accordionOuterPaddingRight || null,
@@ -112,7 +112,7 @@ function Accordion ({
       <div className="accordion" style={{justifyContent: position || "center"}}>
         <div className="item" style={itemStyles}>
           <HeadlineLevel className="title" onClick={() => toggle()} style={titleStyles}>
-            {title} 
+            {title}
             {open ?
               <BsChevronUp style={chevronStyles}/> :
               <BsChevronDown style={chevronStyles}/>

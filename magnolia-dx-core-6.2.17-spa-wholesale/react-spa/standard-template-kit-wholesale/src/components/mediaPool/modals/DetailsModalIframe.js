@@ -23,7 +23,7 @@ const DetailsModal = ( props ) => {
     language,
     selectedOption,
     fields,
-    isOpen, 
+    isOpen,
     onClose
      } = props;
 
@@ -37,19 +37,19 @@ const DetailsModal = ( props ) => {
       onRequestClose={onClose}
       contentLabel="Details Modal"
       className="detailsReactModal"
-    > 
+    >
       <div className='detailsModalWrapper iframe'>
         <div class="closeButtonWrapper">
           <button className="closeButton" onClick={onClose}><AiOutlineClose/></button>
         </div>
-        <div className='detailsModal w2p'>          
+        <div className='detailsModal w2p'>
           <iframe className="detailsIframe"
                   ref={iframeRef}
                   title={"Asset Details"}
                   src={'/web/mp/asset-details?assetId=' + assetId + '&skipHeader=true'}
           ></iframe>
         </div>
-      </div>      
+      </div>
     </Modal>
   );
 };

@@ -1,4 +1,4 @@
-/* Accordion List Component */
+
 
 .accordionList {
   display: flex;
@@ -6,7 +6,7 @@
 }
 .accordionItemWrapper {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 100%;
@@ -27,7 +27,6 @@
   display: none;
 }
 
-/* Tabs Group Component */
 
 .tabsGroup {
   max-width: 100%;
@@ -39,7 +38,7 @@
 }
 .tabTitles .tab {
   flex: 1 1 0;
-  /* width: 200px; */
+
 }
 .tabContent {
   display: none;
@@ -90,7 +89,6 @@
   transition: 0.25s ease-out;
 }
 
-/* Image Gallery Component */
 
 .imageGalleryComponent {
   display: grid;
@@ -127,7 +125,7 @@
 .imageGalleryComponent.layout32 {
   grid-template-columns: 0.25fr 0.5fr 0.25fr;
 }
-.imageGalleryComponent.layout33 { 
+.imageGalleryComponent.layout33 {
   grid-template-columns: 0.25fr 0.25fr 0.5fr;
 }
 
@@ -154,13 +152,12 @@
   grid-column: 1 / 3;
 }
 
-/* List Components */
 
 .listComponents {
   display: grid;
   gap: inherit;
 }
-/* v-webkit is class from body tag only in edit mode */
+
 .editMode .listComponents :first-child,
 .editMode .listComponents :last-child {
   grid-column: 1 / -1;
@@ -183,7 +180,7 @@
   grid-template-columns: 0.33fr 0.67fr;
 }
 .listComponents.layout24 {
-  grid-template-columns: 0.67fr 0.33fr; 
+  grid-template-columns: 0.67fr 0.33fr;
 }
 
 .listComponents.layout3 {
@@ -195,7 +192,7 @@
 .listComponents.layout32 {
   grid-template-columns: 0.25fr 0.5fr 0.25fr;
 }
-.listComponents.layout33 { 
+.listComponents.layout33 {
   grid-template-columns: 0.25fr 0.25fr 0.5fr;
 }
 

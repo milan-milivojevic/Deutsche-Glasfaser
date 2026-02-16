@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { idSearch } from '../../api/searchService'
 import Card from './helpers/Card';
 
-function MpSingleAsset ({ 
+function MpSingleAsset ({
   assetId,
   defaultView,
-  
+
   downloadButton,
   emailButton,
   detailsButton,
@@ -24,7 +24,7 @@ function MpSingleAsset ({
 }) {
 
   const [products, setProducts] = useState([]);
-  
+
   const searchById = async (assetId) => {
     const response = await idSearch(assetId);
     setProducts([]);
@@ -53,7 +53,7 @@ function MpSingleAsset ({
     paddingRight: titlePaddingRight || null,
     paddingBottom: titlePaddingBottom || null,
     paddingLeft: titlePaddingLeft || null
-  }  
+  }
 
   return (
     <div className={`mpAssetWrapper ${defaultView}`}>
@@ -63,7 +63,7 @@ function MpSingleAsset ({
         </TitleLevel>
       }
       {products && products.length > 0 ? (
-          products.map(c => 
+          products.map(c =>
             <Card
               fields={c.fields}
               key={c.fields.id.value}

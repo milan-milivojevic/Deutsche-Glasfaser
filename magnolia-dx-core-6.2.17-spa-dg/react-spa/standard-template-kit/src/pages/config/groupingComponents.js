@@ -3,7 +3,7 @@ import { EditableArea } from '@magnolia/react-editor';
 import '../../css.css';
 
 function GroupingComponentsConfiguration (props) {
-  const { 
+  const {
     accordionListComponents,
     borderTeaserListComponents,
     cardTeaserListComponents,
@@ -11,10 +11,10 @@ function GroupingComponentsConfiguration (props) {
     imageTeaserListComponents,
     linkListComponents,
     tabsComponents,
-    textLinkListComponents 
+    textLinkListComponents
   } = props;
 
-  return (    
+  return (
     <div className='configComponentsPage'>
       <h2 className='titles'>Accordion List Components</h2>
       <div>{accordionListComponents && <EditableArea content={accordionListComponents} />}</div>
@@ -25,11 +25,11 @@ function GroupingComponentsConfiguration (props) {
       <h2 className='titles'>Border Teaser List Component</h2>
       <div>{borderTeaserListComponents && <EditableArea content={borderTeaserListComponents} />}</div>
       <h2 className='titles'>Card Teaser List Component</h2>
-      <div>{cardTeaserListComponents && <EditableArea content={cardTeaserListComponents} />}</div>          
+      <div>{cardTeaserListComponents && <EditableArea content={cardTeaserListComponents} />}</div>
       <h2 className='titles'>Image Teaser List Component</h2>
       <div>{imageTeaserListComponents && <EditableArea content={imageTeaserListComponents} />}</div>
       <h2 className='titles'>Link List Component</h2>
-      <div>{linkListComponents && <EditableArea content={linkListComponents} />}</div>          
+      <div>{linkListComponents && <EditableArea content={linkListComponents} />}</div>
       <h2 className='titles'>Text & Link List Component</h2>
       <div>{textLinkListComponents && <EditableArea content={textLinkListComponents} />}</div>
     </div>

@@ -4,32 +4,14 @@ import { getAPIBase } from "./AppHelpers";
 export async function aclCheck(allowedGroups, deniedGroups, hideComponent) {
   const apiBase = getAPIBase();
 
-  // const [userName, setUserName] = useState();
-  // const [users, setUsers] = useState();
 
-  // useEffect(() => {
-  //   fetch("https://dg-test.brandmaker.com/rest/administration/users/_current")
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setUserName(data);
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch(`${apiBase}/.rest/delivery/users`)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setUsers(data.results);
-  //     });
-  // }, [apiBase]);
-
-  let orgUnitName = null;  
+  let orgUnitName = null;
   let orgUnitIdMgnl = null;
   let vdbGroupId = null;
   let vdbGroupName = null;
   let vdbGroupIdMgnl = null;
   let currentUser = null;
-  let users = null;  
+  let users = null;
 
   async function fetchOrgUnitName() {
     const response = await fetch(
@@ -47,7 +29,7 @@ export async function aclCheck(allowedGroups, deniedGroups, hideComponent) {
     );
     const data = await response.json();
     currentUser = data;
-    vdbGroupId = data.vdbGroupId;    
+    vdbGroupId = data.vdbGroupId;
   }
 
   await fetchVdbGroupId();
@@ -57,12 +39,12 @@ export async function aclCheck(allowedGroups, deniedGroups, hideComponent) {
       "https://bitzer-test.brandmaker.com/rest/administration/virtual-database-groups"
     );
     const data = await response.json();
-    
+
     const vdbGroup = data.find(item => item.id === vdbGroupId);
     vdbGroupName = "VDBG_" + vdbGroup.name;
   }
 
-  await fetchVdbGroupName();    
+  await fetchVdbGroupName();
 
   async function fetchUsers() {
     const response = await fetch(`${apiBase}/.rest/delivery/users`);
@@ -98,7 +80,7 @@ export async function aclCheck(allowedGroups, deniedGroups, hideComponent) {
         showComponent = true;
       } else if (allowedGroups?.length !== 0 || deniedGroups?.length !== 0) {
         allowedGroups?.forEach((allowedGroup) => {
-            userGroupsIds.forEach((groupId) => {  
+            userGroupsIds.forEach((groupId) => {
             if (groupId === allowedGroup) {
               allowed_check = "true";
               return;
@@ -116,7 +98,7 @@ export async function aclCheck(allowedGroups, deniedGroups, hideComponent) {
                 return;
             }
           });
-          
+
           if (denied_check === "true") {
           }
        });

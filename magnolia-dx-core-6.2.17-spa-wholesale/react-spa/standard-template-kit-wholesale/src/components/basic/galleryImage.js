@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GalleryImage({ 
+function GalleryImage({
     image,
     imageBorderColor,
     imageBorderWidth,
@@ -9,7 +9,7 @@ function GalleryImage({
 }) {
   console.log(image);
   return (
-      <img className="galleryImage" src={"http://localhost:8080" + image['@link']} alt="" 
+      <img className="galleryImage" src={"http://localhost:8080" + image['@link']} alt=""
         style={{width: "100%",
                 borderColor: imageBorderColor !== undefined ? imageBorderColor: null,
                 borderWidth: imageBorderWidth !== undefined ? imageBorderWidth: null,
