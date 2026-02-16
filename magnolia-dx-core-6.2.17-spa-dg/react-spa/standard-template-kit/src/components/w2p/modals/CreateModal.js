@@ -5,7 +5,7 @@ import { findInstanceId } from '../../../api/w2pSearchService';
 
 
 const CreateModal = ({ templateId, isOpen, onClose }) => {
-  
+
   console.log("Create Modal")
 
   const iframeRef = useRef(null);
@@ -26,31 +26,26 @@ const CreateModal = ({ templateId, isOpen, onClose }) => {
 
   const handleIframeLoad = () => {
     if (iframeRef.current) {
-      // Access the iframe's document
       const iframeDocument = iframeRef.current.contentDocument;
 
-      // Create a new style element
       const styleElement = iframeDocument.createElement('style');
 
-      // Define your CSS styles here
       const cssStyles = `
         div#bm-header {
             display: none;
-        }        
+        }
         div#bm-body {
             height: 100vh;
             padding: 0;
             margin: 0;
-        }        
+        }
         body#body.bgImage {
             background: 0;
         }
       `;
 
-      // Set the style element's content to your CSS styles
       styleElement.innerHTML = cssStyles;
 
-      // Append the style element to the iframe's document head
       iframeDocument.head.appendChild(styleElement);
     }
   };
@@ -61,13 +56,13 @@ const CreateModal = ({ templateId, isOpen, onClose }) => {
       onRequestClose={onClose}
       contentLabel="Create Modal"
       className="createReactModal"
-    > 
+    >
       <div className='detailsModalWrapper w2p'>
         <div class="closeButtonWrapper w2p">
           <h2 className='titleId'>Create Document (Template ID: <span>{templateId}</span>)</h2>
-          <button className="closeButton" onClick={onClose}><AiOutlineClose/></button>          
+          <button className="closeButton" onClick={onClose}><AiOutlineClose/></button>
         </div>
-        <div className='createModal w2p'>          
+        <div className='createModal w2p'>
           <iframe className="createTemplateIframe"
                   ref={iframeRef}
                   title={"Template Details"}
@@ -75,7 +70,7 @@ const CreateModal = ({ templateId, isOpen, onClose }) => {
                   onLoad={handleIframeLoad}
           ></iframe>
         </div>
-      </div>      
+      </div>
     </Modal>
   );
 };

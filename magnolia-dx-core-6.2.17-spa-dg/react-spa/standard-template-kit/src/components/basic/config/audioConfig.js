@@ -1,6 +1,6 @@
 import React, { useId, useRef } from 'react';
 
-function AudioConfig ({ 
+function AudioConfig ({
     audio,
     autoplay,
     loop,
@@ -34,13 +34,13 @@ function AudioConfig ({
     marginTop: marginTop || null,
     marginRight: marginRight || null,
     marginBottom: marginBottom || null,
-    marginLeft: marginLeft || null,    
+    marginLeft: marginLeft || null,
     borderColor: borderColor || null,
     borderWidth: borderWidth || null,
     borderStyle: borderStyle || null,
     borderRadius: borderRadius || null,
     width: width || "100%"
-  }  
+  }
 
   return (
     <div className='audioWrapper configComponents'>
@@ -57,11 +57,11 @@ function AudioConfig ({
           autoPlay={autoplay === (false || "false") ? null : "autoplay"}
           controls="controls"
           muted={muted === (false || "false") ? null : "muted"}
-          loop={loop === (false || "false") ? null : "loop"} 
+          loop={loop === (false || "false") ? null : "loop"}
           id={"audio_" + id}
           className="audio"
           style={audioStyles}
-        ></audio>    
+        ></audio>
       </div>
     </div>
   )

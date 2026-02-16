@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getAPIBase } from '../../helpers/AppHelpers';
 
-function SeparationBlock({ 
-    spaceTop, 
+function SeparationBlock({
+    spaceTop,
     spaceBottom,
     borderWidth,
     borderStyle,
@@ -19,7 +19,7 @@ function SeparationBlock({
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;   
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setconfigProps] = useState();
 
@@ -32,13 +32,13 @@ function SeparationBlock({
           result = data[0];
         } else if (noStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setconfigProps(result);
       });
   }, [styleName, noStyles, apiBase, restPath, nodeName]);
 
   const [spaceTopConfigProps, setSpaceTopConfigProps] = useState();
-  
+
   useEffect(() => {
     fetch(`${apiBase}${restPath}${nodeName}/Config-Pages/Basics-Config/spacerComponents/@nodes`)
       .then(response => response.json())
@@ -49,7 +49,7 @@ function SeparationBlock({
           result = data[0];
         } else if (spaceTopNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setSpaceTopConfigProps(result);
       });
   }, [spaceTopStyleName, spaceTopNoStyles, configProps?.spaceTopStyleName, apiBase, restPath, nodeName]);
@@ -66,7 +66,7 @@ function SeparationBlock({
           result = data[0];
         } else if (spaceBottomNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setSpaceBottomConfigProps(result);
       });
   }, [spaceBottomStyleName, spaceBottomNoStyles, configProps?.spaceBottomStyleName, apiBase, restPath, nodeName]);
@@ -83,7 +83,7 @@ function SeparationBlock({
           result = data[0];
         } else if (dividerNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setDividerConfigProps(result);
       });
   }, [dividerStyleName, dividerNoStyles, configProps?.dividerStyleName, apiBase, restPath, nodeName]);
@@ -101,7 +101,7 @@ function SeparationBlock({
 
   return (
     <div className='separationBlockWrapper'>
-      <div className='spacer' style={spacerStyles}> 
+      <div className='spacer' style={spacerStyles}>
         <div className="divider" style={dividerStyles}></div>
       </div>
     </div>

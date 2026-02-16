@@ -22,7 +22,7 @@ function SpacerConfig ({ spacer, styleName }) {
         <button onClick={handleClick}>
           Copy Style Name
         </button>
-      </div>  
+      </div>
       <div className='spacer' style={spacerStyles}></div>
     </div>
   );

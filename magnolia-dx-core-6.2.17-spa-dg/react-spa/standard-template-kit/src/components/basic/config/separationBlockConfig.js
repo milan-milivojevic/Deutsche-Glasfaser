@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getAPIBase } from '../../../helpers/AppHelpers';
 
-function SeparationBlockConfig({ 
-    spaceTop, 
+function SeparationBlockConfig({
+    spaceTop,
     spaceBottom,
     borderWidth,
     borderStyle,
@@ -31,7 +31,7 @@ function SeparationBlockConfig({
           result = data[0];
         } else if (spaceTopNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setSpaceTopConfigProps(result);
       });
   }, [spaceTopStyleName, spaceTopNoStyles, apiBase, restPath, nodeName]);
@@ -47,7 +47,7 @@ function SeparationBlockConfig({
           result = data[0];
         } else if (spaceBottomNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setSpaceBottomConfigProps(result);
       });
   }, [spaceBottomStyleName, spaceBottomNoStyles, apiBase, restPath, nodeName]);
@@ -63,7 +63,7 @@ function SeparationBlockConfig({
           result = data[0];
         } else if (dividerNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setDividerConfigProps(result);
       });
   }, [dividerStyleName, dividerNoStyles, apiBase, restPath, nodeName]);
@@ -96,7 +96,7 @@ function SeparationBlockConfig({
           Copy Style Name
         </button>
       </div>
-      <div className='spacer' style={spacerStyles}> 
+      <div className='spacer' style={spacerStyles}>
         <div className="divider" style={dividerStyles}></div>
       </div>
     </div>

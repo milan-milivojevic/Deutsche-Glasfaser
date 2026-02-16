@@ -22,9 +22,9 @@ const RelatedAssetCard = ({ relatedAssetData }) => {
   const [showEmailModal, setShowEmailModal] = useState(false);
   const [isImgHovered, setIsImgHovered] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [message, setMesage] = useState("");  
+  const [message, setMesage] = useState("");
 
-  const baseURL = process.env.REACT_APP_MGNL_APP_HOST; 
+  const baseURL = process.env.REACT_APP_MGNL_APP_HOST;
   const apiBase = getAPIBase();
 
   const assetId = relatedAssetData.id;
@@ -50,11 +50,11 @@ const RelatedAssetCard = ({ relatedAssetData }) => {
   const license = relatedAssetData.license || null;
 
   title = title
-    .replace(/-/g, '_') // Replace dashes with underscores
-    .split('_') // Split the string by underscores into an array
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize each word
-    .join(' '); // Join the words back together with spaces
-  
+    .replace(/-/g, '_')
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
   owner = owner.replace(/,/g, "");
   lastUpdatedTime = moment(lastUpdatedTime).utc().format('MM/DD/YYYY');
   uploadDate = moment(uploadDate).utc().format('MM/DD/YYYY');
@@ -79,20 +79,20 @@ const RelatedAssetCard = ({ relatedAssetData }) => {
     selectedOption,
     relatedAssetData
   };
-  
+
   const imageMouseEnter = () => {
     setIsImgHovered(true);
   };
   const imageMouseLeave = () => {
     setIsImgHovered(false);
   };
-  
+
   const downloadFile = async () => {
 
     const data = await downloadFileDirect(assetId, selectedOption, download_version, language, null);
 
-    if (typeof data[0].download_url !== 'undefined') {        
-  
+    if (typeof data[0].download_url !== 'undefined') {
+
       if (isMobileDevice()) {
         openLink(data[0].download_url, '_blank');
       } else {
@@ -147,7 +147,7 @@ const RelatedAssetCard = ({ relatedAssetData }) => {
       setTimeout(() => {
         setShowAlert(false);
       }, 2500);
-    }    
+    }
   }
 
   const closeDownloadModal = () => {
@@ -176,7 +176,7 @@ const RelatedAssetCard = ({ relatedAssetData }) => {
     <div className='assetCard' onMouseEnter={imageMouseEnter} onMouseLeave={imageMouseLeave}>
       <div className='assetCardPreview' onClick={toggleDetailsModal}>
         <AssetPreview assetId={assetId} assetVersion={assetVersion} assetPageCount={assetPageCount} assetResourceType={assetResourceType} isModal={false}></AssetPreview>
-      </div>      
+      </div>
       <div className={`assetActionButtons ${isImgHovered ? 'show' : ''}`}>
         {isDetailsButton && (
           <button onClick={toggleDetailsModal}><GrZoomIn/></button>
@@ -194,24 +194,14 @@ const RelatedAssetCard = ({ relatedAssetData }) => {
       <div className='assetCardContent'>
         <h2 className='assetTitle'>{title}</h2>
         <p><span>Asset ID: </span>{assetId}</p>
-        {/* <p><span>Asset Contact: </span>{owner}</p> */}
         <p><span>File Size:</span>{fileSize}</p>
         <p><span>Upload Date:</span>{uploadDate}</p>
         <p><span>Asset Type:</span>{assetResourceType}</p>
-        {/* <p><span>Last change: </span>{lastUpdatedTime}</p> */}
-        {/* {keywords && 
-          <ul className='assetKeywords'>
-            {keywords.map(keyword => <li className='Keyword ID' key={keyword}>{keyword}</li>)}
-          </ul>
-        } */}
-        {/* <div className='fileFormatWrapper'>
-          <div className='fileFormat'>{fileFormat}</div>        
-        </div> */}
       </div>
 
       {showAlert && <AlertPopup showAlert={showAlert} alertMessage={message} />}
 
-      {showDetailsModal && <DetailsModal {...dataProps} isOpen={showDetailsModal} onClose={toggleDetailsModal}></DetailsModal>}      
+      {showDetailsModal && <DetailsModal {...dataProps} isOpen={showDetailsModal} onClose={toggleDetailsModal}></DetailsModal>}
       {showDownloadModal && <DownloadModal assetId={assetId} license={license && license} isOpen={showDownloadModal} onClose={toggleDownloadModal} closeModal={closeDownloadModal}></DownloadModal>}
       {showEmailModal && <EmailModal assetId={assetId} isOpen={showEmailModal} onClose={toggleEmailModal} closeModal={closeEmailModal}></EmailModal>}
     </div>

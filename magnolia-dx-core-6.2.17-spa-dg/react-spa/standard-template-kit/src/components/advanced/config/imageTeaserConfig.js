@@ -10,16 +10,16 @@ const Wrapper = styled.div`
     color: ${(props) => props.hovLabelColor && props.hovLabelColor + "!important"};
     border-color: ${(props) => props.hovLinkBorderColor && props.hovLinkBorderColor + "!important"};
   }
-  .link svg { 
+  .link svg {
     color: ${(props) => props.defChevronColor && props.defChevronColor + "!important"};
   }
-  .link:hover svg { 
+  .link:hover svg {
     color: ${(props) => props.hovChevronColor && props.hovChevronColor + "!important"};
   }
 }`
 
 function ImageTeaserConfig ({
-  headline,   
+  headline,
   headlineLevel,
   headlineFontFamily,
   headlinePosition,
@@ -69,11 +69,11 @@ function ImageTeaserConfig ({
   linkBorderStyle,
   linkBorderRadius,
   linkWidth,
-  linkHeight,      
+  linkHeight,
   linkDefaultBackColor,
   linkHoverBackColor,
   labelDefaultColor,
-  labelHoverColor,  
+  labelHoverColor,
   linkLabelDecoration,
   linkLabelVerticalPosition,
   linkLabelHorizontalPosition,
@@ -98,7 +98,7 @@ function ImageTeaserConfig ({
   componentBorderRadius,
   componentWidth,
   componentHeight,
-  componentPosition,    
+  componentPosition,
   teaserLayout,
   descLinkLayout,
   descRowLayoutWidth,
@@ -112,19 +112,19 @@ function ImageTeaserConfig ({
   linkNoStyles,
   styleName,
   }) {
-  
+
   const myRef = useRef(null);
 
   const handleClick = () => {
     const copyText = myRef.current.innerText;
     navigator.clipboard.writeText(copyText);
-  }; 
+  };
 
   const baseUrl = process.env.REACT_APP_MGNL_HOST;
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;    
-  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
+
   const [linkConfigProps, setLinkConfigProps] = useState();
 
   useEffect(() => {
@@ -136,14 +136,12 @@ function ImageTeaserConfig ({
           result = data[0];
         } else if (linkNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setLinkConfigProps(result);
       });
   }, [linkStyleName, linkNoStyles, apiBase, restPath, nodeName]);
 
   const dimensionsRef = useRef()
-  // const headlineRef = useRef()
-  // const descLinkRef = useRef()
 
   const useContainerDimensions = myRef => {
     const [dimensions, setDimensions] = useState({ width: 0, height: 0})
@@ -153,57 +151,44 @@ function ImageTeaserConfig ({
       const getDimensions = () => ({
         width: myRefCurrent.offsetWidth,
         height: myRefCurrent.offsetHeight,
-        // headlineHeight: myRefCurrent.offsetHeight,
-        // descLinkHeight: myRefCurrent.offsetHeight,
-      })  
+      })
       const handleResize = () => {
         setDimensions(getDimensions())
       }
-      // if (myRefCurrent) {
-      //   setDimensions(getDimensions());
-      //   setTimeout(() => setDimensions(getDimensions()), 500);
-      //   setTimeout(() => setDimensions(getDimensions()), 2000);    
-      //   setTimeout(() => setDimensions(getDimensions()), 5000);    
-      // }
       if (myRefCurrent) {
         setDimensions(getDimensions());
         var interval = setInterval(() => {
         setDimensions(getDimensions())} , 200);
         setTimeout(function( ) { clearInterval( interval ); }, 5000);
       }
-      window.addEventListener("resize", handleResize)  
+      window.addEventListener("resize", handleResize)
       return () => {
         window.removeEventListener("resize", handleResize)
       }
     }, [myRefCurrent])
 
     return dimensions;
-  };  
+  };
 
   const { width, height } = useContainerDimensions(dimensionsRef);
-  // const { headlineHeight } = useContainerDimensions(headlineRef);
-  // const { descLinkHeight } = useContainerDimensions(descLinkRef);
 
-  // console.log(headlineHeight, descLinkHeight);
-
-  // const acctualHeight = headlineHeight + descLinkHeight + componentPaddingTop + componentPaddingBottom;
 
   const openLink = () => {
     window.open(href, linkLocation || "_blank");
   };
-  
+
   const HeadlineLevel = headlineLevel || "h1";
-  const downloadLink = download ? download['@link'] : baseUrl;  
+  const downloadLink = download ? download['@link'] : baseUrl;
   const href = linkType === "page" ? (getRouterBasename() + page).replace("//", "/").replace("Home/Home", "Home") : linkType === "external" ? external : downloadLink;
 
   const cursorPointer = clickableComponent === "true" ? "cursorPointer" : null;
-  
+
   const defBorderColor = componentBorderColor || null;
   const hovBorderColor = componentBorderHoverColor || defBorderColor;
 
   const defLabelColor = labelDefaultColor || linkConfigProps?.labelDefaultColor || null;
   const hovLabelColor = labelHoverColor || linkConfigProps?.labelHoverColor || defLabelColor;
-  
+
   const defLinkBgColor = linkDefaultBackColor || linkConfigProps?.linkDefaultBackColor || null;
   const hovLinkBgColor = linkHoverBackColor || linkConfigProps?.linkHoverBackColor || defLinkBgColor;
 
@@ -213,12 +198,12 @@ function ImageTeaserConfig ({
   const defLinkBorderColor = linkBorderColor || linkConfigProps?.linkBorderColor || null;
   const hovLinkBorderColor = linkBorderHoverColor || linkConfigProps?.linkBorderHoverColor || defLinkBorderColor;
 
-  const linkIcons = linkIcon || linkConfigProps?.linkIcon || null; 
+  const linkIcons = linkIcon || linkConfigProps?.linkIcon || null;
 
   const imageTeaserComponentStyles = {
     width: componentWidth || null,
     height: componentHeight || null,
-    margin: componentPosition || null    
+    margin: componentPosition || null
   }
 
   const imageTeaserStyles = {
@@ -228,7 +213,7 @@ function ImageTeaserConfig ({
     paddingTop: componentPaddingTop || null,
     paddingRight: componentPaddingRight || null,
     paddingBottom: componentPaddingBottom || null,
-    paddingLeft: componentPaddingLeft || null,    
+    paddingLeft: componentPaddingLeft || null,
     borderColor: componentBorderColor || null,
     borderWidth: componentBorderWidth || null,
     borderStyle: componentBorderStyle || null,
@@ -259,7 +244,7 @@ function ImageTeaserConfig ({
     marginLeft: headlineMarginLeft || null
   }
 
-  const descriptionLinkWrapperStyles = { 
+  const descriptionLinkWrapperStyles = {
     flexDirection: descLinkLayout || "column",
     gap: descLinkGap || null,
     alignItems: descLinkPosition || null
@@ -288,13 +273,13 @@ function ImageTeaserConfig ({
     alignItems: linkVerticalPosition || "flex-start"
   }
 
-  const linkStyles = { 
+  const linkStyles = {
     backgroundColor: defLinkBgColor,
     color: defLabelColor,
     paddingTop: labelPaddingTop || linkConfigProps?.labelPaddingTop || null,
     paddingRight: labelPaddingRight || linkConfigProps?.labelPaddingRight || null,
     paddingBottom: labelPaddingBottom || linkConfigProps?.labelPaddingBottom || null,
-    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null, 
+    paddingLeft: labelPaddingLeft || linkConfigProps?.labelPaddingLeft || null,
     borderColor: defLinkBorderColor,
     borderWidth: linkBorderWidth || linkConfigProps?.linkBorderWidth || null,
     borderStyle: linkBorderStyle || linkConfigProps?.linkBorderStyle || null,
@@ -335,7 +320,7 @@ function ImageTeaserConfig ({
             <div className='headlineWrapper' style={headlineWrapperStyles}>
               <HeadlineLevel className={`headline ${headlineBackground}`} style={headlineStyles}>{headline || null}</HeadlineLevel>
             </div>
-          }   
+          }
           <div className='descriptionLinkWrapper flex' style={descriptionLinkWrapperStyles}>
             {description &&
               <div className={`description ${descriptionStyle || null} ${descriptionBackground}`}
@@ -346,7 +331,7 @@ function ImageTeaserConfig ({
             {(linkIcons || linkLabel) &&
               <div className='linkComponent flex' style={linkComponentStyles}>
                 <a className='link' href={href} target={linkLocation || "_blank"} rel="noreferrer" style={linkStyles}>
-                  {linkLabel || ""} 
+                  {linkLabel || ""}
                   {linkIcons === "BsChevronRight" ? <BsChevronRight /> : linkIcons === "BsArrowRight" ? <BsArrowRight /> : linkIcons === "TfiDownload" ? <TfiDownload /> : ""}
                 </a>
               </div>

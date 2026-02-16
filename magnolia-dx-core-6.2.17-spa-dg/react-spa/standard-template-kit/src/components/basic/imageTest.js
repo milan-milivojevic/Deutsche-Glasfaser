@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ImageTest ({ 
+function ImageTest ({
     image,
 }) {
 

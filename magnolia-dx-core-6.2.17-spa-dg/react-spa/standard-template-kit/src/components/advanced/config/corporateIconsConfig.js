@@ -4,7 +4,7 @@ import { getAPIBase } from '../../../helpers/AppHelpers';
 
 function CorporateIconsConfig ({
     title,
-    subtitle,   
+    subtitle,
     linkDefault,
     smallIconLink,
     external1,
@@ -26,11 +26,11 @@ function CorporateIconsConfig ({
     titleFontFamily,
     titleTextTransform,
     titleBold,
-    titleItalic,    
+    titleItalic,
     titleFontSize,
-    titleLineHeight,   
-    titleColor,     
-    titleLetterSpacing,    
+    titleLineHeight,
+    titleColor,
+    titleLetterSpacing,
     titlePaddingTop,
     titlePaddingRight,
     titlePaddingBottom,
@@ -40,11 +40,11 @@ function CorporateIconsConfig ({
     subtitleFontFamily,
     subtitleTextTransform,
     subtitleBold,
-    subtitleItalic,    
+    subtitleItalic,
     subtitleFontSize,
-    subtitleLineHeight,   
-    subtitleColor,     
-    subtitleLetterSpacing,    
+    subtitleLineHeight,
+    subtitleColor,
+    subtitleLetterSpacing,
     subtitlePaddingTop,
     subtitlePaddingRight,
     subtitlePaddingBottom,
@@ -53,7 +53,7 @@ function CorporateIconsConfig ({
     dividerStyleName,
     dividerNoStyles,
   }) {
-  
+
   const myRef = useRef(null);
 
   const handleClick = () => {
@@ -76,21 +76,21 @@ function CorporateIconsConfig ({
           result = data[0];
         } else if (dividerNoStyles !== (false || "false")) {
           result = null;
-        } 
+        }
         setDividerConfigProps(result);
       });
   }, [dividerStyleName, dividerNoStyles, apiBase, restPath, nodeName]);
 
-  const downloadLink1 = download1 ? download1['@link'] : linkDefault;  
+  const downloadLink1 = download1 ? download1['@link'] : linkDefault;
   const href1 = smallIconLink === "external" && external1 ? external1 : downloadLink1;
-  const downloadLink2 = download2 ? download2['@link'] : linkDefault;  
+  const downloadLink2 = download2 ? download2['@link'] : linkDefault;
   const href2 = mediumIconLink === "external" && external2 ? external2 : downloadLink2;
-  const downloadLink3 = download3 ? download3['@link'] : linkDefault;  
+  const downloadLink3 = download3 ? download3['@link'] : linkDefault;
   const href3 = largeIconLink === "external" && external3 ? external3 : downloadLink3;
 
-  const TitleLevel = titleLevel || "h1";  
-  const SubtitleLevel = subtitleLevel || "h2";  
-  
+  const TitleLevel = titleLevel || "h1";
+  const SubtitleLevel = subtitleLevel || "h2";
+
   const dividerStyles = {
     borderBottomWidth: borderWidth || dividerConfigProps?.borderWidth || null,
     borderBottomStyle: borderStyle || dividerConfigProps?.borderStyle || null,
@@ -127,7 +127,7 @@ function CorporateIconsConfig ({
     paddingRight: subtitlePaddingRight || null,
     paddingBottom: subtitlePaddingBottom || null,
     paddingLeft: subtitlePaddingLeft || null
-  } 
+  }
 
   return (
     <div className='corporateIconsWrapper'>
@@ -137,7 +137,7 @@ function CorporateIconsConfig ({
           Copy Style Name
         </button>
       </div>
-      <div className={`corporateIcons`}>         
+      <div className={`corporateIcons`}>
 
         <div className="divider" style={dividerStyles}></div>
 
@@ -149,7 +149,7 @@ function CorporateIconsConfig ({
           {subtitle || null}
         </SubtitleLevel>
 
-        <div className='iconsWrapper'> 
+        <div className='iconsWrapper'>
           { image1 ?
             <div className="iconSmallWrapper">
               <img className="iconSmall" src={image1['@link']} alt="" />
@@ -168,14 +168,14 @@ function CorporateIconsConfig ({
           : <div></div>  }
           { image3 ?
             <div className="iconLargeWrapper">
-              <img className="iconLarge" src={image3['@link']} alt="" />   
+              <img className="iconLarge" src={image3['@link']} alt="" />
               <a className='iconLargeLink' href={href3} target={"_blank"} rel="noreferrer">
                 <TfiDownload />
               </a>
             </div>
           : <div></div> }
         </div>
-        
+
       </div>
     </div>
   )

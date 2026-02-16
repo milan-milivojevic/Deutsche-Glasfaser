@@ -197,7 +197,7 @@ const config = {
         "standard-template-kit:components/grouping/config/linkListConfig": LinkListConfig,
         "standard-template-kit:components/grouping/config/tabsConfig": TabsConfig,
         "standard-template-kit:components/grouping/config/textLinkListConfig": TextLinkListConfig,
-        
+
         "standard-template-kit:components/advanced/accordion": Accordion,
         "standard-template-kit:components/grouping/accordionList": AccordionList,
         "standard-template-kit:components/basic/audio": Audio,

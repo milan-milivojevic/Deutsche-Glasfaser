@@ -21,7 +21,7 @@ export default function DocumentStatusFilter({ onUpdateSelectedDocumentStatus, s
         setSelectedOption(correspondingSelected || null);
       })
       .catch((error) => {
-        console.error("Greška prilikom preuzimanja podataka:", error);
+        console.error("Error fetching data:", error);
       });
   }, [selectedDocumentStatus]);
 
@@ -49,7 +49,7 @@ export default function DocumentStatusFilter({ onUpdateSelectedDocumentStatus, s
           value={selectedOption?.value || "in-work"}
           onChange={handleSelectChange}
           label="Document Status"
-        >          
+        >
           {parents.map(parent => (
             <MenuItem key={parent.id} value={parent.value}>{parent.label}</MenuItem>
           ))}

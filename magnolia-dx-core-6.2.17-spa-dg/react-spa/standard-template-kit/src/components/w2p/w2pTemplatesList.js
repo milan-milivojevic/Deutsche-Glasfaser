@@ -1,7 +1,7 @@
 import React from 'react';
 import { EditableArea } from '@magnolia/react-editor';
 
-function W2PTemplatesList ({ 
+function W2PTemplatesList ({
   column1,
   layout,
   columnGap,
@@ -61,13 +61,13 @@ function W2PTemplatesList ({
     borderWidth: wrapperBorderWidth || null,
     borderStyle: wrapperBorderStyle || null,
     borderColor: wrapperBorderColor || null,
-    borderRadius: wrapperBorderRadius || null                
+    borderRadius: wrapperBorderRadius || null
   }
 
   return (
     <div className='mpAssetsListWrapper' id={navigationId && navigationId}>
       <div className='mpAssetsListComponent' style={listComponentStyles}>
-      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}   
+      {headline && <HeadlineLevel className="headline" style={headlineStyles}>{headline || null}</HeadlineLevel>}
       <ul className={`mpAssetsList`} style={listStyles}>
         { column1 && <EditableArea className={`listComponents mpAssetsListArea layout${layout}`} content={column1}/>}
       </ul>

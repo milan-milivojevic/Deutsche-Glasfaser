@@ -4,13 +4,13 @@ import "../../css.css";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 function MainPage(props) {
-  const { 
+  const {
     title,
     pagesConfigComponent,
     headerConfigComponent,
     topNavConfigComponent,
     leftNavConfigComponent,
-    navLevelsConfigComponent, 
+    navLevelsConfigComponent,
     headlinesConfigComponent,
     paragraphsConfigComponent
   } = props;
@@ -34,7 +34,7 @@ function MainPage(props) {
         <h2 className="titles">Headlines Configuration Component</h2>
         <div> {headlinesConfigComponent && <EditableArea content={headlinesConfigComponent} />}</div>
         <h2 className="titles">Paragraphs Configuration Component</h2>
-        <div> {paragraphsConfigComponent && <EditableArea content={paragraphsConfigComponent} />}</div>      
+        <div> {paragraphsConfigComponent && <EditableArea content={paragraphsConfigComponent} />}</div>
       </div>
     </HelmetProvider>
   );

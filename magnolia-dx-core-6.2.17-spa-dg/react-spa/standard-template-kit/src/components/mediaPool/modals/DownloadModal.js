@@ -51,7 +51,7 @@ const DownloadModal = ({ assetId, license, isOpen, onClose, closeModal }) => {
   const handleDownloadClick = () => {
     if (checkboxChecked) {
       downloadFile();
-      onClose();      
+      onClose();
     }
   };
 
@@ -61,13 +61,13 @@ const DownloadModal = ({ assetId, license, isOpen, onClose, closeModal }) => {
       onRequestClose={closeModal}
       contentLabel="Download Modal"
       className="downloadReactModal"
-    > 
+    >
       <div className='downloadModalWrapper'>
         <div class="closeButtonWrapper">
           <h2 className='titleId'>Assets Requiring License Permission (ID: <span>{assetId}</span>)</h2>
-          <button className="closeButton" onClick={closeModal}><AiOutlineClose/></button>          
+          <button className="closeButton" onClick={closeModal}><AiOutlineClose/></button>
         </div>
-        <div className='downloadModal'>          
+        <div className='downloadModal'>
           <p className='licenseType'>
             <span>License Type:</span> {licenseType}
           </p>
@@ -100,7 +100,7 @@ const DownloadModal = ({ assetId, license, isOpen, onClose, closeModal }) => {
             </button>
           </div>
         </div>
-      </div>      
+      </div>
     </Modal>
   );
 };

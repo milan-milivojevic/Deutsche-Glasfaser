@@ -7,14 +7,14 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.l1FontSize};
     line-height: ${(props) => props.l1FontSize};
     font-family: ${(props) => props.l1FontFamily};
-    text-align: ${(props) => props.l1TextAlign};  
+    text-align: ${(props) => props.l1TextAlign};
     text-transform: ${(props) => props.l1TextTransform};
     color: ${(props) => props.l1Color};
-    background-color: ${(props) => props.l1DefBackColor};    
+    background-color: ${(props) => props.l1DefBackColor};
     padding-top: ${(props) => props.l1PaddingTop};
     padding-bottom: ${(props) => props.l1PaddingBottom};
     padding-left: ${(props) => props.l1PaddingLeft};
-    padding-right: ${(props) => props.l1PaddingRight};    
+    padding-right: ${(props) => props.l1PaddingRight};
     border-right-width: ${(props) => props.l1SeparationBorderWidth};
     border-right-style: ${(props) => props.l1SeparationBorderStyle};
     border-right-color: ${(props) => props.l1SeparationBorderColor};
@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
   }
   .level-0 > button > a.active {
     color: ${(props) => props.l1ActiveColor};
-    background-color: ${(props) => props.l1ActiveDefBackColor};    
+    background-color: ${(props) => props.l1ActiveDefBackColor};
   }
   .level-0 > button > a.active:hover {
     color: ${(props) => props.l1ActiveHoverColor};
@@ -39,10 +39,10 @@ const GlobalStyles = createGlobalStyle`
     font-size: ${(props) => props.l2FontSize};
     line-height: ${(props) => props.l2FontSize};
     font-family: ${(props) => props.l2FontFamily};
-    text-align: ${(props) => props.l2TextAlign};  
+    text-align: ${(props) => props.l2TextAlign};
     text-transform: ${(props) => props.l2TextTransform};
     color: ${(props) => props.l2Color};
-    background-color: ${(props) => props.l2DefBackColor};    
+    background-color: ${(props) => props.l2DefBackColor};
     padding-top: ${(props) => props.l2PaddingTop};
     padding-bottom: ${(props) => props.l2PaddingBottom};
     padding-left: ${(props) => props.l2PaddingLeft};
@@ -54,7 +54,7 @@ const GlobalStyles = createGlobalStyle`
   }
   .level-1 > button > a.active {
     color: ${(props) => props.l2ActiveColor};
-    background-color: ${(props) => props.l2ActiveDefBackColor};    
+    background-color: ${(props) => props.l2ActiveDefBackColor};
   }
   .level-1 > button > a.active:hover {
     color: ${(props) => props.l2ActiveHoverColor};
@@ -65,20 +65,20 @@ const GlobalStyles = createGlobalStyle`
     line-height: ${(props) => props.l3FontSize};
     font-size: ${(props) => props.l3FontSize};
     font-family: ${(props) => props.l3FontFamily};
-    text-align: ${(props) => props.l3TextAlign};  
+    text-align: ${(props) => props.l3TextAlign};
     text-transform: ${(props) => props.l3TextTransform};
     color: ${(props) => props.l3Color};
-    background-color: ${(props) => props.l3DefBackColor};    
+    background-color: ${(props) => props.l3DefBackColor};
     padding-top: ${(props) => props.l3PaddingTop};
     padding-bottom: ${(props) => props.l3PaddingBottom};
     padding-left: ${(props) => props.l3PaddingLeft};
-    padding-right: ${(props) => props.l3PaddingRight};    
+    padding-right: ${(props) => props.l3PaddingRight};
     margin-top: ${(props) => props.l3MarginTop};
     margin-bottom: ${(props) => props.l3MarginBottom};
     margin-left: ${(props) => props.l3MarginLeft};
     margin-right: ${(props) => props.l3MarginRight};
   }
-  .level-2:first-child > button > a {    
+  .level-2:first-child > button > a {
     margin-top: ${(props) => "calc(" + props.l3MarginTop + " + " + props.l3MarginBottom + ")"};
   }
 
@@ -88,21 +88,21 @@ const GlobalStyles = createGlobalStyle`
   }
   .level-2 > button > a.active {
     color: ${(props) => props.l3ActiveColor};
-    background-color: ${(props) => props.l3ActiveDefBackColor};    
+    background-color: ${(props) => props.l3ActiveDefBackColor};
   }
   .level-2 > button > a.active:hover {
     color: ${(props) => props.l3ActiveHoverColor};
     background-color: ${(props) => props.l3ActiveHoverBackColor};
   }
-  
+
   .level-3 > button > a {
     line-height: ${(props) => props.l4FontSize};
     font-size: ${(props) => props.l4FontSize};
     font-family: ${(props) => props.l4FontFamily};
-    text-align: ${(props) => props.l4TextAlign};  
+    text-align: ${(props) => props.l4TextAlign};
     text-transform: ${(props) => props.l4TextTransform};
     color: ${(props) => props.l4Color};
-    background-color: ${(props) => props.l4DefBackColor};    
+    background-color: ${(props) => props.l4DefBackColor};
     padding-top: ${(props) => props.l4PaddingTop};
     padding-bottom: ${(props) => props.l4PaddingBottom};
     padding-left: ${(props) => props.l4PaddingLeft};
@@ -114,7 +114,7 @@ const GlobalStyles = createGlobalStyle`
   }
   .level-3 > button > a.active {
     color: ${(props) => props.l4ActiveColor};
-    background-color: ${(props) => props.l4ActiveDefBackColor};    
+    background-color: ${(props) => props.l4ActiveDefBackColor};
   }
   .level-3 > button > a.active:hover {
     color: ${(props) => props.l4ActiveHoverColor};
@@ -128,14 +128,14 @@ const GlobalStyles = createGlobalStyle`
     top: ${(props) => "calc(" + props.l3MarginTop + " + " + props.l3MarginBottom + ")"};
     bottom: unset;
   }
-  
+
 `;
 
-function NavLevelsStyles() {  
+function NavLevelsStyles() {
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -148,7 +148,7 @@ function NavLevelsStyles() {
       });
   }, [apiBase, restPath, nodeName]);
 
-  
+
   const l1FontSize = configProps?.l1FontSize || "";
   const l1FontFamily = configProps?.l1FontFamily || "";
   const l1TextAlign = configProps?.l1TextAlign || "";
@@ -245,7 +245,7 @@ function NavLevelsStyles() {
       l1SeparationBorderWidth={l1SeparationBorderWidth}
       l1SeparationBorderStyle={l1SeparationBorderStyle}
       l1SeparationBorderColor={l1SeparationBorderColor}
-      
+
       l2FontSize={l2FontSize}
       l2FontFamily={l2FontFamily}
       l2TextAlign={l2TextAlign}

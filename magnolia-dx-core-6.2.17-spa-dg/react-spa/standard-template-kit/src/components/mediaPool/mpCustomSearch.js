@@ -7,14 +7,14 @@ import { elasticSearchService, idSearch } from '../../api/searchService'
 import Card from './helpers/Card';
 import CryptoJS from 'crypto-js';
 
-function MpCustomSearch ({ 
-  assetsIds, 
-  linkToSearchResult, 
-  
+function MpCustomSearch ({
+  assetsIds,
+  linkToSearchResult,
+
   cardsLimit,
   perRow,
   sortOrder,
-  defaultView, 
+  defaultView,
 
   downloadButton,
   emailButton,
@@ -47,12 +47,12 @@ function MpCustomSearch ({
     if (key.startsWith('assetsIds')) {
       assetIdsArray.push(assetsIds[key].assetId);
     }
-  }  
+  }
 
   const elasticSearch = async () => {
 
     let url = new URL(linkToSearchResult);
-    let searchParams = new URLSearchParams(url.search);  
+    let searchParams = new URLSearchParams(url.search);
     const encryptedData = searchParams.get('data');
 
     let decryptedData = undefined;
@@ -67,7 +67,7 @@ function MpCustomSearch ({
     const sortingType = sortOrder ? initialSortingType : searchParams.get('sortingType');
     const limit = cardsLimit || searchParams.get('limit') || 25;
     const calculatedLimit = limit > 60 ? 60 : limit - assetIdsArray?.length;
-    
+
     console.log("limit");
     console.log(limit);
     console.log("calculatedLimit");
@@ -85,7 +85,7 @@ function MpCustomSearch ({
     const suffixesString = searchParams.get('selectedSuffixes') || null;
     if (suffixesString) {
       selectedSuffixes = suffixesString.split(',');
-    } 
+    }
     const keywordsString = searchParams.get('selectedKeywords') || null;
     if (keywordsString) {
       selectedKeywords = keywordsString.split(',');
@@ -106,7 +106,7 @@ function MpCustomSearch ({
 
     const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
     return decryptedData;
-  };  
+  };
 
   const idsSearch = async () => {
     try {
@@ -119,12 +119,12 @@ function MpCustomSearch ({
     } catch (error) {
       console.error('Error fetching data:', error);
     }
-  }; 
+  };
 
   useEffect(() => {
     assetsIds && idsSearch();
     linkToSearchResult && elasticSearch();
-  }, []);  
+  }, []);
 
   const buttonProps = {
     downloadButton,
@@ -144,8 +144,8 @@ function MpCustomSearch ({
     paddingRight: titlePaddingRight || null,
     paddingBottom: titlePaddingBottom || null,
     paddingLeft: titlePaddingLeft || null
-  }  
-  
+  }
+
   return (
 
     <div className='mpSearchComponent' id={navigationId && navigationId}>
@@ -156,7 +156,7 @@ function MpCustomSearch ({
       }
       {products && products.length > 0 ? (
           <div className={`mpSearchContainer ${defaultView || "grid"}`} style={{ gridTemplateColumns: `repeat(${perRow ? perRow : 5}, 1fr)` }}>
-            {products.map(c => 
+            {products.map(c =>
               <Card
                 fields={c.fields}
                 key={c.fields.id.value}
@@ -167,7 +167,7 @@ function MpCustomSearch ({
         ) : (
           <div className='mpSearchContainer'>No Results</div>
       )}
-    </div>    
+    </div>
   );
 }
 

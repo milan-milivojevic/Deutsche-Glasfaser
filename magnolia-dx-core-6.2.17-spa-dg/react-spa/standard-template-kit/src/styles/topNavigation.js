@@ -34,14 +34,14 @@ const GlobalStyles = createGlobalStyle`
     padding-right: ${(props) => props.dropdownPaddingRight};
     gap: ${(props) => props.level2Gap};
   }
-  
+
 `;
 
-function TopNavigationStyles() {  
+function TopNavigationStyles() {
 
   const apiBase = getAPIBase();
   const restPath = process.env.REACT_APP_MGNL_API_PAGES;
-  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;  
+  const nodeName = process.env.REACT_APP_MGNL_APP_BASE;
 
   const [configProps, setConfigProps] = useState();
 
@@ -60,13 +60,13 @@ function TopNavigationStyles() {
   const topNavPaddingTop = configProps?.topNavPaddingTop || "";
   const topNavPaddingRight = configProps?.topNavPaddingRight || "";
   const topNavPaddingBottom = configProps?.topNavPaddingBottom || "";
-  const topNavPaddingLeft = configProps?.topNavPaddingLeft || "";  
+  const topNavPaddingLeft = configProps?.topNavPaddingLeft || "";
   const topBorderWidth = configProps?.topBorderWidth || "";
   const topBorderStyle = configProps?.topBorderStyle || "";
   const topBorderColor = configProps?.topBorderColor || "";
   const bottomBorderWidth = configProps?.bottomBorderWidth || "";
   const bottomBorderStyle = configProps?.bottomBorderStyle || "";
-  const bottomBorderColor = configProps?.bottomBorderColor || "";  
+  const bottomBorderColor = configProps?.bottomBorderColor || "";
   const bottomShadow = configProps?.bottomShadow || "";
   const showOnlyFirstLevel = configProps?.showOnlyFirstLevel || false;
   const dropdownWidth = configProps?.dropdownWidth || "";
@@ -75,34 +75,34 @@ function TopNavigationStyles() {
   const dropdownPaddingTop = configProps?.dropdownPaddingTop || "";
   const dropdownPaddingRight = configProps?.dropdownPaddingRight || "";
   const dropdownPaddingBottom = configProps?.dropdownPaddingBottom || "";
-  const dropdownPaddingLeft = configProps?.dropdownPaddingLeft || "";  
-  const level2Gap = configProps?.level2Gap || "";  
+  const dropdownPaddingLeft = configProps?.dropdownPaddingLeft || "";
+  const level2Gap = configProps?.level2Gap || "";
 
   return (
-    <GlobalStyles 
+    <GlobalStyles
       topNavWidth={topNavWidth}
-      topNavAligment={topNavAligment}    
-      topNavBackColor={topNavBackColor}    
+      topNavAligment={topNavAligment}
+      topNavBackColor={topNavBackColor}
       topNavPaddingTop={topNavPaddingTop}
-      topNavPaddingRight={topNavPaddingRight}    
+      topNavPaddingRight={topNavPaddingRight}
       topNavPaddingBottom={topNavPaddingBottom}
-      topNavPaddingLeft={topNavPaddingLeft}  
+      topNavPaddingLeft={topNavPaddingLeft}
       topBorderWidth={topBorderWidth}
-      topBorderStyle={topBorderStyle}    
+      topBorderStyle={topBorderStyle}
       topBorderColor={topBorderColor}
-      bottomBorderWidth={bottomBorderWidth}    
+      bottomBorderWidth={bottomBorderWidth}
       bottomBorderStyle={bottomBorderStyle}
-      bottomBorderColor={bottomBorderColor}           
-      bottomShadow={bottomShadow} 
-      showOnlyFirstLevel={showOnlyFirstLevel}    
-      dropdownWidth={dropdownWidth}    
-      dropdownHeight={dropdownHeight} 
-      dropdownBackColor={dropdownBackColor}   
+      bottomBorderColor={bottomBorderColor}
+      bottomShadow={bottomShadow}
+      showOnlyFirstLevel={showOnlyFirstLevel}
+      dropdownWidth={dropdownWidth}
+      dropdownHeight={dropdownHeight}
+      dropdownBackColor={dropdownBackColor}
       dropdownPaddingTop={dropdownPaddingTop}
-      dropdownPaddingRight={dropdownPaddingRight}    
+      dropdownPaddingRight={dropdownPaddingRight}
       dropdownPaddingBottom={dropdownPaddingBottom}
-      dropdownPaddingLeft={dropdownPaddingLeft}  
-      level2Gap={level2Gap}  
+      dropdownPaddingLeft={dropdownPaddingLeft}
+      level2Gap={level2Gap}
     />
   );
 }
