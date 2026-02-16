@@ -1,10 +1,10 @@
-/*w2p Card */
+
 
 button.isFavourite svg {
     fill: #3c96dc;
 }
 
-button.isFavourite:hover svg {    
+button.isFavourite:hover svg {
     fill: #fff;
 }
 
@@ -12,12 +12,10 @@ button.notFavourite svg {
     fill: #fff;
 }
 
-button.notFavourite:hover svg {    
+button.notFavourite:hover svg {
     fill: #3c96dc;
 }
 
-
-/* Detail modal */
 
 .closeButtonWrapper.w2p {
     justify-content: space-between;
@@ -46,7 +44,6 @@ button.notFavourite:hover svg {
     border: 0;
 }
 
-/* Detail modal */
 
 .createModal.w2p {
     display: flex;
@@ -61,9 +58,6 @@ button.notFavourite:hover svg {
     border: 0;
 }
 
-
-
-/* W2P Search */
 
 .searchFilter .css-fvipm8.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: #3c96dc;
@@ -115,7 +109,6 @@ button.notFavourite:hover svg {
     }
 }
 
-/*Delete Modal*/
 
 .deleteModalWrapper.w2p {
     background: #fff;

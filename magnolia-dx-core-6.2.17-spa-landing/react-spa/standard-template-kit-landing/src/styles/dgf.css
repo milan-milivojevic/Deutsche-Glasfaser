@@ -1,10 +1,5 @@
-/* .pageContainer {
-    top: 167px;
-    min-height: calc(100vh - 167px);
-} */
-/* header {
-    height: 112px;
-} */
+
+
 .flex.headerSearch {
     height: 36px;
     align-self: center;
@@ -40,10 +35,10 @@ input.searchInput:focus {
     outline: 0;
 }
 .staticSearch {
-    /* align-items: center; */
+
     padding: 50px;
 }
-  
+
 .staticSearch .list {
     padding: 20px;
     font-size: 20px;
@@ -55,7 +50,7 @@ input.searchInput:focus {
 .staticSearch .page a {
     text-decoration: none;
     color: #3c96dc;
-    font-size: 24px;    
+    font-size: 24px;
 }
 .staticSearch .title {
     padding: 20px 10px 10px 10px;
@@ -64,13 +59,7 @@ input.searchInput:focus {
     padding: 0 10px;
 }
 
-/* .topNav {
-    height: 55px;
-    top: 112px;
-} */
-/* .leftHandNav {
-    min-height: calc(100vh - 311px);
-} */
+
 .leftHandNav > .menus {
   height: fit-content;
 }
@@ -78,9 +67,7 @@ input.searchInput:focus {
 .leftHandNav li button a {
     width: 242px;
 }
-/* .rightMainContent {
-    min-height: calc(100vh - 311px);
-} */
+
 
 .configComponentsPage {
     padding: 0 74px;
@@ -102,8 +89,6 @@ p strong {
 }
 
 
-/* Corporate Icons */
-
 .corporateIcons .divider {
     border-bottom: 5px solid rgb(154, 154, 156);
 }
@@ -120,7 +105,7 @@ p strong {
     font-family: "Sohne Buch";
     font-size: 22px;
     line-height: 33px;
-    color: rgb(65, 65, 65);    
+    color: rgb(65, 65, 65);
     padding-bottom: 40px;
     font-weight: normal;
 }

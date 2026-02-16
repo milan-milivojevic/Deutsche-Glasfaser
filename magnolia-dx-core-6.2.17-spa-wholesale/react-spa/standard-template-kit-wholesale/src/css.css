@@ -129,8 +129,6 @@ body {
 }
 
 
-
-
 * {
   box-sizing: border-box;
 }
@@ -142,7 +140,6 @@ p {
 }
 
 
-
 .editMode .mgnlEditor {
   display: flex !important;
 }
@@ -152,12 +149,7 @@ p {
 }
 
 
-
-
-
-
-
-.configComponentsPage .titles { 
+.configComponentsPage .titles {
   padding: 40px 0;
   text-align: center;
 }
@@ -182,7 +174,7 @@ p {
 }
 
 .copyStyleName h4 {
-  text-align: center;  
+  text-align: center;
   padding: 0 20px 0 0;
 }
 
@@ -197,12 +189,6 @@ p {
 display: flex;
 flex-direction: column;
 }
-
-
-
-
-
-
 
 
 .corporateIcons .iconsWrapper {
@@ -267,10 +253,8 @@ a.link svg {
 }
 
 
-
 .linkComponent {
   min-width: fit-content;
 }
-
 
 
