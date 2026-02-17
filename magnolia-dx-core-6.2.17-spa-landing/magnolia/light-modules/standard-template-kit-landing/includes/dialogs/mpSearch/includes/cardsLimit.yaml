@@ -1,4 +1,0 @@
-label: Limit - max 60 (default 25)
-placeholder: 20
-$type: textField
-i18n: true

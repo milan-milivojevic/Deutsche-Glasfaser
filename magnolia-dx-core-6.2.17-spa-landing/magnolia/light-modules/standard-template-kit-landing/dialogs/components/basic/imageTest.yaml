@@ -1,5 +1,0 @@
-label: Image Test
-wide: true
-form:
-  properties:
-    image: !include:/standard-template-kit-landing/includes/dialogs/image/image.yaml

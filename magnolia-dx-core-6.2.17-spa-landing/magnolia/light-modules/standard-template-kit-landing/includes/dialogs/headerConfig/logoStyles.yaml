@@ -1,9 +1,0 @@
-label: Styles
-$type: compositeField
-layout:
-  $type: horizontal
-itemProvider:
-  $type: currentItemProvider
-properties:  
-  logoWidth: !include:/standard-template-kit-landing/includes/dialogs/basics/width.yaml
-  logoPosition: !include:/standard-template-kit-landing/includes/dialogs/basics/positions/verticalPosition.yaml

@@ -1,6 +1,0 @@
-label: Page Link 
-$type: pageLinkField
-
-textInputAllowed: true
-required: true
-converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter

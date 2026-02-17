@@ -1,3 +1,0 @@
-label: Logic
-$type: staticField
-value: "A = Allowed, D = Denied : IF A == D => D<br/>If no allowed or denied groups are chosen everyone can see this component."

@@ -1,9 +1,0 @@
-label: Background Image Position
-$type: compositeField
-layout:
-  $type: horizontal
-itemProvider:
-  $type: currentItemProvider
-properties:
-  backgroundImagePosition: !include:/standard-template-kit-landing/includes/dialogs/basics/positions/containPosition.yaml
-      

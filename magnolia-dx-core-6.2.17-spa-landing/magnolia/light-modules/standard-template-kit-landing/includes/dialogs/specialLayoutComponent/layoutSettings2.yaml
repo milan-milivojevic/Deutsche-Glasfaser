@@ -1,9 +1,0 @@
-label: "Layouts Positions"
-$type: compositeField
-layout:
-  $type: horizontal
-itemProvider:
-  $type: currentItemProvider
-properties:
-  descLinkVerticalPosition: !include:/standard-template-kit-landing/includes/dialogs/specialLayoutComponent/verticalPosition.yaml
-  linkPosition: !include:/standard-template-kit-landing/includes/dialogs/specialLayoutComponent/linkPosition.yaml  

@@ -1,9 +1,0 @@
-title: Redirect Page
-
-baseUrl: http://localhost:3000 
-routeTemplate: '/{language}{{@path}}'
-
-dialog: standard-template-kit-landing:pages/redirect
-
-renderType: spa
-class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition  

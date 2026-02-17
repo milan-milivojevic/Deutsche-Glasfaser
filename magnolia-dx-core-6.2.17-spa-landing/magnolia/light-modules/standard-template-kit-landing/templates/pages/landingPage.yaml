@@ -1,8 +1,0 @@
-title: Landing Page
-
-templateScript: /standard-template-kit-landing/webresources/build/index.html
-
-dialog: standard-template-kit-landing:pages/landingPage
-
-renderType: spa
-class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition  

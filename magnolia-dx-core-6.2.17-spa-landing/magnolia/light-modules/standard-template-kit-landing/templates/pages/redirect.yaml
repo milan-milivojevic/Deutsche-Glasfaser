@@ -1,8 +1,0 @@
-title: Redirect Page
-
-templateScript: /standard-template-kit-landing/webresources/build/index.html
-
-dialog: standard-template-kit-landing:pages/redirect
-
-renderType: spa
-class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition  
